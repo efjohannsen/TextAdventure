@@ -10,6 +10,10 @@ public class Command {
     
   }
 
+  private void help() {
+    
+  }
+
   // Walks to the north, east, south, west. 
   public void go() {
     
