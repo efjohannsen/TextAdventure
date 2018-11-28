@@ -1,4 +1,6 @@
 public class StatItem extends Item {
-  int toHit;
-  int damage;
+  int damageBonus;
+  int defenseBonus;
+  int healthBonus;
+  
 }

@@ -1,7 +1,5 @@
 import static statics.StaticLib.*;
 
-import java.util.Scanner;
-
 public class GameMenu {
 
   boolean running = true;
@@ -11,7 +9,6 @@ public class GameMenu {
   }
 
   private void menu() {
-    Scanner scanner = new Scanner(System.in);
     while (running) {
       menuOptions();
       int choice = getNumericalInputRange(1,3); 
@@ -21,7 +18,6 @@ public class GameMenu {
           getInput(); //pressEnterToContinue
           clearScreen();
       }
-      scanner.close();
     }
   }
 
@@ -38,6 +34,7 @@ public class GameMenu {
   }
 
   private void menuChoice(int choice) {
+
     switch (choice) {
       case 1:
         new World();

@@ -11,8 +11,7 @@ public class Person {
     static final int NUMBER_OF_STATS = 8;
     static final int BASE_STAT = 1;                 // Raise this to ensure a character gets at least this value in each stat.
     static final int STARTING_STAT_POINTS = NUMBER_OF_STATS * 40; // 40 points for each stat at character generation.
-    static final int MAX_STAT_START = 100;                // The max value a stat can be
-    static final int MAX_STAT = 255;                // The max value a stat can be
+    static final int MAX_STAT = 100;                // The max value a stat can be
     static final int MAX_LEVEL = 100;               // The max level a Person can be
 
   // Only one location pair necessary, or do we need to track inside/outside building explicitly?
@@ -42,34 +41,33 @@ public class Person {
     this.yLocation = yLocation;
     this.level = level;
     this.name = name;
-    this.items = items;
 
     // Randomly generate stat points and distribute them randomly
     int statPointsToDistribute = STARTING_STAT_POINTS - (BASE_STAT * NUMBER_OF_STATS);
     ArrayList<Integer> statStartValues = new ArrayList<Integer>();
 
     for (int i = 0; i < NUMBER_OF_STATS-1; i++) {
-      int stat = rand.nextInt( Math.min(statPointsToDistribute, MAX_STAT_START) );
+      int stat = rand.nextInt( Math.min(statPointsToDistribute, MAX_STAT) );
       statStartValues.add(stat);
       statPointsToDistribute -= stat;
     }
-    // The last value should be however many points remain, even if above MAX_STAT_START
+    // The last value should be however many points remain, even if above MAX_STAT
     statStartValues.add(statPointsToDistribute);
 
     this.strength = statStartValues.remove( rand.nextInt( statStartValues.size() ) );
-    this.intelligence = statStartValues.remove( rand.nextInt( statStartValues.size() ) );
-    this.willpower = statStartValues.remove( rand.nextInt( statStartValues.size() ) );
-    this.agility = statStartValues.remove( rand.nextInt( statStartValues.size() ) );
-    this.endurance = statStartValues.remove( rand.nextInt( statStartValues.size() ) );
     this.personality = statStartValues.remove( rand.nextInt( statStartValues.size() ) );
-    this.speed = statStartValues.remove( rand.nextInt( statStartValues.size() ) );
-    this.luck = statStartValues.remove( rand.nextInt( statStartValues.size() ) );
+    this.level = statStartValues.remove( rand.nextInt( statStartValues.size() ) );
+
+    if (items.size() == 0) {
+      this.items = new ArrayList<Item>();
+    }
+
   }
 
-  // Res: http://listofrandomnames.com/index.cfm
   private static String randomName() {
+    // Split these up if support for other languages was implemented
     File firstFile = new File("Res/Lang/" + Game.lang + "/first_names.csv");
-    File lastFile = new File("Res/Lang/" + Game.lang + "/last_names.csv");
+    File lastFile = new File("Res/Lang//last_names.csv");
 
     ArrayList<String> firstNames = new ArrayList<String>();
     ArrayList<String> lastNames = new ArrayList<String>();
@@ -87,11 +85,8 @@ public class Person {
       }
     }
     catch (IOException e) {System.out.println(e); }
-    
-    String firstName = firstNames.get(rand.nextInt( firstNames.size() ));
-    String lastName = lastNames.get(rand.nextInt( lastNames.size() ) );
  
-    return firstName + " " + lastName;
+    return firstNames.get(rand.nextInt( firstNames.size() )) + " " + lastNames.get(rand.nextInt( lastNames.size() ) );
   }
 
   // North, south, east, west. Enum?

@@ -1,4 +1,4 @@
 public class Building {
-  Room[] rooms;
+  //Room[] rooms;
   
 }
