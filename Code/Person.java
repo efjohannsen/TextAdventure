@@ -8,7 +8,7 @@ public class Person {
 
     public enum Direction {NORTH, EAST, SOUTH, WEST};
 
-    static final int NUMBER_OF_STATS = 8;
+    static final int NUMBER_OF_STATS = 2;
     static final int BASE_STAT = 1;                 // Raise this to ensure a character gets at least this value in each stat.
     static final int STARTING_STAT_POINTS = NUMBER_OF_STATS * 40; // 40 points for each stat at character generation.
     static final int MAX_STAT = 100;                // The max value a stat can be
@@ -52,8 +52,8 @@ public class Person {
 
   private static String randomName() {
     // Split these up if support for other languages was implemented
-    File firstFile = new File("Res/Lang/" + Game.lang + "/first_names.csv");
-    File lastFile = new File("Res/Lang/" + Game.lang + "/last_names.csv");
+    File firstFile = new File(Game.LANGPATH + "/first_names.csv");
+    File lastFile = new File(Game.LANGPATH + "/last_names.csv");
 
     ArrayList<String> firstNames = new ArrayList<String>();
     ArrayList<String> lastNames = new ArrayList<String>();

@@ -9,15 +9,15 @@ public class StaticLib {
     private static Scanner input = new Scanner(System.in);
 
     public static String getInput() {
-        System.out.print("> ");
-        return input.nextLine();
+      System.out.print("> ");
+      return input.nextLine();
     }
 
     public static boolean isNumericalValue(String input) {
       for (int i = 0; i < input.length(); i++) {
-          if (!Character.isDigit(input.charAt(i))) {
-              return false;
-          }
+        if (!Character.isDigit(input.charAt(i))) {
+          return false;
+        }
       }
       return true;
     }
@@ -29,11 +29,11 @@ public class StaticLib {
         String input = getInput();
 
         if (input.length() > 0 && isNumericalValue(input)) {
-             value = Integer.parseInt(input);
-             break;
+          value = Integer.parseInt(input);
+          break;
         }
         else {
-             System.out.println("You need to input a numerical value!");
+          System.out.println("You need to input a numerical value!");
         }
       }
 
@@ -45,7 +45,7 @@ public class StaticLib {
 
       while (true) {
         if (value >= min && value <= max) {
-            break;
+          break;
         }
 
         System.out.println("Numerical value must be in the range of (" + min + ", " + max + ")");

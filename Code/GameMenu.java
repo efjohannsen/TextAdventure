@@ -41,6 +41,7 @@ public class GameMenu {
         break;
       case 2:
         running = false; // For now it just quits as well. Otherwise running this and then exiting -> Exception
+        Text.dialog();
         break;
       case 3:
         running = false;
