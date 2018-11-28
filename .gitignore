@@ -3,3 +3,4 @@
 # Ignore VPP meta files
 *.bak*
 *.lck
+Makefile
