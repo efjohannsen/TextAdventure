@@ -14,7 +14,9 @@ public class WorldTile {
   final char PLAYER = '#';
   final char NPC = 'o';
   final char BUILDING = 'M';
-  final char EMPTY = '_';
+  final char EMPTY = '·';
+
+  private static boolean firstRun = true;
 
   public WorldTile(Point position) {
 
@@ -23,12 +25,25 @@ public class WorldTile {
     Random rand = new Random(); 
     NPC npc;
 
-    if (rand.nextInt(15) == 1) persons.add( new NPC() );
-    else if (rand.nextInt(20) == 1) building = new Building();
+    // On the first run, ie. in the upper left corner, place a building, which is the starting building of the player!
+    if (firstRun) {
+      persons.add( new Player() );
+      building = new Building();
+      firstRun = false;
+    }
+    else {
+      if (rand.nextInt(15) == 1) persons.add( new NPC() );
+      else if (rand.nextInt(20) == 1) building = new Building();
+    }
   }
 
   public String getPosition() {
     return "(" + position.x + "," + position.y + ")";
+  }
+
+  // firstRun needs to be reset to false whenever the user exits to the main menu in case they start a new game without restarting the program 
+  public static void toggleFirstRun() {
+    firstRun = !firstRun;
   }
 
   // Always put the player in index 0 of persons
@@ -36,11 +51,11 @@ public class WorldTile {
   public String toString() {
     //return getPosition(); 
     if (persons.size() > 0) {
-      if (persons.get(0) instanceof Player) return Character.toString(PLAYER);
-      else return Character.toString(NPC);
+      if (persons.get(0) instanceof Player) return PLAYER + "   ";
+      else return NPC + "   ";
     }
-    else if (building != null) return Character.toString(BUILDING);
-    else return Character.toString(EMPTY);
+    else if (building != null) return BUILDING + "   ";
+    else return EMPTY + "   ";
   }
   
 }

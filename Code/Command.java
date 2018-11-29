@@ -30,6 +30,7 @@ public class Command {
 
   // Quits to the main menu
   public void quit() {
+    WorldTile.toggleFirstRun();
 
   }
 

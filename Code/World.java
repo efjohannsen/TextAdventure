@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class World {
   // WorldTiles[] worldTiles;
   // User configurable
-  final int SIZE = 16; // The length of one side/axis
+  final int SIZE = 20; // The length of one side/axis
   WorldTile[] worldTiles;
 
   public World() {
@@ -13,7 +13,7 @@ public class World {
     for (int i = 0; i<worldTiles.length; i++) {
 
       worldTiles[i] = new WorldTile(new Point(i % SIZE, i / SIZE));
-      if (i % SIZE == 0) System.out.println();
+      if (i % SIZE == 0) System.out.println("\n"); // Such double newline trickery!
       System.out.print(worldTiles[i]);
     }
 

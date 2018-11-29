@@ -37,6 +37,7 @@ public class GameMenu {
 
     switch (choice) {
       case 1:
+        clearScreen();
         new World();
         break;
       case 2:
