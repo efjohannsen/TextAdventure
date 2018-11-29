@@ -1,10 +1,9 @@
 import java.awt.Point;
-import java.util.ArrayList;
 
 public class World {
   // WorldTiles[] worldTiles;
   // User configurable
-  final int SIZE = 20; // The length of one side/axis
+  final int SIZE = 21; // The length of one side/axis
   WorldTile[] worldTiles;
 
   public World() {
@@ -13,9 +12,26 @@ public class World {
     for (int i = 0; i<worldTiles.length; i++) {
 
       worldTiles[i] = new WorldTile(new Point(i % SIZE, i / SIZE));
-      if (i % SIZE == 0) System.out.println("\n"); // Such double newline trickery!
-      System.out.print(worldTiles[i]);
     }
 
+    final double SIZEDOUBLE = (double) SIZE;
+    WorldTile wt = worldTiles[ (int) (SIZEDOUBLE * SIZEDOUBLE / 2)];
+    wt.setPersons( new Player() );
+    wt.setBuilding( new Building() );
+    new Command();
+
+    System.out.println(this);  
+
   }
+
+  public String toString() {
+
+    String result = "";
+    for (int i = 0; i<worldTiles.length; i++) {
+      if (i % SIZE == 0) result += "\n\n"; // Such double newline trickery!
+      result += worldTiles[i].toString();
+    }
+    return result;
+  }
+
 }

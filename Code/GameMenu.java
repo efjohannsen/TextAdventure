@@ -8,7 +8,7 @@ public class GameMenu {
     menu();
   }
 
-  private void menu() {
+  public void menu() {
     while (running) {
       menuOptions();
       int choice = getNumericalInputRange(1,3); 
