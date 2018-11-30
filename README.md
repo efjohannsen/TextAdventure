@@ -16,6 +16,17 @@ Speaking is done with something like this:
 speak(132)  
 ...and it checks the language configured in Game.java automatically.
 
+### Buildings
+
+- always entered from the bottom
+- rooms are laid out on x/y axes. the first room is always 0,0
+- the y-axis' minimum is always 0 (the first room) but can be up to any positive number.
+- the x-axis is an interval from any negative to any positive value.
+- moving north increments the y-axis, and south decrements it.
+- moving east increments the x-axis, and south decrements it.
+- So each Room's position consists of two numbers: one for each axis.
+- A Building contains only a maximum value of y, and a minimum AND maximum value of x.
+
 ## Development ideas
 
 - Support movement keys? Successfully tested, but it would require JNA.

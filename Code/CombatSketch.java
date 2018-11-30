@@ -1,14 +1,12 @@
-package tutorials;
-
 import java.util.Random;
 import java.util.Scanner;
 
-public class TEXTRPG {
+public class CombatSketch {
    public static void main(String[] args) {
    
    //System objects
-   Scanner in = new Scanner(System.in);
-   Random rand = new Random();
+   private Scanner in = new Scanner(System.in);
+   private Random rand = new Random();
    
    //Game variables
    String[] enemies = {"Ghoul","Zombie","Raider","Monster"};
@@ -16,9 +14,9 @@ public class TEXTRPG {
    int enemyAttackDamage = 25;
    
    //Player variables
-   int health = 100;
-   int attackDamage = 50;
-   int numHealthPotions = 3; 
+   int health                 = 100;
+   int attackDamage           = 50;
+   int numHealthPotions       = 3;
    int healthPotionHealAmount = 30;
    int healthPotionDropChance = 50; //Percentage
    
@@ -38,7 +36,7 @@ public class TEXTRPG {
       while(enemyHealth > 0) {
          System.out.println("\tYour HP: " + health);
          System.out.println("\t" + enemy + "'s HP:" + enemyHealth);
-         System.out.println("\n\tWHat would you like to do?");
+         System.out.println("\n\tWhat would you like to do?");
          System.out.println("\t1. Attack");
          System.out.println("\t2. Drink health potion");
          System.out.println("\t3. Run!");
@@ -52,7 +50,7 @@ public class TEXTRPG {
             health -= damageTaken;         
             
             System.out.println("\t> You strike the" + enemy + " for " + damageDealt + "damage.");
-            System.out.println("\t> You recieve" + damageTaken + " i retaliation!");
+            System.out.println("\t> You receive" + damageTaken + " i retaliation!");
             
             if(health < 1) {
                System.out.println("\t> You have taken too much damage, you are too weak to go on!");

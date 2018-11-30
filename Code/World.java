@@ -1,27 +1,24 @@
-import java.awt.Point;
-
 public class World {
   // WorldTiles[] worldTiles;
   // User configurable
-  final int SIZE = 21; // The length of one side/axis
-  WorldTile[] worldTiles;
+  private final int SIZE = 21; // The length of one side/axis
+  private WorldTile[] worldTiles;
 
   public World() {
     worldTiles = new WorldTile[SIZE * SIZE];
 
     for (int i = 0; i<worldTiles.length; i++) {
 
-      worldTiles[i] = new WorldTile(new Point(i % SIZE, i / SIZE));
+      worldTiles[i] = new WorldTile(i % SIZE, i / SIZE);
     }
 
-    final double SIZEDOUBLE = (double) SIZE;
-    WorldTile wt = worldTiles[ (int) (SIZEDOUBLE * SIZEDOUBLE / 2)];
+    // Setting the player and starter building
+    WorldTile wt = worldTiles[ (SIZE * SIZE / 2)];
     wt.setPersons( new Player() );
     wt.setBuilding( new Building() );
     new Command();
 
     System.out.println(this);  
-
   }
 
   public String toString() {

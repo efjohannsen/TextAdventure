@@ -16,9 +16,9 @@ public class WorldTile {
   private static final char BUILDING = 'M';
   private static final char EMPTY    = '·';
 
-  public WorldTile(Point position) {
+  public WorldTile(int x, int y) {
 
-    this.position = position;
+    this.position = new Point(x, y);
 
     Random rand = new Random(); 
 

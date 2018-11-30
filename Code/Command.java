@@ -42,7 +42,7 @@ public class Command {
 
   private void command() {
 
-    String inputLine;
+    String inputLine = "";
     if ( scanner.hasNextLine() )
       inputLine = scanner.nextLine();
 
@@ -72,7 +72,7 @@ public class Command {
         if (allWords[1] == "building") break;
         break;
       case "exit game":
-        GameMenu.menu();
+        new GameMenu().menu();
         break;
       default:
         System.out.println("Invalid command. Try again.");
@@ -90,7 +90,7 @@ public class Command {
   }
 
   // Walks to the north, east, south, west. 
-  public void go() {
+  public void walk() {
     
   }
 
