@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class Person {
 
-    public enum Direction {NORTH, EAST, SOUTH, WEST};
-
     static final int NUMBER_OF_STATS = 2;
     static final int BASE_STAT = 1;                 // Raise this to ensure a character gets at least this value in each stat.
     static final int STARTING_STAT_POINTS = NUMBER_OF_STATS * 40; // 40 points for each stat at character generation.
@@ -18,6 +16,7 @@ public class Person {
   int strength,     // Inventory capacity, damage
       personality;  // NPC interaction
   ArrayList<Item> inventory;
+  boolean isInBuilding = false; // If in Room call the Room move method, otherwise the World move method. Starting value depends on whether the Player starts in the World or a Room.
 
   static Random rand = new Random(); 
 
@@ -73,10 +72,6 @@ public class Person {
     catch (IOException e) {System.out.println(e); }
  
     return firstNames.get(rand.nextInt( firstNames.size() )) + " " + lastNames.get(rand.nextInt( lastNames.size() ) );
-  }
-
-  // North, south, east, west. Enum?
-  public void move() {
   }
 
   // TODO: Needs to handle system languag in some way.

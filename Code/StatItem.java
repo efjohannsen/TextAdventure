@@ -5,4 +5,9 @@ public class StatItem extends Item {
   // int damageBonus;
   // int defenseBonus;
   // int healthBonus;
+  // public StatItem(int id) {
+    // StatItemText
+    // StatItemNumbers
+    // super(name, description, weight);
+  // }
 }

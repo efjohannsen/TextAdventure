@@ -11,6 +11,7 @@ public class WorldTile {
   // public static enum TileContent {'_', '#'};
   // public static Language lang = Language.EN;
   
+  // How the different objects are displayed on the map/print out
   private static final char PLAYER   = '#';
   private static final char NPC      = 'o';
   private static final char BUILDING = 'M';
@@ -34,8 +35,25 @@ public class WorldTile {
     this.building = building;
   }
 
-  public void setPersons(Person person) {
+  public void addPerson(Person person) {
     persons.add(person);
+  }
+
+  public void addPersonFirst(Person person) {
+    persons.add(0, person);
+  }
+
+  public ArrayList<Person> getPersons() {
+    return persons;
+  }
+
+  public void removePerson(Person person) {
+    persons.remove(person);
+  }
+
+  // Removes all persons from a WorldTile
+  public void clearPersons() {
+    persons.clear();
   }
 
   // Always put the player in index 0 of persons

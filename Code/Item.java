@@ -4,5 +4,9 @@ public class Item {
   String description;
 
   // A completely empty constructor for now, just for testing
-  public Item() {}
+  // public Item(String name, String description, int weight) {
+  //   this.name = name;
+  //   this.description = description;
+  //   this.weight = weight;
+  // }
 }

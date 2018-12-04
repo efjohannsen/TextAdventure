@@ -1,4 +1,4 @@
-name,attack,defense,health, description
+name,attack,tohit,defense,health, description
 Vest,2,Just your basic vest
 Long-sleeved shirt,3,Just your basic long-sleeved shirt
 Chain mail,10,Just your basic chain mail

@@ -11,7 +11,7 @@ public class GameMenu {
   public void menu() {
     while (running) {
       menuOptions();
-      int choice = getNumericalInputRange(1,3); 
+      int choice = getNumericalInputRangeLoop(1,3);
       menuChoice(choice);
             
       if (running) {
@@ -23,14 +23,14 @@ public class GameMenu {
 
   private void menuOptions()
   {
-      System.out.println(
+      print(
       "\nTextAdventure!\n" +
       "-------------------\n" +
       "1. Start game \n" + 
       "2. Options \n" + 
       "-------------------\n" +
       "3. Exit game \n\n" +
-      "Choose your destiny: ");
+      "Choose your destiny: ", true);
   }
 
   private void menuChoice(int choice) {

@@ -13,6 +13,10 @@ public class StaticLib {
       return input.nextLine();
     }
 
+    public static int closestNumberDivisibleByX(int number, int divisibleBy) {
+      return (number / divisibleBy + 1) * divisibleBy;
+    }
+
     public static boolean isNumericalValue(String input) {
       for (int i = 0; i < input.length(); i++) {
         if (!Character.isDigit(input.charAt(i))) {
@@ -22,7 +26,7 @@ public class StaticLib {
       return true;
     }
 
-    public static int getNumericalInput() {
+    public static int getNumericalInputLoop() {
       int value = 0;
 
       while (true) {
@@ -33,23 +37,39 @@ public class StaticLib {
           break;
         }
         else {
-          System.out.println("You need to input a numerical value!");
+          print("You need to input a numerical value!", true);
         }
       }
 
       return value;
     }
 
-    public static int getNumericalInputRange(int min, int max) {
-      int value = getNumericalInput();
+    // Returns 0 if not numerical or not positive
+    public static int checkNumericalPositiveInput(String input) {
+      int value = -1;
+
+      if (input.length() > 0 && isNumericalValue(input)) {
+        int number = Integer.parseInt(input);
+        if (number > 0) value = number;
+      }
+      else {
+        print("You need to input a numerical value!", true);
+      }
+
+      return value;
+
+    }
+
+    public static int getNumericalInputRangeLoop(int min, int max) {
+      int value = getNumericalInputLoop();
 
       while (true) {
         if (value >= min && value <= max) {
           break;
         }
 
-        System.out.println("Numerical value must be in the range of (" + min + ", " + max + ")");
-        value = getNumericalInput();    
+        print("Numerical value must be in the range of (" + min + ", " + max + ")", true);
+        value = getNumericalInputLoop();    
       }
       return value;
     }
@@ -67,5 +87,11 @@ public class StaticLib {
         System.out.flush();
         //Runtime.getRuntime().exec("clear");
       }
+    }
+
+    // TODO: Handle system language
+    public static void print(String argument, boolean newline) {
+      if (newline) System.out.println(argument);
+      else System.out.print(argument);
     }
 }

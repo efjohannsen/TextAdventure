@@ -1,6 +1,5 @@
 import java.awt.Point;
 import java.util.Random;
-import java.util.ArrayList;
 
 public class Room {
 
@@ -8,7 +7,7 @@ public class Room {
   RoomTile[] roomTiles;
   private int MAXSIZE = 5; // The length of one side/axis
 
-  private static final char EMPTY    = '·';
+  private static final char EMPTY    = 'Â·';
 
   // Generates a room
   public Room(int x, int y) {
