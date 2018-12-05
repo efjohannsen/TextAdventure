@@ -35,6 +35,7 @@ public class StartBase
    public void menu()
    {
      Scanner sc = new Scanner(System.in);
+     
 
       while (!end) 
       {
@@ -44,11 +45,36 @@ public class StartBase
          
          int choice = sc.nextInt();  
          
-         if (choice == 1)
+         //Ændres til switch
+         switch (choice);
          {
-            System.out.print("Ty
+            case 1: choice = 1;
+               <statement>
+               break;
+            case 2: choice = 2; 
+               <statement>
+               break; 
+            case 3: choice = 3; 
+               <statement>
+               break; 
+            case 4: choice = 4;
+               <statement>
+               break; 
+            case 5: choice = 5; 
+               <statement>
+               break; 
+            case 6: choice = 6;
+               <statement>
+               break; 
+            case 7: choice = 7; 
+               <statement>
+               break; 
+            case 8: choice = 8; 
+               <statement>
+               break;
          }
-      
+ 
+  
       }
    
    }
@@ -62,7 +88,7 @@ public class StartBase
       
    }
    
-   
+   //Kan m
    public void NPC() 
    {
    
