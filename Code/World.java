@@ -1,45 +1,87 @@
 import static statics.StaticLib.*;
+import java.util.ArrayList;
+import java.awt.Point;
+import java.util.Random;
 
 public class World {
   // WorldTiles[] worldTiles;
   // User configurable
   private final int SIZE = 21; // The length of one side/axis
-  private WorldTile[] worldTiles;
   private Player player;
+  private ArrayList<Building> buildings;
+  private ArrayList<Person> persons = new ArrayList<Person>();
 
   public World() {
-    worldTiles = new WorldTile[SIZE * SIZE];
+    Random rand = new Random(); 
 
-    for (int i = 0; i<worldTiles.length; i++) {
+    for (int x = 0; x<SIZE; x++) {
 
-      worldTiles[i] = new WorldTile(i % SIZE, i / SIZE);
+      // We add empty buildings and an empty personsPoint (using null) to only have to check one index in the array rather than having to go through the entire arraylist for every single Point.
+      for (int y = 0; y<SIZE; y++) {
+
+        if (x == 11 && y == 11 ) persons.add( new Player(x, y) );
+        else {
+          if (rand.nextInt(15) == 1) persons.add( new NPC(x, y) );
+          // 20% chance of replacing the null placeholder building we just added as default above, with an actual building
+          else if (rand.nextInt(20) == 1) buildings.add(new Building(x, y));
+        }
+      }
     }
 
-    // Setting the player and starter building
-    WorldTile wt = worldTiles[ (SIZE * SIZE / 2)];
-    this.player = new Player();
-    wt.clearPersons(); // Cleanup/Remove any NPC that might have been placed here by the random generator.
-    wt.addPerson( player );
-    wt.setBuilding( new Building() );
-    print(this.toString(), true);  
+    // Just for testing. Remove afterwards, probably
+    print(this.toString(), true);
 
-    new Command(this);
+    //new Command(this);
   }
 
+  // TODO: Loop through the ArrayLists for persons and buildings
   public String toString() {
 
+    String[] tempArray = new String[SIZE*SIZE];
+
+    // Fill array with empty symbols.
+    for (int x = 0; x<SIZE*SIZE; x++) {
+        tempArray[x] = EMPTY + "   ";
+    }
+
+    // Update it with buildings
+    for (Building building : buildings) {
+      tempArray[ (int) (building.getX() * building.getY()) ] = BUILDING + "   ";
+    }
+
+    // Update it with NPCs and Player(s)
+    for (Person person : persons) {
+      String personToPrint;
+      if (person instanceof NPC) {
+        personToPrint = NPC + "   ";
+      }
+      else personToPrint = PLAYER + "   ";
+      tempArray[ (int) (person.getX() * person.getY()) ] = personToPrint;
+    }
+
+    String ret = "";
+
+    // Creating the final string, adding newlines where necessary
+    for (int i = 0; i<tempArray.length; i++) {
+      ret += tempArray[i];
+      if (i > 0 && i % SIZE == 0) {
+        ret += "\n\n";
+      }
+    }
+    return ret;
+  }
+
+    /*
     String result = "";
     for (int i = 0; i<worldTiles.length; i++) {
-      if (i % SIZE == 0) result += "\n\n"; // Such double newline trickery!
+      if (i % SIZE == 0) result += "\n\n";
       result += worldTiles[i].toString();
     }
     return result;
   }
+  */
 
-  public WorldTile[] getWorldTiles() {
-    return worldTiles;
-  }
-
+  /*
   public void movePlayer(Command.Direction direction, int distance) {
     move(player, direction, distance);
   }
@@ -83,5 +125,6 @@ public class World {
       }
     }
   }
+  */
 }
 

@@ -1,4 +1,4 @@
-import java.awt.Point;
+/*import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -11,12 +11,6 @@ public class WorldTile {
   // public static enum TileContent {'_', '#'};
   // public static Language lang = Language.EN;
   
-  // How the different objects are displayed on the map/print out
-  private static final char PLAYER   = '#';
-  private static final char NPC      = 'o';
-  private static final char BUILDING = 'M';
-  private static final char EMPTY    = '·';
-
   public WorldTile(int x, int y) {
 
     this.position = new Point(x, y);
@@ -68,4 +62,4 @@ public class WorldTile {
     else return EMPTY + "   ";
   }
   
-}
+}*/

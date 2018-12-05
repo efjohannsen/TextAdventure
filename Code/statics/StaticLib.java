@@ -6,6 +6,12 @@ import java.lang.InterruptedException;
 
 public class StaticLib {
 
+    // How the different objects are displayed on the map/print out
+    public static final char PLAYER   = '#';
+    public static final char NPC      = 'o';
+    public static final char BUILDING = 'M';
+    public static final char EMPTY    = '·';
+
     private static Scanner input = new Scanner(System.in);
 
     public static String getInput() {

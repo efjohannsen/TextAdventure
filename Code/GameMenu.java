@@ -21,8 +21,7 @@ public class GameMenu {
     }
   }
 
-  private void menuOptions()
-  {
+  private void menuOptions() {
       print(
       "\nTextAdventure!\n" +
       "-------------------\n" +

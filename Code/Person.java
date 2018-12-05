@@ -3,8 +3,9 @@ import java.util.Random;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.awt.Point;
 
-public class Person {
+public class Person extends Point {
 
     static final int NUMBER_OF_STATS = 2;
     static final int BASE_STAT = 1;                 // Raise this to ensure a character gets at least this value in each stat.
@@ -20,12 +21,13 @@ public class Person {
 
   static Random rand = new Random(); 
 
-  public Person(ArrayList<Item> items) {
-    this( randomName(), items );
+  public Person(int x, int y, ArrayList<Item> items) {
+    this( x, y, randomName(), items );
   }
 
-  public Person(String name, ArrayList<Item> items) {
+  public Person(int x, int y, String name, ArrayList<Item> items) {
 
+    super(x,y);
     this.name = name;
 
     // Randomly generate stat points and distribute them randomly

@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class NPC extends Person {
 
-  public NPC() {
+  public NPC(int x, int y) {
     
-    super(new ArrayList<Item>());
+    super(x, y, new ArrayList<Item>());
   }
 
   private void generateLoot() {
