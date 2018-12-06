@@ -25,6 +25,7 @@ public class Command {
             
       if (running) {
         clearScreen();
+        world.moveNPCs();
         print(world.toString(), true);
       }
     }

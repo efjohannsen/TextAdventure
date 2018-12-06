@@ -10,9 +10,10 @@ public class World {
   private Player player;
   private ArrayList<Building> buildings = new ArrayList<Building>();
   private ArrayList<Person> persons = new ArrayList<Person>();
+  private Random rand;
 
   public World() {
-    Random rand = new Random(); 
+    rand = new Random(); 
 
     for (int x = 0; x<SIZE; x++) {
 
@@ -57,14 +58,16 @@ public class World {
     // Update it with NPCs and Player(s)
     for (Person person : persons) {
       String personToPrint;
-      if (person instanceof NPC) {
-        personToPrint = NPC + "   ";
+      if (person instanceof Player) {
+        personToPrint = PLAYER + "   ";
       }
-      else personToPrint = PLAYER + "   ";
+      else personToPrint = NPC + "   ";
       tempArray[ (int) (person.getX() + SIZE * person.getY()) ] = personToPrint;
     }
 
     String ret = "";
+
+		ret += player.toString() + "\n";
 
     // Creating the final string, adding newlines where necessary
     for (int i = 0; i<tempArray.length; i++) {
@@ -76,6 +79,33 @@ public class World {
     return ret;
   }
 
+  // Move all NPCs one space, with 50% chance of standing still for each one
+  public void moveNPCs() {
+    for (Person p : persons) {
+      int num = rand.nextInt(2);
+      if (num == 1 && p instanceof NPC) moveRandom1(p);
+    }
+  }
+
+  public void moveRandom1(Person person) {
+    int num = rand.nextInt(4);
+    Command.Direction direction = Command.Direction.NORTH;
+    switch (num) {
+      case 0:
+        // Default value
+        break;
+      case 1:
+        direction = Command.Direction.EAST;
+        break;
+      case 2:
+        direction = Command.Direction.SOUTH;
+        break;
+      case 3:
+        direction = Command.Direction.WEST;
+        break;
+      }
+    move(person, direction, 1);
+  }
   
   public void movePlayer(Command.Direction direction, int distance) {
     move(player, direction, distance);
