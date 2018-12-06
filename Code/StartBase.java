@@ -1,6 +1,6 @@
         //Mangler en clear-screen funktion (blandt mange andre ting, lol)
         //Mangler implementering af NPC og player (Kan evt udelades) 
-        //Mangler en metode til, at give fejl når der vælges andet end de givne muligheder
+        //Mangler en metode til, at give fejl nÃ¥r der vÃ¦lges andet end de givne muligheder
         
         
 import static statics.StaticLib.*;
@@ -17,12 +17,12 @@ public class StartBase
    private final String NPC;  
    public static boolean end = false; 
    
-   private StartBase(String DESCRIPTION, String DIALOUGE, String NPC)
+   public StartBase(String DESCRIPTION, String DIALOUGE, String NPC)
    {
    
       this.DESCRIPTION   = DESCRIPTION; 
       this.DIALOUGE      = DIALOUGE; 
-      this.NPC           = NPC;        //Importer fra NPC klasse - Kald på constructor derfra 
+      this.NPC           = NPC;        //Importer fra NPC klasse - Kald pÃ¥ constructor derfra 
    
       readDesc();
       menu(); 
@@ -37,8 +37,8 @@ public class StartBase
 
       while (!end) 
       {
-        // System.out.println("Description..."); //Evt indlæs txt med Description (indeholder intro til startbase) 
-         System.out.println("Press '1' to interact with npc1"); //Beskrivelsen ændres selvfølgelig 
+        // System.out.println("Description..."); //Evt indlÃ¦s txt med Description (indeholder intro til startbase) 
+         System.out.println("Press '1' to interact with npc1"); //Beskrivelsen Ã¦ndres selvfÃ¸lgelig 
          System.out.println("Press '2' to interact with npc2");
          System.out.println("Press '3' to interact with npc3");
          System.out.println("Press '4' to interact with npc4");
@@ -50,7 +50,7 @@ public class StartBase
          int choice = sc.nextInt();  
          //int option = sc.nextInt(); //Evt. lav en anden skanner? 
         
-        //Evt importer NPC txt filer her? -Fører videre til muligheder osv pr NPC
+        //Evt importer NPC txt filer her? -FÃ¸rer videre til muligheder osv pr NPC
                //Implementer dialog-menu 
         
         
@@ -102,26 +102,26 @@ public class StartBase
       }
    
    }
-   //metode som 'burde' læse fra Description.txt filen 
+   //metode som 'burde' lÃ¦se fra Description.txt filen 
    public static void readDesc() {
       try {
-      File file = new File("test.txt");     
-      Scanner sc = new Scanner(file);
-      String word = sc.nextLine(); 
-      System.out.print(word);
+          File file = new File("test.txt");     
+          Scanner sc = new Scanner(file);
+          String word = sc.nextLine(); 
+          System.out.print(word);
       }  
       catch (IOException e){
          System.out.println(e); 
       }
    }
-   //Metode som 'burde' læse fra Dialogue.txt filen
+   //Metode som 'burde' lÃ¦se fra Dialogue.txt filen
    public static void readDialogue()
    {
       try {
-      File file = new File("test.txt"); 
-      Scanner sc = new Scanner(file);
-      String word = sc.nextLine(); 
-      System.out.print(word); 
+          File file = new File("test.txt"); 
+          Scanner sc = new Scanner(file);
+          String word = sc.nextLine(); 
+          System.out.print(word); 
       }
       catch (IOException e) {
          System.out.println(e);

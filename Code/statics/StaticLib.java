@@ -87,12 +87,16 @@ public class StaticLib {
         }
         catch (IOException | InterruptedException e) {}
       }
-      else {  // Works for macOS and Linux
+      else {  // Works for Linux and macOS
         String ansiClear = "\033[H\033[2J";
         System.out.print(ansiClear);
         System.out.flush();
         //Runtime.getRuntime().exec("clear");
       }
+    }
+
+    public static void printFile() {
+      //scanner.next
     }
 
     // TODO: Handle system language

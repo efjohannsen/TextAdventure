@@ -11,7 +11,7 @@ public class GameMenu {
   public void menu() {
     while (running) {
       menuOptions();
-      int choice = getNumericalInputRangeLoop(1,3);
+      int choice = getNumericalInputRangeLoop(1,5);
       menuChoice(choice);
             
       if (running) {
@@ -29,6 +29,9 @@ public class GameMenu {
       "2. Options \n" + 
       "-------------------\n" +
       "3. Exit game \n\n" +
+      "-------------------\n" +
+      "4. StartBase \n\n" +
+      "5. Combat \n\n" +
       "Choose your destiny: ", true);
   }
 
@@ -46,6 +49,14 @@ public class GameMenu {
       case 3:
         running = false;
         break;
+      case 4:
+        new StartBase("abc", "bac", "bac");
+        break;
+      case 5:
+        //new CombatSketch();
+        print("Unfinished!", true);
+        break;
+
     }
   }
 
