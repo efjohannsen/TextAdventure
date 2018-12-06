@@ -53,8 +53,7 @@ public class GameMenu {
         new StartBase("abc", "bac", "bac");
         break;
       case 5:
-        //new CombatSketch();
-        print("Unfinished!", true);
+        CombatSketch.combat();
         break;
 
     }
