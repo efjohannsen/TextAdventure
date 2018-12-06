@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import static statics.StaticLib.*;
 
-/*
+
 // Fx.: 
 // go north 4
 // pickup 1 (presented with a list of items, each with a number)
@@ -127,4 +127,3 @@ public class Command {
   }
 
 }
-*/

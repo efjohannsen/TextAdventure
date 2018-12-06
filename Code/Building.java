@@ -8,7 +8,7 @@ public class Building extends Point{
   final int SIZE = 21;
 
   public Building(int x, int y) {
-    // super(x, y);
+    super(x, y);
     
     // TODO: Perhaps expand to make more interesting buildings
     Random ran = new Random();

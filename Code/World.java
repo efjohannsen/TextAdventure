@@ -8,7 +8,7 @@ public class World {
   // User configurable
   private final int SIZE = 21; // The length of one side/axis
   private Player player;
-  private ArrayList<Building> buildings;
+  private ArrayList<Building> buildings = new ArrayList<Building>();
   private ArrayList<Person> persons = new ArrayList<Person>();
 
   public World() {
@@ -16,10 +16,14 @@ public class World {
 
     for (int x = 0; x<SIZE; x++) {
 
-      // We add empty buildings and an empty personsPoint (using null) to only have to check one index in the array rather than having to go through the entire arraylist for every single Point.
       for (int y = 0; y<SIZE; y++) {
 
-        if (x == 11 && y == 11 ) persons.add( new Player(x, y) );
+        // Set the starter building and Player
+        if (x == 10 && y == 10 ) {
+          buildings.add( new Building(x,y) );
+          player = new Player(x,y); // Make sure the player added is added to the World class to identify it in toString
+          persons.add( player );
+        }
         else {
           if (rand.nextInt(15) == 1) persons.add( new NPC(x, y) );
           // 20% chance of replacing the null placeholder building we just added as default above, with an actual building
@@ -31,8 +35,9 @@ public class World {
     // Just for testing. Remove afterwards, probably
     print(this.toString(), true);
 
-    //new Command(this);
+    new Command(this);
   }
+
 
   // TODO: Loop through the ArrayLists for persons and buildings
   public String toString() {
@@ -46,7 +51,7 @@ public class World {
 
     // Update it with buildings
     for (Building building : buildings) {
-      tempArray[ (int) (building.getX() * building.getY()) ] = BUILDING + "   ";
+      tempArray[ (int) (building.getX() + SIZE * building.getY()) ] = BUILDING + "   ";
     }
 
     // Update it with NPCs and Player(s)
@@ -56,32 +61,22 @@ public class World {
         personToPrint = NPC + "   ";
       }
       else personToPrint = PLAYER + "   ";
-      tempArray[ (int) (person.getX() * person.getY()) ] = personToPrint;
+      tempArray[ (int) (person.getX() + SIZE * person.getY()) ] = personToPrint;
     }
 
     String ret = "";
 
     // Creating the final string, adding newlines where necessary
     for (int i = 0; i<tempArray.length; i++) {
-      ret += tempArray[i];
       if (i > 0 && i % SIZE == 0) {
         ret += "\n\n";
       }
+      ret += tempArray[i];
     }
     return ret;
   }
 
-    /*
-    String result = "";
-    for (int i = 0; i<worldTiles.length; i++) {
-      if (i % SIZE == 0) result += "\n\n";
-      result += worldTiles[i].toString();
-    }
-    return result;
-  }
-  */
-
-  /*
+  
   public void movePlayer(Command.Direction direction, int distance) {
     move(player, direction, distance);
   }
@@ -89,42 +84,32 @@ public class World {
   // TODO: Loop through the worldTile array and move the Player as much as possible in the requested direction.
   // Remove the player from the old WorldTile and insert her/him into the new one.
   // TODO: Make similar move method for Rooms!
-  private void move(Person person, Command.Direction direction, int reqDistance) {
+  private void move(Person reqPerson, Command.Direction direction, int reqDistance) {
 
-    OUTER:
-    // Find the WorldTile where the person is
-    for (int i = 0; i<worldTiles.length; i++) {
-      // Check all persons in the WorldTile
-      for ( Person wtPerson : worldTiles[i].getPersons() ) {
-      // We want to check if it's literally the same object, so the default equals method should work.
-        if (person == wtPerson) {
-          int maxDistance;
+    for (Person person : persons) {
+      if ( person == reqPerson) { 
+        double newX, newY = 0;
 
-          if (direction == Command.Direction.NORTH) {
-            maxDistance = Math.min(i - (reqDistance*SIZE), closestNumberDivisibleByX(i, SIZE));
-            worldTiles[maxDistance].addPersonFirst(wtPerson);
-          }
-          else if (direction == Command.Direction.EAST) {
-            // Add the person to the new WorldTile. +1 unless they're at the far east, ie. something divisible by 21?
-            maxDistance = Math.min(i + reqDistance, closestNumberDivisibleByX(i, SIZE-1));
-            worldTiles[maxDistance].addPersonFirst(wtPerson);
-          }
-          else if (direction == Command.Direction.SOUTH) {
-            maxDistance = Math.min(i + (reqDistance*SIZE), closestNumberDivisibleByX(SIZE, i));
-            worldTiles[maxDistance].addPersonFirst(wtPerson);
-          }
-          else { // West
-            if (i < SIZE) maxDistance = 0;
-            else maxDistance = Math.min(i - reqDistance, closestNumberDivisibleByX(i, SIZE));
-            worldTiles[maxDistance].addPersonFirst(wtPerson);
-          }
-          // Remove the person from the old WorldTile regardless of which direction they walked
-          worldTiles[i].removePerson(wtPerson);
-          break OUTER;
+        if (direction == Command.Direction.NORTH) {
+          newY = Math.max(person.getY() - reqDistance, 0);
+          person.setLocation(person.getX(), newY);
         }
+        else if (direction == Command.Direction.EAST) {
+          newX = Math.min(person.getX() + reqDistance, SIZE-1);
+          person.setLocation(newX, person.getY());
+        }
+        else if (direction == Command.Direction.SOUTH) {
+          newY = Math.min(person.getY() + reqDistance, SIZE-1);
+          person.setLocation(person.getX(), newY);
+        }
+        else { // West
+          newX = Math.max(person.getX() - reqDistance, 0);
+          person.setLocation(newX, person.getY());
+        }
+        break; // We've found the right person and moved her/him. Break!
+        
       }
     }
   }
-  */
+  
 }
-
