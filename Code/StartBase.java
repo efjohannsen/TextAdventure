@@ -53,7 +53,7 @@ public class StartBase
         //Evt importer NPC txt filer her? -Fører videre til muligheder osv pr NPC
                //Implementer dialog-menu 
         
-        
+         
          switch (choice)
          {
             case 1: 
@@ -62,8 +62,8 @@ public class StartBase
             // readDialogue(word2); 
             
             // System.out.print("Do you want to interact with this NPC. y/n?");   
-
              break; 
+             
              
             case 2:
              System.out.println("You have chosen 'NPC 2' -insert description and quest\n");    
@@ -102,6 +102,44 @@ public class StartBase
       }
    
    }
+      
+   public static void thePriestess() {
+      readDialogue(); 
+   }
+   
+   public static void theSergant() {
+      readDialogue(); 
+   }
+   
+   public static void theJunker() {
+      readDialogue();
+   }
+   
+   
+   public static void theDoc() {
+      readDialogue(); 
+   }
+   
+   
+   public static void theScout() {
+      readDialogue(); 
+   }
+   
+   public static void theMayor() {
+      readDialogue(); 
+   }
+   
+   public static void theScientist() {
+      readDialogue(); 
+   }
+   
+   public static void theWoundedSoldier() {
+      readDialogue(); 
+   }   
+   
+   
+   
+   
    //metode som 'burde' læse fra Description.txt filen 
    public static void readDesc() {
       try {
