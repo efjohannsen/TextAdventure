@@ -1,12 +1,15 @@
         //Mangler en clear-screen funktion (blandt mange andre ting, lol)
-        //Mangler implementering af NPC og 
+        //Mangler implementering af NPC og player (Kan evt udelades) 
+        //Mangler en metode til, at give fejl når der vælges andet end de givne muligheder
+        
+        
 
 import java.util.Scanner; 
 import java.io.IOException;
 import java.io.File; 
 
 
-public class StartBase  
+public class StartBase
 {
  
    private final String DESCRIPTION; 
@@ -25,36 +28,11 @@ public class StartBase
    
    //Main er bare en test
    public static void main(String[] args) 
+      throws IOException
    {
-   
+      readDesc();
       menu(); 
-   
    }
-   
-     
-   /*
-   public Player() 
-   {
-   
-      //Kald på attributter (som name, stats osv) fra Player klassen. - Når den bliver lavet 
-   
-   }
-   
-   public void NPC() //Kald på NPC klassen - Når den bliver lavet 
-   {
-   
-      NPC npc1 = new NPC();
-      NPC npc2 = new NPC();
-      NPC npc3 = new NPC();
-      NPC npc4 = new NPC();
-      NPC npc5 = new NPC();
-      NPC npc6 = new NPC();
-      NPC npc7 = new NPC();
-      NPC npc8 = new NPC();
-   
-   }
-   */
-   
    
    public static void menu()
    {
@@ -63,7 +41,7 @@ public class StartBase
 
       while (!end) 
       {
-         System.out.println("Description..."); //Evt indlæs txt med Description (indeholder intro til startbase) 
+        // System.out.println("Description..."); //Evt indlæs txt med Description (indeholder intro til startbase) 
          System.out.println("Press '1' to interact with npc1"); //Beskrivelsen ændres selvfølgelig 
          System.out.println("Press '2' to interact with npc2");
          System.out.println("Press '3' to interact with npc3");
@@ -72,9 +50,9 @@ public class StartBase
          System.out.println("Press '6' to interact with npc6");
          System.out.println("Press '7' to interact with npc7");
          System.out.println("Press '8' to interact with npc8");
-         
  
          int choice = sc.nextInt();  
+         //int option = sc.nextInt(); //Evt. lav en anden skanner? 
         
         //Evt importer NPC txt filer her? -Fører videre til muligheder osv pr NPC
                //Implementer dialog-menu 
@@ -83,10 +61,22 @@ public class StartBase
          {
             case 1: choice = '1';
              System.out.println("You have chosen 'NPC1' -insert description and quest\n");
+            System.out.println('\u000C');
+            // String word = sc.nextLine(); 
+            // readDialogue(word2); 
+            
+            // System.out.print("Do you want to interact with this NPC. y/n?"); 
+             
+            if (choice == 1);
+               System.out.println("An option"); 
+               System.out.println("Another option"); 
+              
+              
+            
              break; 
              
             case 2: choice = '2'; 
-             System.out.println("You have chosen 'NPC 2' -insert description and quest\n"); 
+             System.out.println("You have chosen 'NPC 2' -insert description and quest\n");    
             break;    
             
             case 3: choice = '3'; 
@@ -112,22 +102,37 @@ public class StartBase
             case 8: choice = '8';             
              System.out.println("You have chosen 'NPC 8' -insert description and quest\n");
             break; 
+            
+            case 9: choice = '9'; 
+             System.out.println("You are now back in the StartBase");
+             end = true; 
+            break; 
          }
   
       }
    
    }
-   //Description af startbase - bliver kaldt på fra Menu-metoden 
-   public void description() 
+   //metode som 'burde' læse fra Description.txt filen 
+   public static void readDesc() 
       throws IOException
    {
    
-     File file = new File("description.txt");
+      File file = new File("test.txt");     
       Scanner sc = new Scanner(file);
-         String word = sc.nextLine(); 
-     
-     System.out.print(word);
+      String word = sc.nextLine(); 
+      System.out.print(word);
       
+   }
+   //Metode som 'burde' læse fra Dialogue.txt filen
+   public static void readDialogue(String word)
+      throws IOException
+   {
+   
+      File file2 = new File("test.txt"); 
+      Scanner skan = new Scanner(file2);
+      String word2 = skan.nextLine(); 
+      System.out.print(word2); 
+   
    }
 
 }
