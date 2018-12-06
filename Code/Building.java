@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 public class Building extends Point {
 
-	ArrayList<Room> rooms;
+	private ArrayList<Room> rooms;
 
-	Random ran = new Random();
-	final int SIZE_X = ran.nextInt(4)+1;
-	final int SIZE_Y = ran.nextInt(4)+1;
+	//creating a building size randomly
+	private Random ran = new Random();
+	private final int SIZE_X = ran.nextInt(4)+1;
+	private final int SIZE_Y = ran.nextInt(4)+1;
 
-	public Building(int x, int y) {
+	//building constructor with world map coordinate parameters
+	public void Building(int x, int y) {
 		
 		super(x, y);
 		
