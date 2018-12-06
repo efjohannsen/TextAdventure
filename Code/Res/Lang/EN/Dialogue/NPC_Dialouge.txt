@@ -1,4 +1,4 @@
-NPC1 (Young red-haired servant of Lacosa) : Has started a fire
+NPC1 (Young red-haired servant of Lacosa) : Has started a fire - The Priestess
 “Hey friend, we barely made it away from the storm alive.”
 “We need to get the heat going, but this fire wont do, we need some oil or something. Please go out and find a way to heat us up, or we’ll die of exposure before the undead finds us.”
 *Must find either cans of oil for small reward, or turn on power station for heating for big reward, must have car battery to turn it on.*
@@ -21,7 +21,7 @@ ______
 
 
 
-NPC2 (Soldier like, brawny, big and angry, Sergant type, Texaco ranger, DDK): Has set up defensive positon
+NPC2 (Soldier like, brawny, big and angry, Sergant type, Texaco ranger, DDK): Has set up defensive positon - The Sergant 
 “Get into position! The dammed enemy is just outside.”
 “We are sitting ducks in here. If the cold or zombies do not get us, there is raiders and other things in this area. We need more weapons, bring us what you can find so we can defend ourselves.”
 *Find knifes, guns and other weapons for rewards.*
@@ -41,7 +41,7 @@ ______
 
 
 
-NPC3 (Scrawny mech type, repair guy, Junkers, slightly crazy but practical): Is barring the windows
+NPC3 (Scrawny mech type, repair guy, Junkers, slightly crazy but practical): Is barring the windows - The Junker
 “Can’t you see I’m busy?”
 “I’m working here! What do you want? If you want to help, go find me something to help us defend this place.” 
 *Go out find specific amount of nails, metal plates, and likewise.*(SCRAP?!)
@@ -51,7 +51,7 @@ NPC3 (Scrawny mech type, repair guy, Junkers, slightly crazy but practical): Is 
 
 *Chats
 “Wouldn’t it be smarter to use the sled parts?” (WHAT?! And pick my baby apart?! Do you want to join the wounded in here? We need it to get away from here…”
- “Can you tell me about this battery?”(That is a working car battery, and a large one at that! It could surely power something that takes a lot of energy. It’ll go for a lot surely.”
+“Can you tell me about this battery?”(That is a working car battery, and a large one at that! It could surely power something that takes a lot of energy. It’ll go for a lot surely.”
 “Can you tell me about this *Item for water purifier*(“That is a filter needed for a water purifier, that would come in handy if we ever find one.)
 “How are our sleds doing?”(Not to great, all of them were damaged in the battle, but they can be repaired, tough that has to wait for now, the dogs needs rest to.”
 “Tell me again…” (I need scrap, and a lot of it! If we manage to board off the enemies, the rest should be hoarded, so we can rebuild this cruel world into something better.)
@@ -62,7 +62,7 @@ _______
 
 
 
-NPC4 (medic, DDK, bloodied, tired): Is trying to tend to the wounds of the other’s 
+NPC4 (medic, DDK, bloodied, tired): Is trying to tend to the wounds of the other’s - The Doc
 “Sorry but my hands are a bit occupied not having him bleed to death.”
 “Everybody but you and I was wounded. Quick on your feet. We had to leave some supplies behind though, go find a medical kit.”
 *Bring back medical kit.*
@@ -82,7 +82,7 @@ NPC4 (medic, DDK, bloodied, tired): Is trying to tend to the wounds of the other
 _______
 
 
-NPC5 (DDK, Texaco, guard type simple and practical, soldier boy): Is standing guard 
+NPC5 (DDK, Texaco, guard type simple and practical, soldier boy): Is standing guard  - The Scout
 “They are out there. Be on your guard.”
 “We are out of luck this time friend; I can’t go out with my leg. If you could just clear some of the nearby enemies we should be able to defend ourselves.” 
 *Go out and kill amount of undead/enemies.*
@@ -103,7 +103,7 @@ _____
 
 
 
-NPC6 (Politicians, DDK, Texaco, tracker, smart person, planner of the mission and trail): Is checking the maps
+NPC6 (Politicians, DDK, Texaco, tracker, smart person, planner of the mission and trail): Is checking the maps - The Mayor 
 “This must be the place.”
 “Think I found out where we are. We are in Wonderland. An old abounded settlement when the raiders came through, there might be a good amount of supplies out here, find these items to make sure we know what is left.”
 *Find identification markers.*
@@ -123,7 +123,7 @@ _______
 
 
 
-NPC7 (Scientists, stands with cart counting, simple person): Is checking supplies
+NPC7 (Scientists, stands with cart counting, simple person): Is checking supplies - The Scientist
 “Seems we are good… for now…”
 “We had to get away from the dead, but our pure water supply was destroyed. We will need a way to get more water or it does not matter what else we do here. Please find a way for us to get pure water.”
 *Get supplies for barrel water filter, turn on water purifier.* 
@@ -144,7 +144,7 @@ ________
 
 
 
-NPC8 (Sympathetic): Is gravely wounded 
+NPC8 (Sympathetic): Is gravely wounded  - Wounded Soldier
 “Ughh…”
 “I know why this place is full of enemies. The bone king must be here, he has control of both zombies and raiders. If you can kill him our enemies will scatter, but beware, he is a very powerful… ugh…”
 *Go kill the bone king. Cannot be done easily, wins the game. Should at least have 5-10 healing pots, and ammo to only use gun attacks for enough damage. NPC dead but revenged?* 
