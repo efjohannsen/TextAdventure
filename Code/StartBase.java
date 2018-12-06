@@ -3,7 +3,7 @@
         //Mangler en metode til, at give fejl når der vælges andet end de givne muligheder
         
         
-
+import static statics.StaticLib.*;
 import java.util.Scanner; 
 import java.io.IOException;
 import java.io.File; 
@@ -24,15 +24,11 @@ public class StartBase
       this.DIALOUGE      = DIALOUGE; 
       this.NPC           = NPC;        //Importer fra NPC klasse - Kald på constructor derfra 
    
-   }
-   
-   //Main er bare en test
-   public static void main(String[] args) 
-      throws IOException
-   {
       readDesc();
       menu(); 
    }
+   
+
    
    public static void menu()
    {
@@ -57,53 +53,47 @@ public class StartBase
         //Evt importer NPC txt filer her? -Fører videre til muligheder osv pr NPC
                //Implementer dialog-menu 
         
+        
          switch (choice)
          {
-            case 1: choice = '1';
+            case 1: 
              System.out.println("You have chosen 'NPC1' -insert description and quest\n");
-            System.out.println('\u000C');
             // String word = sc.nextLine(); 
             // readDialogue(word2); 
             
-            // System.out.print("Do you want to interact with this NPC. y/n?"); 
-             
-            if (choice == 1);
-               System.out.println("An option"); 
-               System.out.println("Another option"); 
-              
-              
-            
+            // System.out.print("Do you want to interact with this NPC. y/n?");   
+
              break; 
              
-            case 2: choice = '2'; 
+            case 2:
              System.out.println("You have chosen 'NPC 2' -insert description and quest\n");    
             break;    
             
-            case 3: choice = '3'; 
+            case 3: 
              System.out.println("You have chosen 'NPC 3' -insert description and quest\n");
             break; 
             
-            case 4: choice = '4';
+            case 4:
              System.out.println("You have chosen 'NPC 4' -insert description and quest\n");
             break; 
             
-            case 5: choice = '5'; 
+            case 5:
              System.out.println("You have chosen 'NPC 5' -insert description and quest\n");   
             break; 
             
-            case 6: choice = '6';
+            case 6:
              System.out.println("You have chosen 'NPC 6' -insert description and quest\n");   
             break; 
             
-            case 7: choice = '7'; 
+            case 7:
              System.out.println("You have chosen 'NPC 7' -insert description and quest\n");   
             break; 
             
-            case 8: choice = '8';             
+            case 8:           
              System.out.println("You have chosen 'NPC 8' -insert description and quest\n");
             break; 
             
-            case 9: choice = '9'; 
+            case 9:
              System.out.println("You are now back in the StartBase");
              end = true; 
             break; 
@@ -113,26 +103,29 @@ public class StartBase
    
    }
    //metode som 'burde' læse fra Description.txt filen 
-   public static void readDesc() 
-      throws IOException
-   {
-   
+   public static void readDesc() {
+      try {
       File file = new File("test.txt");     
       Scanner sc = new Scanner(file);
       String word = sc.nextLine(); 
       System.out.print(word);
-      
+      }  
+      catch (IOException e){
+         System.out.println(e); 
+      }
    }
    //Metode som 'burde' læse fra Dialogue.txt filen
-   public static void readDialogue(String word)
-      throws IOException
+   public static void readDialogue()
    {
-   
-      File file2 = new File("test.txt"); 
-      Scanner skan = new Scanner(file2);
-      String word2 = skan.nextLine(); 
-      System.out.print(word2); 
-   
+      try {
+      File file = new File("test.txt"); 
+      Scanner sc = new Scanner(file);
+      String word = sc.nextLine(); 
+      System.out.print(word); 
+      }
+      catch (IOException e) {
+         System.out.println(e);
+      }    
    }
 
 }
