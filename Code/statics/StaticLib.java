@@ -81,7 +81,7 @@ public class StaticLib {
     }
 
     public static void clearScreen() {
-      if (System.getProperty("os.name").toLowerCase().indexOf("win") != 0) {
+      if (System.getProperty("os.name").toLowerCase().indexOf("win") != -1) {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         }
