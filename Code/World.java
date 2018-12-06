@@ -4,7 +4,6 @@ import java.awt.Point;
 import java.util.Random;
 
 public class World {
-  // WorldTiles[] worldTiles;
   // User configurable
   private final int SIZE = 21; // The length of one side/axis
   private Player player;
@@ -19,8 +18,8 @@ public class World {
 
       for (int y = 0; y<SIZE; y++) {
 
-        // Set the starter building and Player
-        if (x == 10 && y == 10 ) {
+        // Set the starter building and Player near the middle
+        if (x == Math.floor(SIZE/2) && y == Math.floor(SIZE/2) ) {
           buildings.add( new Building(x,y) );
           player = new Player(x,y); // Make sure the player added is added to the World class to identify it in toString
           persons.add( player );
@@ -40,7 +39,6 @@ public class World {
   }
 
 
-  // TODO: Loop through the ArrayLists for persons and buildings
   public String toString() {
 
     String[] tempArray = new String[SIZE*SIZE];
@@ -69,7 +67,7 @@ public class World {
 
 		ret += player.toString() + "\n";
 
-    // Creating the final string, adding newlines where necessary
+    // Creating the final string, adding newlines as needed
     for (int i = 0; i<tempArray.length; i++) {
       if (i > 0 && i % SIZE == 0) {
         ret += "\n\n";
@@ -87,6 +85,7 @@ public class World {
     }
   }
 
+  // Moves a Person one step in a random direction. Could even be the Player for full simulation mode!
   public void moveRandom1(Person person) {
     int num = rand.nextInt(4);
     Command.Direction direction = Command.Direction.NORTH;
@@ -111,8 +110,6 @@ public class World {
     move(player, direction, distance);
   }
 
-  // TODO: Loop through the worldTile array and move the Player as much as possible in the requested direction.
-  // Remove the player from the old WorldTile and insert her/him into the new one.
   // TODO: Make similar move method for Rooms!
   private void move(Person reqPerson, Command.Direction direction, int reqDistance) {
 
@@ -140,6 +137,17 @@ public class World {
         
       }
     }
+  }
+
+  // Checks if the Player is standing on an NPC: Battle!
+  public boolean playerOnNPC() {
+    for (Person p : persons) {
+      if (p instanceof NPC) { // Don't fight yourself
+        if ( p.getX() == player.getX() && p.getY() == player.getY() ) 
+          return true;
+      }
+    }
+    return false;
   }
   
 }

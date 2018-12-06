@@ -18,6 +18,11 @@ public class StaticLib {
 
     private static Scanner input = new Scanner(System.in);
 
+    public static void pressEnterToContinue() {
+      print("Press Enter to continue", true);
+      input.nextLine();
+    }
+
     public static String getInput() {
       System.out.print("> ");
       return input.nextLine();
