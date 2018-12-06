@@ -1,36 +1,43 @@
 import java.util.Random;
 import java.awt.Point;
+import java.util.ArrayList;
 
-public class Building extends Point{
+public class Building extends Point {
 
-  Room[] rooms;
-  // Hardcoded to a value without the constructor just while testing
-  final int SIZE = 21;
+	ArrayList<Room> rooms;
 
-  public Building(int x, int y) {
-    super(x, y);
-    
-    // TODO: Perhaps expand to make more interesting buildings
-    Random ran = new Random();
+	Random ran = new Random();
+	final int SIZE_X = ran.nextInt(4)+1;
+	final int SIZE_Y = ran.nextInt(4)+1;
 
-    // Create the array of rooms in the building
-    // SIZE = ran.nextInt(5)+1;
-    // rooms = new Room[SIZE*SIZE];
+	public Building(int x, int y) {
+		
+		super(x, y);
+		
+		//creating array of rooms in a building
+		rooms = new ArrayList<Room>();
+		
+		//creating rooms
+		for (int i=0; i<SIZE_X; i++) {
+			for (int j=0; j<SIZE_Y; j++) {
+				rooms.add(new Room(i,j));
+			}
+		}
+		
+	}
 
-    // Creating the rooms themselves
-    // for (int i = 0; i < SIZE*SIZE; i++) {
-    //   rooms[i] = new Room(i % SIZE, i / SIZE);
-    // }
-  }
+	//prints a building
+	public String toString() {
 
-  // TODO: UNFINISHED
-  public String toString() {
+		String txt = "";
+		for (int i=0; i<SIZE_X; i++) {
+			for (int j=0; j<SIZE_Y; j++) {
+				txt += "[ ] ";
+			}
+			txt += "\n";
+		}
+		return txt;
+	
+	}
 
-    String result = "";
-    for (int i = 0; i<rooms.length; i++) {
-      if (i % SIZE == 0) result += "\n\n"; // Such double newline trickery!
-      result += rooms[i].toString();
-    }
-    return result;
-  }
 }
