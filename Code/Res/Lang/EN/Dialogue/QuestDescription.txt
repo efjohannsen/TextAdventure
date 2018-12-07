@@ -1,4 +1,3 @@
-The Priestess: A young red-haired servant of Lacosa. -She has started a small fire. 
 Must find either cans of oil for small reward, or turn on power station for heating for big reward, must have car battery to turn it on.
 Can of oil: Takes it off your hand and gives you light source
 Gets limited light.
@@ -7,7 +6,6 @@ Hugs so tight you feel all warm, and places light source in belt.
 Gets permanent light.
 End conversation
 
-The Sergant: A big, mean looking fella. -Has set up a defense position. 
 Find knifes, guns and other weapons for rewards.
 Get ammo as reward
 get gun
@@ -15,31 +13,25 @@ Option to hand over weapons for ammo.
 Give back ammo.
 Gives a blank stare.
 
-The Junker: A Scrawny mech type. Crazy but ressourceful. -Is barring the windows
 Go out find specific amount of nails, metal plates, and likewise.
 Reward sledgehammer, crowbar.
 
-The Medic: A slender and tired surgeon. -Is tending to the wounds of the other’s.
 Bring back medical kit.
 Gets large amount of healing pots.
 Get scrap by turning in healing pots.
 Possible turn in healing potions – Get scrap.
 
-The Scout: A simple and kind-hearted soldier. -Is standing guard. 
 Go out and kill amount of undead/enemies.
 Reward Hands gun.
 
-The Mayor: An intelligent but suspicious fella. -Is checking the map. 
 Find identification markers.
 Gets mixed reward box, ammo, healing pots, keys, other.
 
-The Scientist: A highly intelligent but lonely widow. -Is checking supplies. 
 Get supplies for barrel water filter, turn on water purifier.
 After water purifier turn on.
 Gets water bottle for each item brought back.
 Gets many water bottles.
 
-The Wounded Soldier: A scarred but sympathic man. -Is gravely wounded. 
 Go kill the bone king. Cannot be done easily, wins the game. Should at least have 5-10 healing pots, and ammo to only use gun attacks for enough damage. NPC dead but revenged? 
 Choughs up blood.
 Gives a bloodly grin

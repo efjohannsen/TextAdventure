@@ -36,19 +36,28 @@ public class StartBase
    }
    
    public void intro() {
-      if (!introTextSeen) {
-         dialogue(NPCDESC, 1);
-         dialogue(NPCDESC, 2); 
-         dialogue(NPCDESC, 3); 
+      if (!introTextSeen) {        
+         System.out.println(dialogue(NPCDESC, 1)); 
+         System.out.println();
+         System.out.println(dialogue(NPCDESC, 2));  
+         System.out.println(dialogue(NPCDESC, 3)); 
+         System.out.println(dialogue(NPCDESC, 4)); 
+         System.out.println(dialogue(NPCDESC, 5)); 
+         System.out.println(dialogue(NPCDESC, 6)); 
+         System.out.println(dialogue(NPCDESC, 7)); 
+         System.out.println(dialogue(NPCDESC, 8)); 
+         System.out.println(dialogue(NPCDESC, 9)); 
+         System.out.println(dialogue(NPCDESC, 10)); 
+         System.out.println(dialogue(NPCDESC, 11)); 
+         System.out.println();
          introTextSeen = true;
       }
    }
    
    public void menu()
    {
-     Scanner sc = new Scanner(System.in);
+      Scanner sc = new Scanner(System.in);
      
-
       while (!end) 
       {
         // System.out.println("Description..."); //Evt indlæs txt med Description (indeholder intro til startbase) 
@@ -112,41 +121,64 @@ public class StartBase
       
    public void thePriestess() {
       //dialogue(PLAYERDIAL, 1);
-      System.out.println(dialogue(NPCDIAL, 1));
-      System.out.println(dialogue(NPCDIAL, 2)); 
-   
+      System.out.println(dialogue(NPCDESC, 13));
+      System.out.println(); 
+     
+     // System.out.println(dialogue(NPCDIAL, 2)); 
+      
    }
    
    public void theSergant() {
-      System.out.println(dialogue(NPCDIAL, 6));
-      System.out.println(dialogue(NPCDIAL, 7));
+      System.out.println(dialogue(NPCDESC, 14));
+      System.out.println(); 
+      
+      //System.out.println(dialogue(NPCDIAL, 6));
+      //System.out.println(dialogue(NPCDIAL, 7));
    }
    
    public void theJunker() {
-      System.out.println(dialogue(NPCDIAL, 1));
+      System.out.println(dialogue(NPCDESC, 15));
+      System.out.println(); 
+      
+      //System.out.println(dialogue(NPCDIAL, 1));
    }
    
    
    public void theDoc() {
-      System.out.println(dialogue(NPCDIAL, 1)); 
+      System.out.println(dialogue(NPCDESC, 16));
+      System.out.println(); 
+      
+      //System.out.println(dialogue(NPCDIAL, 1)); 
    }
    
    
    public void theScout() {
-      System.out.println(dialogue(NPCDIAL, 1));
+      System.out.println(dialogue(NPCDESC, 17));
+      System.out.println(); 
+      
+      //System.out.println(dialogue(NPCDIAL, 8));
    }
    
    public void theMayor() {
-      System.out.println(dialogue(NPCDIAL, 1)); 
+      System.out.println(dialogue(NPCDESC, 18));
+      System.out.println(); 
+      
+      //System.out.println(dialogue(NPCDIAL, 1)); 
    }
    
    public void theScientist() {
-      System.out.println(dialogue(NPCDIAL, 1));
+      System.out.println(dialogue(NPCDESC, 19));
+      System.out.println(); 
+      
+      //System.out.println(dialogue(NPCDIAL, 1));
       
    }
    
    public void theWoundedSoldier() {
-      System.out.println(dialogue(NPCDIAL, 1)); 
+      System.out.println(dialogue(NPCDESC, 20));
+      System.out.println(); 
+      
+      //System.out.println(dialogue(NPCDIAL, 1)); 
    }   
    
    //Metode som 'burde' læse fra Dialogue.txt filen
@@ -160,8 +192,8 @@ public class StartBase
          
          while(sc.hasNextLine()) {
             if (i == line) {
-             return "\"" + sc.nextLine() + "\""; 
-             
+             return sc.nextLine(); 
+              
             } 
              sc.nextLine(); 
              i++;
