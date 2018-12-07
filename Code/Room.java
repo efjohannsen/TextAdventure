@@ -5,31 +5,31 @@ import java.util.ArrayList;
 
 public class Room extends Point {
 	
+	//declaring array lists
 	private ArrayList<Item> items;
 	private ArrayList<Person> persons;
 	
+	//creating room size randomly, minimum size is 3x3
+	private Random ran = new Random();
+	private final int SIZE = Math.max(3,ran.nextInt(5)+1);
+
 	//room constructor
-	public void Room(int x, int y) {
+	public Room(int x, int y) {
 	
 		super(x, y);
 		
-		//creating room size randomly, minimum size is 3x3
-		Random ran = new Random();
-		final int SIZE_X = Math.max(3,ran.nextInt(5)+1);
-		final int SIZE_Y = Math.max(3,ran.nextInt(5)+1);
-
 		//odds of generating item/npc
 		final int ITEM_CHANCE = 10;
 		final int NPC_CHANCE = 20;
 		
 		//populating room with items and NPCs
-		for(int i = 0; i < SIZE_X; i++) {
-			for(int j = 0; j < SIZE_Y; j++) {
+		for(int i = 0; i < SIZE; i++) {
+			for(int j = 0; j < SIZE; j++) {
 				if(ran.nextInt(ITEM_CHANCE) == 0) {
 					items.add(new Item(i,j));
 				}
 				else if(ran.nextInt(NPC_CHANCE) == 0) {
-					persons.add(new Person(i,j));
+					persons.add(new Person(i,j,new ArrayList<Item>()));
 				}
 			}
 		}
@@ -38,15 +38,29 @@ public class Room extends Point {
 	
 	public String toString() {
 	
-		String txt = "";
-	
-		for(int i = 0; i < SIZE_X; i++) {
-			for(int j = 0; j < SIZE_Y; j++) {
-				txt += EMPTY + "   ";
-			}
-			txt += "\n";			
+		//fills temp array with 'empty', items and persons symbols
+		String[] temp = new String[SIZE * SIZE];
+		
+		for(String t: temp) {
+			t = EMPTY + "   ";		
 		}
-	
+		for(Item t: items) {
+			temp[ (int)(t.getX() + SIZE * t.getY()) ] = "I" + "   ";
+		}
+		for(Person p: persons) {
+			temp[ (int)(p.getX() + SIZE * p.getY()) ] = "P" + "   ";
+		}
+		
+		//creating final text string with linebreaks
+		String txt = "";
+		
+		for(int i = 0; i < temp.length; i++) {
+			txt += temp[i];
+			if(((i+1) % SIZE) == 0) {
+				txt += "\n";
+			}
+		}
+		
 		return txt;
 	}
 	
