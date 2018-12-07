@@ -10,11 +10,11 @@ public class StaticLib {
     // How the different objects are displayed on the map/print out
     // public static final char PLAYER   = '\u058E';
     // public static final char PLAYER   = '\u1699';
-    public static final char PLAYER   = 'X';
-    public static final char NPC      = '\u00a7';
-    //public static final char BUILDING = 'M';
-    public static final char BUILDING = '\u25a0';
-    public static final char EMPTY    = 'Â·';
+    public static final char PLAYER   			= 'X';
+    public static final char NPC      			= '\u00a7';
+    public static final char BUILDING 			= '\u25a0';
+    public static final char ITEM    			= 'O';
+    public static final char EMPTY    			= '·';
 
     private static Scanner input = new Scanner(System.in);
 

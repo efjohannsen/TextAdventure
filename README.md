@@ -30,3 +30,4 @@ speak(file, 132)
 
 - Support movement keys? Successfully tested, but it would require JNA. Type in "keys" in command to activate them, and q or x to exit?
 - More ASCII art, maybe even animations requiring you to type enter between each? Maybe use VLC ascii or ffmpeg to get frames out at some frame rate and jp2a mass convert them?
+- Maybe represent enemy classes/types differently on the map. Could also be somewhat messy/confusing, though?
