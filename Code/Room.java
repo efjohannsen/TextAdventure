@@ -18,6 +18,9 @@ public class Room extends Point {
 	
 		super(x, y);
 		
+		items = new ArrayList<Item>();
+		persons = new ArrayList<Person>();
+		
 		//odds of generating item/npc
 		final int ITEM_CHANCE = 10;
 		final int NPC_CHANCE = 20;
@@ -34,6 +37,8 @@ public class Room extends Point {
 			}
 		}
 		
+		System.out.println(this);
+		
 	}
 	
 	public String toString() {
@@ -41,14 +46,14 @@ public class Room extends Point {
 		//fills temp array with 'empty', items and persons symbols
 		String[] temp = new String[SIZE * SIZE];
 		
-		for(String t: temp) {
-			t = EMPTY + "   ";		
+		for(int i = 0; i < temp.length; i++) {
+			temp[i] = EMPTY + "   ";
 		}
 		for(Item t: items) {
-			temp[ (int)(t.getX() + SIZE * t.getY()) ] = "I" + "   ";
+			temp[ (int)(t.getX() + SIZE * t.getY()) ] = ITEM + "   ";
 		}
 		for(Person p: persons) {
-			temp[ (int)(p.getX() + SIZE * p.getY()) ] = "P" + "   ";
+			temp[ (int)(p.getX() + SIZE * p.getY()) ] = NPC + "   ";
 		}
 		
 		//creating final text string with linebreaks
