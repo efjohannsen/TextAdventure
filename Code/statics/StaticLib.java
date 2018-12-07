@@ -2,17 +2,26 @@ package statics;
 
 import java.util.Scanner;
 import java.io.IOException;
+import java.io.File;
 import java.lang.InterruptedException;
 
 public class StaticLib {
 
     // How the different objects are displayed on the map/print out
-    public static final char PLAYER   = '#';
-    public static final char NPC      = 'o';
-    public static final char BUILDING = 'M';
+    // public static final char PLAYER   = '\u058E';
+    // public static final char PLAYER   = '\u1699';
+    public static final char PLAYER   = 'X';
+    public static final char NPC      = '\u00a7';
+    //public static final char BUILDING = 'M';
+    public static final char BUILDING = '\u25a0';
     public static final char EMPTY    = '·';
 
     private static Scanner input = new Scanner(System.in);
+
+    public static void pressEnterToContinue() {
+      print("Press Enter to continue", true);
+      input.nextLine();
+    }
 
     public static String getInput() {
       System.out.print("> ");
@@ -95,8 +104,16 @@ public class StaticLib {
       }
     }
 
-    public static void printFile() {
-      //scanner.next
+    public static void printFile(String path) {
+      try {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
+
+        while (scanner.hasNextLine()) {
+          print( scanner.nextLine(), true );
+        }
+      }
+      catch (IOException e) { System.out.println(e); }
     }
 
     // TODO: Handle system language

@@ -5,6 +5,8 @@ public class GameMenu {
   boolean running = true;
 
   public GameMenu() {
+    printFile("Res/dillon.txt");
+    getInput();
     menu();
   }
 

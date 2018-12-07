@@ -21,7 +21,10 @@ public class Command {
     
     while (running) {
       commandOptions();
-      command();
+      boolean playerMoved = command();
+
+      if (playerMoved) world.moveNPCs();
+      if ( world.playerOnNPC() ) CombatSketch.combat(); // TODO: When to destroy NPC or Player?
             
       if (running) {
         clearScreen();
@@ -33,21 +36,31 @@ public class Command {
   // NPC interaction happens automatically when on the same position
   private void commandOptions() {
     print(
-    "Type in a command." + "\n" +
-    "Example commands" + "\n" +
-    "help                 | display this command" + "\n" +
-    "go <n> <direction> | where <n> is the number of steps to move and <direction> is either north, east, south or west." + "\n" +
-    "enter building       | enters a building" + "\n" +
-    "exit game            | Exits to the main menu" + "\n"
-    // Extra commands for inside rooms
-    //"pickup item" +
-    //"toggle door" +
-    //"leave building" +
-    , true
+      "\n" +
+      "Type in a command." + " Type 'help' to show available commands" + "\n"
+      , true
     );
   }
 
-  private void command() {
+  private void help() {
+    print(
+      "Example commands" + "\n" +
+      "go <n> <direction> | where <n> is the number of steps to move and <direction> is either north, east, south or west." + "\n" +
+      "enter building       | enters a building" + "\n" +
+      "exit game            | Exits to the main menu" + "\n" +
+      "\n"
+      // Extra commands for inside rooms
+      //"pickup item" +
+      //"toggle door" +
+      //"leave building" +
+      , true
+    );
+    pressEnterToContinue();
+
+  }
+
+  // Returns true only if the player moved, because the NPCs only move if the player did and not if they fx. typed an invalid command.
+  private boolean command() {
 
     String inputLine = "";
     if ( scanner.hasNextLine() )
@@ -57,14 +70,13 @@ public class Command {
 
     switch (allWords[0]) {
       case "help":
-        commandOptions();
-        break;
+        help();
+        return false;
       case "go":
         if (allWords.length < 3) {
           print("Error: The go command takes three arguments: go <distance> <direction>", true);
-          print("Press Enter to continue", true);
-          getInput();
-          break;
+          pressEnterToContinue();
+          return false;
         }
         int distance = checkNumericalPositiveInput( allWords[1] );
         if ( distance != -1) {
@@ -72,38 +84,41 @@ public class Command {
           switch (allWords[2]) {
             case "north":
               world.movePlayer(Direction.NORTH, distance);
-              break;
+              return true;
             case "east":
               world.movePlayer(Direction.EAST, distance);
-              break;
+              return true;
             case "south":
               world.movePlayer(Direction.SOUTH, distance);
-              break;
+              return true;
             case "west":
               world.movePlayer(Direction.WEST, distance);
-              break;
+              return true;
             default:
              print("Error: Invalid direction: Must be north, east, south or west", true);
-             print("Press Enter to continue", true);
-             getInput();
-             break;
+             pressEnterToContinue();
+             return false;
           }
         }
         else {
           print("Invalid distance: Must be a positive, numerical value", true);
         }
-        break;
+        return false;
 
       case "enter":
-        if (allWords[1] == "building") break;
-        break;
+        if (allWords[1].equals("building")) {
+          // Check if there's a building at the current position and enter the first room. Maybe there can be a building description, even?
+          print("Entering building!", true);
+          pressEnterToContinue();
+        }
+        return false;
       case "exit":
-        if (allWords[1] == "game") running = false;
-        break;
+        if (allWords[1].equals("game") ) running = false;
+        return false;
       default:
         print("Invalid command. Try again.", true);
-        print("Press Enter to continue", true);
-        getInput();
+        pressEnterToContinue();
+        return false;
     }
   }
 
@@ -120,10 +135,6 @@ public class Command {
 
   public void toggleDoor() {
 
-  }
-
-  // Quits to the main menu
-  public void quit() {
   }
 
 }
