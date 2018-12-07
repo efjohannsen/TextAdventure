@@ -16,6 +16,13 @@ public class StartBase
    private final String DIALOUGE; 
    private final String NPC;  
    public static boolean end = false; 
+   public static boolean introTextSeen = false; 
+   File NPCDIAL          = new File("Res/Lang/EN/Dialogue/NPCs_Dialogue.txt");
+   File QUESTDESC        = new File("Res/Lang/EN/Dialogue/QuestDescription.txt");
+   File PLAYERDIAL       = new File("Res/Lang/EN/Dialogue/PLAYER_Dialogue.txt");
+   File NPCDESC          = new File("Res/Lang/EN/Dialogue/NPC_Description.txt"); 
+   
+   //evt inds�t NPC navne her
    
    public StartBase(String DESCRIPTION, String DIALOUGE, String NPC)
    {
@@ -23,14 +30,21 @@ public class StartBase
       this.DESCRIPTION   = DESCRIPTION; 
       this.DIALOUGE      = DIALOUGE; 
       this.NPC           = NPC;        //Importer fra NPC klasse - Kald på constructor derfra 
-   
-      readDesc();
+      
+      intro();   
       menu(); 
    }
    
-
+   public void intro() {
+      if (!introTextSeen) {
+         dialogue(NPCDESC, 1);
+         dialogue(NPCDESC, 2); 
+         dialogue(NPCDESC, 3); 
+         introTextSeen = true;
+      }
+   }
    
-   public static void menu()
+   public void menu()
    {
      Scanner sc = new Scanner(System.in);
      
@@ -38,60 +52,53 @@ public class StartBase
       while (!end) 
       {
         // System.out.println("Description..."); //Evt indlæs txt med Description (indeholder intro til startbase) 
-         System.out.println("Press '1' to interact with npc1"); //Beskrivelsen ændres selvfølgelig 
-         System.out.println("Press '2' to interact with npc2");
-         System.out.println("Press '3' to interact with npc3");
-         System.out.println("Press '4' to interact with npc4");
-         System.out.println("Press '5' to interact with npc5");
-         System.out.println("Press '6' to interact with npc6");
-         System.out.println("Press '7' to interact with npc7");
-         System.out.println("Press '8' to interact with npc8");
+         System.out.println("Press '1' to interact with The Priestess"); //Beskrivelsen ændres selvfølgelig 
+         System.out.println("Press '2' to interact with The Sergant");
+         System.out.println("Press '3' to interact with The Junker");
+         System.out.println("Press '4' to interact with The Doc");
+         System.out.println("Press '5' to interact with The Scout");
+         System.out.println("Press '6' to interact with The Mayor");
+         System.out.println("Press '7' to interact with The Scientist");
+         System.out.println("Press '8' to interact with The Wounded Soldier");
+         System.out.println(); 
+         System.out.println("Press '9' to return to the MainBase"); 
  
-         int choice = sc.nextInt();  
-         //int option = sc.nextInt(); //Evt. lav en anden skanner? 
+         int choice = sc.nextInt(); 
         
-        //Evt importer NPC txt filer her? -Fører videre til muligheder osv pr NPC
-               //Implementer dialog-menu 
-        
-         
+         clearScreen();   
          switch (choice)
-         {
-            case 1: 
-             System.out.println("You have chosen 'NPC1' -insert description and quest\n");
-            // String word = sc.nextLine(); 
-            // readDialogue(word2); 
-            
-            // System.out.print("Do you want to interact with this NPC. y/n?");   
-             break; 
-             
-             
-            case 2:
-             System.out.println("You have chosen 'NPC 2' -insert description and quest\n");    
+         {            
+            case 1:  
+             thePriestess(); 
             break;    
             
-            case 3: 
-             System.out.println("You have chosen 'NPC 3' -insert description and quest\n");
+            case 2:  
+             theSergant(); 
             break; 
             
-            case 4:
-             System.out.println("You have chosen 'NPC 4' -insert description and quest\n");
+            case 3:   
+             theJunker();
             break; 
             
-            case 5:
-             System.out.println("You have chosen 'NPC 5' -insert description and quest\n");   
+            case 4:  
+             theDoc();    
+            break; 
+            
+            case 5:    
+             theScout();  
             break; 
             
             case 6:
-             System.out.println("You have chosen 'NPC 6' -insert description and quest\n");   
+             theMayor();  
             break; 
             
-            case 7:
-             System.out.println("You have chosen 'NPC 7' -insert description and quest\n");   
+            case 7:           
+             theScientist();
             break; 
             
-            case 8:           
-             System.out.println("You have chosen 'NPC 8' -insert description and quest\n");
-            break; 
+            case 8: 
+             theWoundedSoldier();
+             break; 
             
             case 9:
              System.out.println("You are now back in the StartBase");
@@ -103,68 +110,72 @@ public class StartBase
    
    }
       
-   public static void thePriestess() {
-      readDialogue(); 
+   public void thePriestess() {
+      //dialogue(PLAYERDIAL, 1);
+      System.out.println(dialogue(NPCDIAL, 1));
+      System.out.println(dialogue(NPCDIAL, 2)); 
+   
    }
    
-   public static void theSergant() {
-      readDialogue(); 
+   public void theSergant() {
+      System.out.println(dialogue(NPCDIAL, 6));
+      System.out.println(dialogue(NPCDIAL, 7));
    }
    
-   public static void theJunker() {
-      readDialogue();
-   }
-   
-   
-   public static void theDoc() {
-      readDialogue(); 
+   public void theJunker() {
+      System.out.println(dialogue(NPCDIAL, 1));
    }
    
    
-   public static void theScout() {
-      readDialogue(); 
+   public void theDoc() {
+      System.out.println(dialogue(NPCDIAL, 1)); 
    }
    
-   public static void theMayor() {
-      readDialogue(); 
+   
+   public void theScout() {
+      System.out.println(dialogue(NPCDIAL, 1));
    }
    
-   public static void theScientist() {
-      readDialogue(); 
+   public void theMayor() {
+      System.out.println(dialogue(NPCDIAL, 1)); 
    }
    
-   public static void theWoundedSoldier() {
-      readDialogue(); 
+   public void theScientist() {
+      System.out.println(dialogue(NPCDIAL, 1));
+      
+   }
+   
+   public void theWoundedSoldier() {
+      System.out.println(dialogue(NPCDIAL, 1)); 
    }   
    
-   
-   
-   
-   //metode som 'burde' læse fra Description.txt filen 
-   public static void readDesc() {
-      try {
-          File file = new File("test.txt");     
-          Scanner sc = new Scanner(file);
-          String word = sc.nextLine(); 
-          System.out.print(word);
-      }  
-      catch (IOException e){
-         System.out.println(e); 
-      }
-   }
    //Metode som 'burde' læse fra Dialogue.txt filen
-   public static void readDialogue()
+   public String dialogue(File file, int line)
    {
       try {
-          File file = new File("test.txt"); 
-          Scanner sc = new Scanner(file);
-          String word = sc.nextLine(); 
-          System.out.print(word); 
+      
+         Scanner sc = new Scanner(file);
+         
+         int i = 1; 
+         
+         while(sc.hasNextLine()) {
+            if (i == line) {
+             return "\"" + sc.nextLine() + "\""; 
+             
+            } 
+             sc.nextLine(); 
+             i++;
+             
+         } 
       }
       catch (IOException e) {
          System.out.println(e);
       }    
+      return "";
    }
+  
+ }
 
-}
+
+
 

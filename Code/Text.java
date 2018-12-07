@@ -4,6 +4,7 @@ import java.io.File;
 
 import java.util.Random;
 
+// TODO: Basically unused at the moment. Candidate for deletion or inclusion somewhere.
 public class Text {
 
   final static int LINESIZE = 16;

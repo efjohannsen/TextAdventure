@@ -15,7 +15,8 @@ public class Person extends Point {
   // Only one location pair necessary, or do we need to track inside/outside building explicitly?
   String name;
   int strength,     // Inventory capacity, damage
-      personality;  // NPC interaction
+      personality,  // NPC interaction
+			hp = 100;
   ArrayList<Item> inventory;
   boolean isInBuilding = false; // If in Room call the Room move method, otherwise the World move method. Starting value depends on whether the Player starts in the World or a Room.
 
@@ -78,8 +79,6 @@ public class Person extends Point {
 
   // TODO: Needs to handle system languag in some way.
   public String toString() {
-    return "Name: " + name
-    + "\n" + "Strength: " + strength 
-    + "\n" + "Personality: " + personality;
+    return "Name: " + name + " HP:" + hp + " STR: " + strength + " PER: " + personality;
   }
 }
