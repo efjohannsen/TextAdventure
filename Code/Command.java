@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import static statics.StaticLib.*;
+import combat.Combat;
 
 
 // Fx.: 
@@ -38,7 +39,9 @@ public class Command {
           print(world.toString(), true);
         }
         // Both the player and NPCs move before we check for combat
-        if ( world.playerOnNPC() ) CombatSketch.combat(); // TODO: When to destroy NPC or Player?
+        if ( world.playerOnNPC() ) {
+          new Combat().combat(); // TODO: When to destroy NPC or Player?
+        }
       }
     }
   }

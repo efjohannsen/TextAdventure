@@ -1,11 +1,12 @@
 import static statics.StaticLib.*;
+import combat.Combat;
 
 public class GameMenu {
 
   boolean running = true;
 
   public GameMenu() {
-    printFile("Res/dillon.txt");
+    printFilePath("Res/dillon.txt");
     getInput();
     menu();
   }
@@ -54,7 +55,8 @@ public class GameMenu {
         new StartBase("abc", "bac", "bac");
         break;
       case 5:
-        CombatSketch.combat();
+        Combat combat = new Combat();
+        combat.combat();
         break;
       case 6:
         Text.dialog();

@@ -29,10 +29,6 @@ public class StaticLib {
       return input.nextLine();
     }
 
-    public static int closestNumberDivisibleByX(int number, int divisibleBy) {
-      return (number / divisibleBy + 1) * divisibleBy;
-    }
-
     public static boolean isNumericalValue(String input) {
       for (int i = 0; i < input.length(); i++) {
         if (!Character.isDigit(input.charAt(i))) {
@@ -60,7 +56,7 @@ public class StaticLib {
       return value;
     }
 
-    // Returns 0 if not numerical or not positive
+    // Returns -1 if not numerical or not positive
     public static int checkNumericalPositiveInput(String input) {
       int value = -1;
 
@@ -73,7 +69,6 @@ public class StaticLib {
       }
 
       return value;
-
     }
 
     public static int getNumericalInputRangeLoop(int min, int max) {
@@ -90,6 +85,7 @@ public class StaticLib {
       return value;
     }
 
+    // Cross platform screen clearing
     public static void clearScreen() {
       if (System.getProperty("os.name").toLowerCase().indexOf("win") != -1) {
         try {
@@ -105,9 +101,14 @@ public class StaticLib {
       }
     }
 
-    public static void printFile(String path) {
-      try {
+    // Used for ASCII images
+    public static void printFilePath(String path) {
         File file = new File(path);
+        printFile(file);
+    }
+
+    public static void printFile(File file) {
+      try {
         Scanner scanner = new Scanner(file);
 
         while (scanner.hasNextLine()) {
