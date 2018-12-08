@@ -33,9 +33,9 @@ public class GameMenu {
       "--------------\n" +
       "3. Exit game \n\n" +
       "--------------\n" +
-      "4. TESTING: StartBase \n" +
-      "5. TESTING: Combat \n" +
-      "6. TESTING: Dialog \n\n" + 
+      "4. StartBase (testing)\n" +
+      "5. Combat (testing)\n" +
+      "6. Dialog (testing)\n\n" + 
       "Choose your destiny: ", true);
   }
 
