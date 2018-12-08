@@ -13,8 +13,9 @@ public class StaticLib {
     public static final char PLAYER   			= 'X';
     public static final char NPC      			= '\u00a7';
     public static final char BUILDING 			= '\u25a0';
-    public static final char ITEM    			= 'O';
-    public static final char EMPTY    			= '·';
+    public static final char ITEM    			  = 'O';
+    public static final char EMPTY    			= '\u00b7';
+    //public static final char EASTER         = '\u1F47B';
 
     private static Scanner input = new Scanner(System.in);
 

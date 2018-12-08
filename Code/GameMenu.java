@@ -13,7 +13,7 @@ public class GameMenu {
   public void menu() {
     while (running) {
       menuOptions();
-      int choice = getNumericalInputRangeLoop(1,5);
+      int choice = getNumericalInputRangeLoop(1,6);
       menuChoice(choice);
             
       if (running) {
@@ -26,14 +26,15 @@ public class GameMenu {
   private void menuOptions() {
       print(
       "\nTextAdventure!\n" +
-      "-------------------\n" +
+      "--------------\n" +
       "1. Start game \n" + 
       "2. Options \n" + 
-      "-------------------\n" +
+      "--------------\n" +
       "3. Exit game \n\n" +
-      "-------------------\n" +
-      "4. StartBase \n\n" +
-      "5. Combat \n\n" +
+      "--------------\n" +
+      "4. TESTING: StartBase \n" +
+      "5. TESTING: Combat \n" +
+      "6. TESTING: Dialog \n\n" + 
       "Choose your destiny: ", true);
   }
 
@@ -45,8 +46,6 @@ public class GameMenu {
         new World();
         break;
       case 2:
-        running = false; // For now it just quits as well. Otherwise running this and then exiting -> Exception
-        Text.dialog();
         break;
       case 3:
         running = false;
@@ -57,7 +56,9 @@ public class GameMenu {
       case 5:
         CombatSketch.combat();
         break;
-
+      case 6:
+        Text.dialog();
+        break;
     }
   }
 

@@ -22,7 +22,7 @@ public class StartBase
    File PLAYERDIAL       = new File("Res/Lang/EN/Dialogue/PLAYER_Dialogue.txt");
    File NPCDESC          = new File("Res/Lang/EN/Dialogue/NPC_Description.txt"); 
    
-   //evt indsæt NPC navne her
+   //evt NPC navne her
    
    public StartBase(String DESCRIPTION, String DIALOUGE, String NPC)
    {

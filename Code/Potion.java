@@ -1,5 +1,6 @@
 public class Potion extends Item {
-  public Potion() {
+  public Potion(int x, int y) {
+    super(x, y);
     
   } 
 }

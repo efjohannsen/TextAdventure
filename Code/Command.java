@@ -23,12 +23,22 @@ public class Command {
       commandOptions();
       boolean playerMoved = command();
 
-      if (playerMoved) world.moveNPCs();
-      if ( world.playerOnNPC() ) CombatSketch.combat(); // TODO: When to destroy NPC or Player?
-            
       if (running) {
         clearScreen();
+            
         print(world.toString(), true);
+
+        if (playerMoved) {
+          try {
+            Thread.sleep(1500); // Don't move the player and NPCs simultaneously but give the Player a bit of time to see their move first.
+          }
+          catch (InterruptedException e) {System.out.println(e);}
+          world.moveNPCs();
+          clearScreen();
+          print(world.toString(), true);
+        }
+        // Both the player and NPCs move before we check for combat
+        if ( world.playerOnNPC() ) CombatSketch.combat(); // TODO: When to destroy NPC or Player?
       }
     }
   }

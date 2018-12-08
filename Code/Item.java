@@ -7,6 +7,7 @@ public class Item extends Point {
 
   // A completely empty constructor for now, just for testing
   public Item(int x, int y) {
+    super(x, y);
   }
   //   this.name = name;
   //   this.description = description;

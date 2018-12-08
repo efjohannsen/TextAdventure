@@ -10,4 +10,7 @@ public class StatItem extends Item {
     // StatItemNumbers
     // super(name, description, weight);
   // }
+  public StatItem(int x, int y) {
+    super(x, y);
+  }
 }

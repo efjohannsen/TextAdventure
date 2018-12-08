@@ -37,7 +37,7 @@ public class Room extends Point {
 			}
 		}
 		
-		System.out.println(this);
+		//System.out.println(this);
 		
 	}
 	
