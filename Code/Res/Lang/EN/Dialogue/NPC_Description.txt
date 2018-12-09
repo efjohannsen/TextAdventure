@@ -8,11 +8,11 @@ You and The Doc were the only ones, who managed to sustain no damage. You took u
 With the winters being harsh as they are, most creatures lay low in the winter, which gives grave opportunities to scour the land for resources.
 
 Now you must manage to survive the hostilities in the wasteland. Look around in the building and talk to your fellow scavengers as hey are in dire need of your assistance. 
-The Priestess: A young red-haired servant of Shaitan.    (Is starting a small fire) 
-The Sergant: A big, mean looking fella. 	         (Is setting up a defense position)
-The Junker: A Scrawny mech type. Crazy but ressourceful. (Is barring the windows)
-The Medic: A slender and tired surgeon. 	         (Is tending to the wounds of the other’s)
-The Scout: A simple and kind-hearted soldier. 	         (Is standing guard) 
-The Mayor: An intelligent but suspicious chap.           (Is checking the map)
-The Scientist: A highly intelligent but lonely widow. 	 (Is checking supplies) 
-The Wounded Soldier: A scarred but sympathic man. 	 (Is gravely wounded)
+The Priestess: A young red-haired servant of Solar Deity. (Is starting a small fire) 
+The Sergant: A big, mean looking fella. 	          (Is setting up a defense position)
+The Junker: A Scrawny mech type. Crazy but ressourceful.  (Is barring the windows)
+The Medic: A slender and tired surgeon. 	          (Is tending to the wounds of the other’s)
+The Scout: A simple but paranoid soldier. 	          (Is standing guard) 
+The Mayor: An intelligent but suspicious chap.            (Is checking the map)
+The Scientist: A highly intelligent but lonely widow. 	  (Is checking supplies) 
+The Wounded Soldier: A scarred but sympathic man. 	  (Is gravely wounded)
