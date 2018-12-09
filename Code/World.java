@@ -3,6 +3,12 @@ import java.util.ArrayList;
 import java.awt.Point;
 import java.util.Random;
 
+/**
+  *
+  * @param  name desc
+  * @param  name desc
+  * @return      desc
+  */
 public class World {
   // User configurable
   private final int SIZE = 21; // The length of one side/axis
@@ -11,6 +17,12 @@ public class World {
   private ArrayList<Person> persons = new ArrayList<Person>();
   private Random rand;
 
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
   public World() {
     rand = new Random(); 
 
@@ -20,14 +32,14 @@ public class World {
 
         // Set the starter building and Player near the middle
         if (x == Math.floor(SIZE/2) && y == Math.floor(SIZE/2) ) {
-          buildings.add( new Building(x,y) );
-          player = new Player(x,y); // Make sure the player added is added to the World class to identify it in toString
+          buildings.add( new Building(y,x) );
+          player = new Player(y,x);
           persons.add( player );
         }
         else {
-          if (rand.nextInt(15) == 1) persons.add( new NPC(x, y) );
+          if (rand.nextInt(15) == 1) persons.add( new NPC(y, x) );
           // 20% chance of replacing the null placeholder building we just added as default above, with an actual building
-          else if (rand.nextInt(20) == 1) buildings.add(new Building(x, y));
+          else if (rand.nextInt(20) == 1) buildings.add(new Building(y, x));
         }
       }
     }
@@ -77,6 +89,12 @@ public class World {
     return ret;
   }
 
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
   // Move all NPCs one space, with 50% chance of standing still for each one
   public void moveNPCs() {
     for (Person p : persons) {
@@ -85,6 +103,12 @@ public class World {
     }
   }
 
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
   // Moves a Person one step in a random direction. Could even be the Player for full simulation mode!
   public void moveRandom1(Person person) {
     int num = rand.nextInt(4);
@@ -106,10 +130,22 @@ public class World {
     move(person, direction, 1);
   }
   
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
   public void movePlayer(Command.Direction direction, int distance) {
     move(player, direction, distance);
   }
 
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
   // TODO: Make similar move method for Rooms!
   private void move(Person reqPerson, Command.Direction direction, int reqDistance) {
 
@@ -139,6 +175,12 @@ public class World {
     }
   }
 
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
   // Checks if the Player is standing on an NPC: Battle!
   public boolean playerOnNPC() {
     for (Person p : persons) {
@@ -149,5 +191,4 @@ public class World {
     }
     return false;
   }
-  
 }

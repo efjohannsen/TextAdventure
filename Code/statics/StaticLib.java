@@ -5,122 +5,194 @@ import java.io.IOException;
 import java.io.File;
 import java.lang.InterruptedException;
 
+/**
+  *
+  * @param  name desc
+  * @param  name desc
+  * @return      desc
+  */
 public class StaticLib {
 
-    // How the different objects are displayed on the map/print out
-    // public static final char PLAYER   = '\u058E';
-    // public static final char PLAYER   = '\u1699';
-    public static final char PLAYER   			= 'X';
-    public static final char NPC      			= '\u00a7';
-    public static final char BUILDING 			= '\u25a0';
-    public static final char ITEM    			  = 'O';
-    public static final char EMPTY    			= '\u00b7';
-    //public static final char EASTER         = '\u1F47B';
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  // How the different objects are displayed on the map/print out
+  // public static final char PLAYER   = '\u058E';
+  // public static final char PLAYER   = '\u1699';
+  public static final char PLAYER   			= 'X';
+  public static final char NPC      			= '\u00a7';
+  public static final char BUILDING 			= '\u25a0';
+  public static final char ITEM    			  = 'O';
+  public static final char EMPTY    			= '\u00b7';
+  //public static final char EASTER         = '\u1F47B';
 
-    private static Scanner input = new Scanner(System.in);
+  private static Scanner input = new Scanner(System.in);
 
-    public static void pressEnterToContinue() {
-      print("Press Enter to continue", true);
-      input.nextLine();
-    }
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  public static void pressEnterToContinue() {
+    print("Press Enter to continue", true);
+    input.nextLine();
+  }
 
-    public static String getInput() {
-      System.out.print("> ");
-      return input.nextLine();
-    }
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  public static String getInput() {
+    System.out.print("> ");
+    return input.nextLine();
+  }
 
-    public static boolean isNumericalValue(String input) {
-      for (int i = 0; i < input.length(); i++) {
-        if (!Character.isDigit(input.charAt(i))) {
-          return false;
-        }
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  public static boolean isNumericalValue(String input) {
+    for (int i = 0; i < input.length(); i++) {
+      if (!Character.isDigit(input.charAt(i))) {
+        return false;
       }
-      return true;
     }
+    return true;
+  }
 
-    public static int getNumericalInputLoop() {
-      int value = 0;
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  public static int getNumericalInputLoop() {
+    int value = 0;
 
-      while (true) {
-        String input = getInput();
-
-        if (input.length() > 0 && isNumericalValue(input)) {
-          value = Integer.parseInt(input);
-          break;
-        }
-        else {
-          print("You need to input a numerical value!", true);
-        }
-      }
-
-      return value;
-    }
-
-    // Returns -1 if not numerical or not positive
-    public static int checkNumericalPositiveInput(String input) {
-      int value = -1;
+    while (true) {
+      String input = getInput();
 
       if (input.length() > 0 && isNumericalValue(input)) {
-        int number = Integer.parseInt(input);
-        if (number > 0) value = number;
+        value = Integer.parseInt(input);
+        break;
       }
       else {
         print("You need to input a numerical value!", true);
       }
-
-      return value;
     }
 
-    public static int getNumericalInputRangeLoop(int min, int max) {
-      int value = getNumericalInputLoop();
+    return value;
+  }
 
-      while (true) {
-        if (value >= min && value <= max) {
-          break;
-        }
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  // Returns -1 if not numerical or not positive
+  public static int checkNumericalPositiveInput(String input) {
+    int value = -1;
 
-        print("Numerical value must be in the range of (" + min + ", " + max + ")", true);
-        value = getNumericalInputLoop();    
+    if (input.length() > 0 && isNumericalValue(input)) {
+      int number = Integer.parseInt(input);
+      if (number > 0) value = number;
+    }
+    else {
+      print("You need to input a numerical value!", true);
+    }
+
+    return value;
+  }
+
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  public static int getNumericalInputRangeLoop(int min, int max) {
+    int value = getNumericalInputLoop();
+
+    while (true) {
+      if (value >= min && value <= max) {
+        break;
       }
-      return value;
-    }
 
-    // Cross platform screen clearing
-    public static void clearScreen() {
-      if (System.getProperty("os.name").toLowerCase().indexOf("win") != -1) {
-        try {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        }
-        catch (IOException | InterruptedException e) {}
-      }
-      else {  // Works for Linux and macOS
-        String ansiClear = "\033[H\033[2J";
-        System.out.print(ansiClear);
-        System.out.flush();
-        //Runtime.getRuntime().exec("clear");
-      }
+      print("Numerical value must be in the range of (" + min + ", " + max + ")", true);
+      value = getNumericalInputLoop();    
     }
+    return value;
+  }
 
-    // Used for ASCII images
-    public static void printFilePath(String path) {
-        File file = new File(path);
-        printFile(file);
-    }
-
-    public static void printFile(File file) {
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  // Cross platform screen clearing
+  public static void clearScreen() {
+    if (System.getProperty("os.name").toLowerCase().indexOf("win") != -1) {
       try {
-        Scanner scanner = new Scanner(file);
-
-        while (scanner.hasNextLine()) {
-          print( scanner.nextLine(), true );
-        }
+          new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
       }
-      catch (IOException e) { System.out.println(e); }
+      catch (IOException | InterruptedException e) {}
     }
+    else {  // Works for Linux and macOS
+      String ansiClear = "\033[H\033[2J";
+      System.out.print(ansiClear);
+      System.out.flush();
+      //Runtime.getRuntime().exec("clear");
+    }
+  }
 
-    // TODO: Handle system language
-    public static void print(String argument, boolean newline) {
-      if (newline) System.out.println(argument);
-      else System.out.print(argument);
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  // Used for ASCII images
+  public static void printFilePath(String path) {
+      File file = new File(path);
+      printFile(file);
+  }
+
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  public static void printFile(File file) {
+    try {
+      Scanner scanner = new Scanner(file);
+
+      while (scanner.hasNextLine()) {
+        print( scanner.nextLine(), true );
+      }
     }
+    catch (IOException e) { System.out.println(e); }
+  }
+
+  /**
+    *
+    * @param  name desc
+    * @param  name desc
+    * @return      desc
+    */
+  // TODO: Handle system language
+  public static void print(String argument, boolean newline) {
+    if (newline) System.out.println(argument);
+    else System.out.print(argument);
+  }
 }

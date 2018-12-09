@@ -6,6 +6,12 @@ import combat.Combat;
 // Fx.: 
 // go north 4
 // pickup 1 (presented with a list of items, each with a number)
+/**
+ *
+ * @param  name desc
+ * @param  name desc
+ * @return      desc
+ */
 public class Command {
   Scanner scanner = new Scanner(System.in);
   boolean running = true;
@@ -18,6 +24,12 @@ public class Command {
     menu();
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   private void menu() {
     
     while (running) {
@@ -46,6 +58,12 @@ public class Command {
     }
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   // NPC interaction happens automatically when on the same position
   private void commandOptions() {
     print(
@@ -55,6 +73,12 @@ public class Command {
     );
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   private void help() {
     print(
       "Example commands" + "\n" +
@@ -72,6 +96,12 @@ public class Command {
 
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   // Returns true only if the player moved, because the NPCs only move if the player did and not if they fx. typed an invalid command.
   private boolean command() {
 
@@ -135,17 +165,23 @@ public class Command {
     }
   }
 
-  // TODO: We need to print some kind of current position info
-
-  // Speaks to npc on current position.
-  public void speak() {
-  }
-
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   // Picks up the item on the current position.
   public void pickup() {
 
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public void toggleDoor() {
 
   }

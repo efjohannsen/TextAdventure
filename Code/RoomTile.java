@@ -1,6 +1,12 @@
 import java.awt.Point;
 import java.util.ArrayList;
 
+/**
+ *
+ * @param  name desc
+ * @param  name desc
+ * @return      desc
+ */
 public class RoomTile {
   boolean light;
   ArrayList<Item> items;

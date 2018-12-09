@@ -3,6 +3,12 @@ import java.awt.Point;
 import java.util.Random;
 import java.util.ArrayList;
 
+/**
+ *
+ * @param  name desc
+ * @param  name desc
+ * @return      desc
+ */
 public class Room extends Point {
 	
 	//declaring array lists
@@ -13,6 +19,12 @@ public class Room extends Point {
 	private Random ran = new Random();
 	private final int SIZE = Math.max(3,ran.nextInt(5)+1);
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
 	//room constructor
 	public Room(int x, int y) {
 	

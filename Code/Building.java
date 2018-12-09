@@ -3,12 +3,24 @@ import java.util.Random;
 import java.awt.Point;
 import java.util.ArrayList;
 
+/**
+ *
+ * @param  name desc
+ * @param  name desc
+ * @return      desc
+ */
 public class Building extends Point {
 
 	private ArrayList<Room> rooms;
 
 	//creating a building size randomly
-	private Random ran = new Random();
+	/**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
+  private Random ran = new Random();
 	private final int SIZE_X = ran.nextInt(4)+1;
 	private final int SIZE_Y = ran.nextInt(4)+1;
 
@@ -29,7 +41,6 @@ public class Building extends Point {
 		
 	}
 
-	//prints a building
 	public String toString() {
 
 		String txt = "";

@@ -1,16 +1,34 @@
 import static statics.StaticLib.*;
 import combat.Combat;
 
+/**
+ *
+ * @param  name desc
+ * @param  name desc
+ * @return      desc
+ */
 public class GameMenu {
 
   boolean running = true;
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public GameMenu() {
     printFilePath("Res/dillon.txt");
     getInput();
     menu();
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public void menu() {
     while (running) {
       menuOptions();
@@ -24,6 +42,12 @@ public class GameMenu {
     }
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   private void menuOptions() {
       print(
       "\nTextAdventure!\n" +
@@ -39,6 +63,12 @@ public class GameMenu {
       "Choose your destiny: ", true);
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   private void menuChoice(int choice) {
 
     switch (choice) {

@@ -5,6 +5,12 @@ public class Game {
   public static final String LANGPATH = "Res/Lang/" + lang + "/";
   public static final int worldSize = 21;
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public static void main(String[] args) {
     new GameMenu(); 
   }

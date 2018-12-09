@@ -5,6 +5,12 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.awt.Point;
 
+/**
+ *
+ * @param  name desc
+ * @param  name desc
+ * @return      desc
+ */
 public class Person extends Point {
 
     static final int NUMBER_OF_STATS = 2;
@@ -22,10 +28,22 @@ public class Person extends Point {
 
   static Random rand = new Random(); 
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public Person(int x, int y, ArrayList<Item> items) {
     this( x, y, randomName(), items );
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public Person(int x, int y, String name, ArrayList<Item> items) {
 
     super(x,y);
@@ -52,6 +70,12 @@ public class Person extends Point {
 
   }
 
+  /**
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   private static String randomName() {
     // Split these up if support for other languages was implemented
     File firstFile = new File(Game.LANGPATH + "/first_names.csv");
