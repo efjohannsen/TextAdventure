@@ -81,8 +81,14 @@ public class Command {
    */
   private void help() {
     print(
+      "Symbols on the map: " + "\n" +
+      PLAYER + "   is the player " + "\n" +
+      NPC + "   are NPCs" + "\n" +
+      WONDERLAND + "  is Wonderland, your home" + "\n" +
+      BUILDING + "   is a building" +
+      "\n\n" +
       "Example commands" + "\n" +
-      "go <n> <direction> | where <n> is the number of steps to move and <direction> is either north, east, south or west." + "\n" +
+      "go <n> <direction>   | where <n> is the number of steps to move and <direction> is either north, east, south or west." + "\n" +
       "enter building       | enters a building" + "\n" +
       "exit game            | Exits to the main menu" + "\n" +
       "\n"
@@ -150,6 +156,7 @@ public class Command {
 
       case "enter":
         if (allWords[1].equals("building")) {
+          //for (Building b : buildings
           // Check if there's a building at the current position and enter the first room. Maybe there can be a building description, even?
           print("Entering building!", true);
           pressEnterToContinue();

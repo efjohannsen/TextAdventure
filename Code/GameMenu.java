@@ -32,7 +32,7 @@ public class GameMenu {
   public void menu() {
     while (running) {
       menuOptions();
-      int choice = getNumericalInputRangeLoop(1,6);
+      int choice = getNumericalInputRangeLoop(1,5);
       menuChoice(choice);
             
       if (running) {
@@ -56,10 +56,7 @@ public class GameMenu {
       "2. Options \n" + 
       "--------------\n" +
       "3. Exit game \n\n" +
-      "--------------\n" +
-      "4. StartBase (testing)\n" +
-      "5. Combat (testing)\n" +
-      "6. Dialog (testing)\n\n" + 
+      "--------------\n\n" + // 4 and 5 work as well, for testing combat and statitem generation respectively
       "Choose your destiny: ", true);
   }
 
@@ -73,8 +70,7 @@ public class GameMenu {
 
     switch (choice) {
       case 1:
-        clearScreen();
-        new World();
+        new StartBase();
         break;
       case 2:
         break;
@@ -82,14 +78,11 @@ public class GameMenu {
         running = false;
         break;
       case 4:
-        new StartBase("abc", "bac", "bac");
-        break;
-      case 5:
         Combat combat = new Combat();
         combat.combat();
         break;
-      case 6:
-        Text.dialog();
+      case 5:
+        System.out.println( new StatItem(0, 0) );
         break;
     }
   }

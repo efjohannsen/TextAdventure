@@ -23,11 +23,13 @@ public class Building extends Point {
   private Random ran = new Random();
 	private final int SIZE_X = ran.nextInt(4)+1;
 	private final int SIZE_Y = ran.nextInt(4)+1;
+  public boolean starterBuilding;
 
 	//building constructor with world map coordinate parameters
-	public Building(int x, int y) {
+	public Building(int x, int y, boolean starterBuilding) {
 		
 		super(x, y);
+    this.starterBuilding = starterBuilding;
 		
 		//creating array of rooms in a building
 		rooms = new ArrayList<Room>();

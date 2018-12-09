@@ -12,15 +12,20 @@ public class StartBase {
    File QUESTDESC        = new File("Res/Lang/EN/Dialogue/QuestDescription.txt");
    File PLAYERDIAL       = new File("Res/Lang/EN/Dialogue/PLAYER_Dialogue.txt");
    File NPCDESC          = new File("Res/Lang/EN/Dialogue/NPC_Description.txt"); 
+   static String name = "The building";
+   World world;
    
    //evt NPC navne her
    
    public StartBase() {
       
+      clearScreen();
       intro();   
       menu(); 
+      if (world == null) world = new World();
+      else new Command(world);
    }
-   
+
    public void intro() {
       if (!introTextSeen) {        
          System.out.println(dialogue(NPCDESC, 1)); 
@@ -53,9 +58,9 @@ public class StartBase {
       System.out.println("Press '7' to interact with The Scientist");
       System.out.println("Press '8' to interact with The Wounded Soldier");
       System.out.println(); 
-      System.out.println("Press '9' to return to the MainBase"); 
+      System.out.println("Press '9' to exit " + name); 
   
-      //Kalder på StaticLib-klassen - Afgør om input er int og/eller String. 
+      //Kalder paa StaticLib-klassen - Afgoer om input er int og/eller String. 
       int choice = getNumericalInputRangeLoop(1, 9);
       
          clearScreen();   
@@ -93,7 +98,7 @@ public class StartBase {
              break; 
             
             case 9:
-             System.out.println("You are now back in the StartBase");
+             System.out.println("Exited to the New World wilderness");
              end = true; 
             break; 
          }
@@ -329,6 +334,7 @@ public class StartBase {
       System.out.println(dialogue(NPCDIAL, 43));
       System.out.println(dialogue(NPCDIAL, 44));
       System.out.println(dialogue(NPCDIAL, 45));
+      name = "Wonderland";
       System.out.println(); 
       
       boolean npcTalk = false; 

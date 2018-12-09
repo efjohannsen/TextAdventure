@@ -14,7 +14,7 @@ import java.util.Random;
   */
 public class Text {
 
-  final static int LINESIZE = 17; // 16 characters + a newline. Linux newline is only a \n, whereas it might be two bytes for Windows as it uses \r\n. Verified offsets at the current line size of 17: 18, 36, 54
+  final static int LINESIZE = 16 + 1; // 16 characters + a newline. Linux newline is only a \n, whereas it might be two bytes for Windows as it uses \r\n. Verified offsets at the current line size of 17: 18, 36, 54
 
   /**
     *
@@ -30,7 +30,7 @@ public class Text {
 
       Random rand = new Random(); 
 
-      handler.seek( (LINESIZE + 1) * rand.nextInt(3) ); // randomMultiplier to get a random line, just for testing currently
+      handler.seek( (LINESIZE + 1) * rand.nextInt(3)); // randomMultiplier to get a random line, just for testing currently
       System.out.println( handler.readLine() );
     }
     catch (IOException e) {System.out.println(e);}
