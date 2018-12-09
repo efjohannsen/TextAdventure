@@ -1,4 +1,4 @@
-        //Mangler en clear-screen funktion (blandt mange andre ting, lol)
+        //NPC 8 printer ikke ud ? 
         //Mangler implementering af NPC og player (Kan evt udelades) 
         //Mangler en metode til, at give fejl når der vælges andet end de givne muligheder
         
@@ -45,10 +45,8 @@ public class StartBase
          System.out.println(dialogue(NPCDESC, 5)); 
          System.out.println(dialogue(NPCDESC, 6)); 
          System.out.println(dialogue(NPCDESC, 7)); 
-         System.out.println(dialogue(NPCDESC, 8)); 
          System.out.println(dialogue(NPCDESC, 9)); 
          System.out.println(dialogue(NPCDESC, 10)); 
-         System.out.println(dialogue(NPCDESC, 11)); 
          System.out.println();
          introTextSeen = true;
       }
@@ -121,23 +119,34 @@ public class StartBase
       
    public void thePriestess() {
       //dialogue(PLAYERDIAL, 1);
-      System.out.println(dialogue(NPCDESC, 13));
+      System.out.println(dialogue(NPCDESC, 11));
       System.out.println(); 
+      System.out.println(dialogue(NPCDIAL, 1));
+      System.out.println(dialogue(NPCDIAL, 2));
+      System.out.println(dialogue(NPCDIAL, 3));
+      System.out.println();
      
      // System.out.println(dialogue(NPCDIAL, 2)); 
       
    }
    
    public void theSergant() {
-      System.out.println(dialogue(NPCDESC, 14));
+      System.out.println(dialogue(NPCDESC, 12));
       System.out.println(); 
+      System.out.println(dialogue(NPCDIAL, 8));
+      System.out.println(dialogue(NPCDIAL, 9));
+      System.out.println(dialogue(NPCDIAL, 10));
+      System.out.println();
       
       //System.out.println(dialogue(NPCDIAL, 6));
       //System.out.println(dialogue(NPCDIAL, 7));
    }
    
    public void theJunker() {
-      System.out.println(dialogue(NPCDESC, 15));
+      System.out.println(dialogue(NPCDESC, 13));
+      System.out.println(); 
+      System.out.println(dialogue(NPCDIAL, 18));
+      System.out.println(dialogue(NPCDIAL, 19));
       System.out.println(); 
       
       //System.out.println(dialogue(NPCDIAL, 1));
@@ -145,37 +154,56 @@ public class StartBase
    
    
    public void theDoc() {
-      System.out.println(dialogue(NPCDESC, 16));
+      System.out.println(dialogue(NPCDESC, 14));
       System.out.println(); 
+      System.out.println(dialogue(NPCDIAL, 25));
+      System.out.println(dialogue(NPCDIAL, 26));
+      System.out.println();
       
       //System.out.println(dialogue(NPCDIAL, 1)); 
    }
    
    
    public void theScout() {
-      System.out.println(dialogue(NPCDESC, 17));
+      System.out.println(dialogue(NPCDESC, 15));
       System.out.println(); 
+      System.out.println(dialogue(NPCDIAL, 33));
+      System.out.println(dialogue(NPCDIAL, 34));
+      System.out.println(dialogue(NPCDIAL, 35));
+      System.out.println();
       
       //System.out.println(dialogue(NPCDIAL, 8));
    }
    
    public void theMayor() {
-      System.out.println(dialogue(NPCDESC, 18));
+      System.out.println(dialogue(NPCDESC, 16));
+      System.out.println(); 
+      System.out.println(dialogue(NPCDIAL, 43));
+      System.out.println(dialogue(NPCDIAL, 44));
+      System.out.println(dialogue(NPCDIAL, 45));
       System.out.println(); 
       
       //System.out.println(dialogue(NPCDIAL, 1)); 
    }
    
    public void theScientist() {
-      System.out.println(dialogue(NPCDESC, 19));
+      System.out.println(dialogue(NPCDESC, 17));
       System.out.println(); 
+      System.out.println(dialogue(NPCDIAL, 50));
+      System.out.println(dialogue(NPCDIAL, 51));
+      System.out.println(dialogue(NPCDIAL, 52));
+      System.out.println();
       
       //System.out.println(dialogue(NPCDIAL, 1));
       
    }
    
    public void theWoundedSoldier() {
-      System.out.println(dialogue(NPCDESC, 20));
+      System.out.println(dialogue(NPCDESC, 18));
+      System.out.println(); 
+      System.out.println(dialogue(NPCDIAL, 56));
+      System.out.println(dialogue(NPCDIAL, 60));
+      System.out.println(dialogue(NPCDIAL, 61));
       System.out.println(); 
       
       //System.out.println(dialogue(NPCDIAL, 1)); 

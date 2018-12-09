@@ -2,19 +2,17 @@ Winter in The New World...
 The deathly chill clings to everything it touches, banshee howls of wind blows across the rooftops. 
 Hail falling like meteors large enough to break a skull open, breaking the few remaining windows left in the townscape.
 You and your scavenger group have taken shelter from the harsh nuclear winter storms in a building. 
-In a still standing town you have found across journey through the wasteland.
-Your group was recently set upon by the radioactive dead, zombies and ghouls, that roams the barren lands... 
-You were one of two who managed to sustain no damage. 
-You took upon this journey with your group to find useful scrap. 
-With the winters being harsh as they are, most things lay low in the winter, which gives grave opportunities to scour the land for resources.
-But it seems you were not so lucky this time. 
-Now you must manage to survive the hostilities in the wasteland.
+The building is located in what seems to be the last still standing town you have found across journey through the wasteland.
+Your group was recently set upon by the radioactive dead, zombies and ghouls that roam the barren lands... 
+You and The Doc were the only ones, who managed to sustain no damage. You took upon this journey with your group to find useful scrap. 
+With the winters being harsh as they are, most creatures lay low in the winter, which gives grave opportunities to scour the land for resources.
 
-The Priestess: A young red-haired servant of Lacosa. 	 (Is starting a small fire) 
-The Sergant: A big, mean looking fella. 		 (Is setting up a defense position)
+Now you must manage to survive the hostilities in the wasteland. Look around in the building and talk to your fellow scavengers as hey are in dire need of your assistance. 
+The Priestess: A young red-haired servant of Shaitan.    (Is starting a small fire) 
+The Sergant: A big, mean looking fella. 	         (Is setting up a defense position)
 The Junker: A Scrawny mech type. Crazy but ressourceful. (Is barring the windows)
-The Medic: A slender and tired surgeon. 		 (Is tending to the wounds of the other’s)
-The Scout: A simple and kind-hearted soldier. 		 (Is standing guard) 
-The Mayor: An intelligent but suspicious fella. 	 (Is checking the map)
+The Medic: A slender and tired surgeon. 	         (Is tending to the wounds of the other’s)
+The Scout: A simple and kind-hearted soldier. 	         (Is standing guard) 
+The Mayor: An intelligent but suspicious chap.           (Is checking the map)
 The Scientist: A highly intelligent but lonely widow. 	 (Is checking supplies) 
 The Wounded Soldier: A scarred but sympathic man. 	 (Is gravely wounded)
