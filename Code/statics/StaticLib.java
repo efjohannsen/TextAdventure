@@ -32,7 +32,7 @@ public class StaticLib {
     * @return      desc
     */
   public static void pressEnterToContinue() {
-    print("Press Enter to continue", true);
+    print("PRESS ENTER TO CONTINUE", true);
     input.nextLine();
   }
 

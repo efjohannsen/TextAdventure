@@ -55,8 +55,8 @@ public class GameMenu {
       "1. Start game \n" + 
       "2. Options \n" + 
       "--------------\n" +
-      "3. Exit game \n\n" +
-      "--------------\n\n" + // 4 and 5 work as well, for testing combat and statitem generation respectively
+      "3. Exit game \n" +
+      "\n" +
       "Choose your destiny: ", true);
   }
 

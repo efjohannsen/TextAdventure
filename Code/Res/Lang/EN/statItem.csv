@@ -1,7 +1,7 @@
-name,attack,tohit,defense,health,weight,description      
-Vest,2,1,Just your basic vest                            
-Long-sleeved shirt,3,2,Just your basic long-sleeved shirt
-Chain mail,10,10,Just your basic chain mail              
-Knife,2,16,1,Just your basic knife                       
-Short sword,4,10,3,Just your basic short sword           
-Long sword,4,10,5,Just your basic sword                  
+name,attack,tohit,defense,health,weight,description            
+Vest,0,0,1,0,1,Just your basic vest                            
+Long-sleeved shirt,0,0,2,0,2,Just your basic long-sleeved shirt
+Chain mail,0,0,10,0,10,Just your basic chain mail              
+Knife,2,16,0,0,3,Just your basic knife                         
+Short sword,4,10,0,0,4,Just your basic short sword             
+Long sword,4,10,0,0,6,Just your basic sword                    

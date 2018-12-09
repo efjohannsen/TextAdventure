@@ -6,51 +6,57 @@ import java.util.Random;
 
 /**
   *
-  * @param  name desc
-  * @param  name desc
-  * @return      desc
   */
 public class StatItem extends Item {
 
   final static File file = new File(Game.LANGPATH + "statItem.csv");
 
-  final static int LINESIZE = 57 + 1; // The number of characters + a newline (\n).
+  final static int LINESIZE = 63 + 1; // The number of characters + a newline (\n).
   static Random rand = new Random(); 
-  int id;
   
   /**
     * Fetches a random StatItem
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
+    * @param  x desc
+    * @param  y desc
+    * @return   desc
     */
   public StatItem(int x, int y) {
     super(x, y);
-    this.id = rand.nextInt( (int) file.length() / LINESIZE) + 1; // Generates an ID above 1, as the first line is the header
+    id = rand.nextInt( (int) (file.length() / LINESIZE) -1) + 1; // Generates an ID above 1, as the first line is the header
   }
 
   /**
     * Fetches a specific StatItem
     * @param  name desc
     * @param  name desc
+    * @param  name desc
     * @return      desc
     */
   public StatItem(int x, int y, int id) {
     super(x, y);
-    this.id = id;
+    id = id;
   }
 
   public String toString() {
     String item = "";
+    String ret = "";
 
     try {
       RandomAccessFile handler = new RandomAccessFile(file, "r");
-      // LINESIZE + 1 to go to the next line
-      handler.seek( (LINESIZE + 1) * id ); // randomMultiplier to get a random line, just for testing currently
+      handler.seek( LINESIZE * id );
       item = handler.readLine();
     }
     catch (IOException e) {System.out.println(e);}
 
-    return item;
+    String[] attrs = item.split(",");
+    ret = attrs[0] + "\n" +
+      "Attack " + attrs[1]   + "\n" +
+      "To hit: " + attrs[2]  + "\n" +
+      "Defense: " + attrs[3] + "\n" +
+      "Health: " + attrs[4]  + "\n" +
+      "Weight: " + attrs[5]  + "\n" +
+      "Description: " + attrs[6];
+
+    return ret;
   }
 }
