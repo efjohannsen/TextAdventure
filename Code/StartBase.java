@@ -1,3 +1,4 @@
+//Importering af klasser 
 import static statics.StaticLib.*;
 import java.util.Scanner; 
 import java.io.IOException;
@@ -5,18 +6,17 @@ import java.io.File;
 
 
 public class StartBase {
-
-   public static boolean end = false; 
+   //Initialisering 
+   public static boolean end           = false; 
    public static boolean introTextSeen = false; 
-   File NPCDIAL          = new File("Res/Lang/EN/Dialogue/NPCs_Dialogue.txt");
-   File QUESTDESC        = new File("Res/Lang/EN/Dialogue/QuestDescription.txt");
-   File PLAYERDIAL       = new File("Res/Lang/EN/Dialogue/PLAYER_Dialogue.txt");
-   File NPCDESC          = new File("Res/Lang/EN/Dialogue/NPC_Description.txt"); 
-   static String name = "The building";
+   File NPCDIAL                        = new File("Res/Lang/EN/Dialogue/NPCs_Dialogue.txt");
+   File QUESTDESC                      = new File("Res/Lang/EN/Dialogue/QuestDescription.txt");
+   File PLAYERDIAL                     = new File("Res/Lang/EN/Dialogue/PLAYER_Dialogue.txt");
+   File NPCDESC                        = new File("Res/Lang/EN/Dialogue/NPC_Description.txt"); 
+   static String name                  = "The building";
    World world;
    
-   //evt NPC navne her
-   
+   //metode: kalder på intro-metode, menu-metode, clearscreen-metode.    
    public StartBase() {
       
       clearScreen();
@@ -25,8 +25,9 @@ public class StartBase {
       if (world == null) world = new World();
       else new Command(world);
    }
-
+   //intro-tekst: Metode der printer historien 1 gang. Kalder på metoderne fra Dialog. 
    public void intro() {
+   //Kører 1 gang. 
       if (!introTextSeen) {        
          System.out.println(dialogue(NPCDESC, 1)); 
          System.out.println();
@@ -44,13 +45,13 @@ public class StartBase {
    }
    
    public void menu() {
-     
+      //skanner: tager input som parameter 
       Scanner sc = new Scanner(System.in);
-     
+      //while-loop: Kører så længe end != true. 
       while (!end) {
-      // System.out.println("Description..."); //Evt indlÃ¦s txt med Description (indeholder intro til startbase) 
+      // Print af menu
       System.out.println("Press '1' to interact with The Priestess"); //Beskrivelsen Ã¦ndres selvfÃ¸lgelig 
-      System.out.println("Press '2' to interact with The Sergant");
+      System.out.println("Press '2' to interact with The AsgJar");
       System.out.println("Press '3' to interact with The Junker");
       System.out.println("Press '4' to interact with The Doc");
       System.out.println("Press '5' to interact with The Scout");
@@ -62,8 +63,9 @@ public class StartBase {
   
       //Kalder paa StaticLib-klassen - Afgoer om input er int og/eller String. 
       int choice = getNumericalInputRangeLoop(1, 9);
-      
+      //clearscreen-metode fra StaticLib-klassen
          clearScreen();   
+         //Switch-metode: kalder på char-metoderne. 
          switch (choice) {            
             case 1:  
              thePriestess(); 
@@ -106,18 +108,22 @@ public class StartBase {
       }
    
     }
+    //Creating the NPC's (8/8) in their own seperate methods 
+    /**
+    * 
+    * @param 
+    */
       
    public void thePriestess() {
-      //dialogue(PLAYERDIAL, 1);
       System.out.println(dialogue(NPCDESC, 11));
       System.out.println(); 
       System.out.println(dialogue(NPCDIAL, 1));
       System.out.println(dialogue(NPCDIAL, 2));
       System.out.println(dialogue(NPCDIAL, 3));
       System.out.println();
-      
+      //Boolean - bruges til at holde while-loop kørende 
       boolean npcTalk = false; 
-      
+      //while-loop: Kører så længe 'npcTalk' != true
       while(!npcTalk) {
          System.out.println();
          System.out.println("1: " + dialogue(PLAYERDIAL, 2));
@@ -127,7 +133,7 @@ public class StartBase {
          System.out.println(); 
          
          int choice = getNumericalInputRangeLoop(1, 4);
-         
+         //if-else metoder: Tager brugerens input og returnerer NPCDIAL (Kalder på metoden 'dialogue'. 
          if (choice == 1) {
             System.out.println(dialogue(NPCDIAL, 4)); 
          }
@@ -139,17 +145,15 @@ public class StartBase {
          else if (choice == 3) {
             System.out.println(dialogue(NPCDIAL, 2)); 
          }
-         
+         //Vender tilbage til char-menu 
          else if (choice == 4) {
             npcTalk = true; 
          }
         
       }
-     
-     // System.out.println(dialogue(NPCDIAL, 2)); 
       
    }
-   
+   // -||-
    public void theSergant() {
       System.out.println(dialogue(NPCDESC, 12));
       System.out.println(); 
@@ -194,7 +198,7 @@ public class StartBase {
     }
  
  }
-   
+   // -||-
    public void theJunker() {
       System.out.println(dialogue(NPCDESC, 13));
       System.out.println(); 
@@ -238,11 +242,8 @@ public class StartBase {
     }
     
   }
-
-      
-      //System.out.println(dialogue(NPCDIAL, 1));
    
-   
+   // -||-
    public void theDoc() {
       System.out.println(dialogue(NPCDESC, 14));
       System.out.println(); 
@@ -282,7 +283,7 @@ public class StartBase {
       
   }
    
-   
+   // -||-
    public void theScout() {
       System.out.println(dialogue(NPCDESC, 15));
       System.out.println(); 
@@ -327,7 +328,7 @@ public class StartBase {
     }
       
   }
-   
+   // -||-
    public void theMayor() {
       System.out.println(dialogue(NPCDESC, 16));
       System.out.println(); 
@@ -364,7 +365,7 @@ public class StartBase {
     }
       
    }
-   
+   // -||-
    public void theScientist() {
       System.out.println(dialogue(NPCDESC, 17));
       System.out.println(); 
@@ -405,7 +406,7 @@ public class StartBase {
     }
       
    }
-   
+   // -||-
    public void theWoundedSoldier() {
       System.out.println(dialogue(NPCDESC, 18));
       System.out.println(); 
@@ -440,21 +441,20 @@ public class StartBase {
       
     }
    }   
-   
-   //Metode som 'burde' lÃ¦se fra Dialogue.txt filen
+   //metode som læser txt.filerne. Tager 'fil' og 'int' som parameter 
    public String dialogue(File file, int line) {    
       try {      
          Scanner sc = new Scanner(file);
          int i = 1; 
          
          while(sc.hasNextLine()) {
-            if (i == line) {
-            return sc.nextLine(); 
-            } 
+          if (i == line) {
+          return sc.nextLine(); 
+          } 
             
             sc.nextLine(); 
             i++;
-         } 
+          } 
       
       }
       catch (IOException e) {
@@ -464,10 +464,4 @@ public class StartBase {
       return "";
     }
 
-
-
 }
-
-
-
-
