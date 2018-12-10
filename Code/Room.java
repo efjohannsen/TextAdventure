@@ -65,7 +65,12 @@ public class Room extends Point {
 			temp[ (int)(t.getX() + SIZE * t.getY()) ] = ITEM + "   ";
 		}
 		for(Person p: persons) {
-			temp[ (int)(p.getX() + SIZE * p.getY()) ] = NPC + "   ";
+			if(p instanceof NPC) {
+				temp[ (int)(p.getX() + SIZE * p.getY()) ] = NPC + "   ";
+			}
+			else {
+				temp[ (int)(p.getX() + SIZE * p.getY()) ] = PLAYER + "   ";
+			}
 		}
 		
 		//creating final text string with linebreaks
