@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.File; 
 
 
+/**
+ * @author Tariq
+ */
 public class StartBase {
    //Initialisering 
    public static boolean end           = false; 
@@ -16,7 +19,7 @@ public class StartBase {
    static String name                  = "The building";
    World world;
    
-   //metode: kalder på intro-metode, menu-metode, clearscreen-metode.    
+   //metode: kalder paa intro-metode, menu-metode, clearscreen-metode.    
    public StartBase() {
       
       clearScreen();
@@ -25,9 +28,9 @@ public class StartBase {
       if (world == null) world = new World();
       else new Command(world);
    }
-   //intro-tekst: Metode der printer historien 1 gang. Kalder på metoderne fra Dialog. 
+   //intro-tekst: Metode der printer historien 1 gang. Kalder paa metoderne fra Dialog. 
    public void intro() {
-   //Kører 1 gang. 
+   //Koerer 1 gang. 
       if (!introTextSeen) {        
          System.out.println(dialogue(NPCDESC, 1)); 
          System.out.println();
@@ -47,7 +50,7 @@ public class StartBase {
    public void menu() {
       //skanner: tager input som parameter 
       Scanner sc = new Scanner(System.in);
-      //while-loop: Kører så længe end != true. 
+      //while-loop: Koerer saa laenge end != true. 
       while (!end) {
       // Print af menu
       System.out.println("Press '1' to interact with The Priestess"); //Beskrivelsen Ã¦ndres selvfÃ¸lgelig 
@@ -65,7 +68,7 @@ public class StartBase {
       int choice = getNumericalInputRangeLoop(1, 9);
       //clearscreen-metode fra StaticLib-klassen
          clearScreen();   
-         //Switch-metode: kalder på char-metoderne. 
+         //Switch-metode: kalder paa char-metoderne. 
          switch (choice) {            
             case 1:  
              thePriestess(); 
@@ -121,9 +124,9 @@ public class StartBase {
       System.out.println(dialogue(NPCDIAL, 2));
       System.out.println(dialogue(NPCDIAL, 3));
       System.out.println();
-      //Boolean - bruges til at holde while-loop kørende 
+      //Boolean - bruges til at holde while-loop koerende 
       boolean npcTalk = false; 
-      //while-loop: Kører så længe 'npcTalk' != true
+      //while-loop: Koerer saa laenge 'npcTalk' != true
       while(!npcTalk) {
          System.out.println();
          System.out.println("1: " + dialogue(PLAYERDIAL, 2));
@@ -133,7 +136,7 @@ public class StartBase {
          System.out.println(); 
          
          int choice = getNumericalInputRangeLoop(1, 4);
-         //if-else metoder: Tager brugerens input og returnerer NPCDIAL (Kalder på metoden 'dialogue'. 
+         //if-else metoder: Tager brugerens input og returnerer NPCDIAL (Kalder paa metoden 'dialogue'. 
          if (choice == 1) {
             System.out.println(dialogue(NPCDIAL, 4)); 
          }
@@ -441,7 +444,7 @@ public class StartBase {
       
     }
    }   
-   //metode som læser txt.filerne. Tager 'fil' og 'int' som parameter 
+   //metode som laeser txt.filerne. Tager 'fil' og 'int' som parameter 
    public String dialogue(File file, int line) {    
       try {      
          Scanner sc = new Scanner(file);

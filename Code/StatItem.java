@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.Random;
 
 /**
-  *
+  * @author Marcus
   */
 public class StatItem extends Item {
 

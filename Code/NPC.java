@@ -1,10 +1,7 @@
 import java.util.ArrayList;
 
 /**
- *
- * @param  name desc
- * @param  name desc
- * @return      desc
+ * @author Marcus
  */
 public class NPC extends Person {
 

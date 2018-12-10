@@ -2,15 +2,8 @@ import java.util.Scanner;
 import static statics.StaticLib.*;
 import combat.Combat;
 
-
-// Fx.: 
-// go north 4
-// pickup 1 (presented with a list of items, each with a number)
 /**
- *
- * @param  name desc
- * @param  name desc
- * @return      desc
+ * @author Marcus
  */
 public class Command {
   Scanner scanner = new Scanner(System.in);
@@ -33,6 +26,8 @@ public class Command {
   private void menu() {
     
     while (running) {
+      clearScreen();
+      print(world.toString(), true);
       commandOptions();
       boolean playerMoved = command();
 
@@ -52,10 +47,20 @@ public class Command {
         }
         // Both the player and NPCs move before we check for combat
         if ( world.playerOnNPC() ) {
-          new Combat().combat(); // TODO: When to destroy NPC or Player?
+          int res = new Combat().combat(); // TODO: When to destroy NPC or Player?
+          if (res == Combat.PLAYER_DEAD) gameOver();
+          else world.killPersonsAtPlayerPosition();
+          clearScreen();
         }
       }
     }
+  }
+
+  private void gameOver() {
+    clearScreen();
+    print("GAME OVER!", true);
+    print("Returning to the main menu", true);
+    new GameMenu();
   }
 
   /**

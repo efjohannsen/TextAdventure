@@ -1,8 +1,5 @@
 /**
- *
- * @param  name desc
- * @param  name desc
- * @return      desc
+ * @author Marcus
  */
 public class Game {
   // Pick a language here.

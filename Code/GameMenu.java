@@ -2,10 +2,7 @@ import static statics.StaticLib.*;
 import combat.Combat;
 
 /**
- *
- * @param  name desc
- * @param  name desc
- * @return      desc
+ * @author Marcus
  */
 public class GameMenu {
 

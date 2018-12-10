@@ -4,10 +4,7 @@ import java.awt.Point;
 import java.util.Random;
 
 /**
-  *
-  * @param  name desc
-  * @param  name desc
-  * @return      desc
+  * @author Marcus
   */
 public class World {
   // User configurable
@@ -42,9 +39,6 @@ public class World {
         }
       }
     }
-
-    // Just for testing. Remove afterwards, probably
-    print(this.toString(), true);
 
     new Command(this);
   }
@@ -92,6 +86,19 @@ public class World {
     return ret;
   }
 
+  public void killPersonsAtPlayerPosition() {
+    int x = (int) player.getX();
+    int y = (int) player.getY();
+
+    int i = 0;
+    while ( i < persons.size() ) {
+      if (persons.get(i).getX() == x && persons.get(i).getY() == y && persons.get(i) instanceof NPC) {
+        persons.remove(i);
+      }
+      else i++;
+    }
+  }
+
   /**
     *
     * @param  name desc
@@ -118,7 +125,7 @@ public class World {
     Command.Direction direction = Command.Direction.NORTH;
     switch (num) {
       case 0:
-        // Default value
+        // Default value, ie. NORTH
         break;
       case 1:
         direction = Command.Direction.EAST;

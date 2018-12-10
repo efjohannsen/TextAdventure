@@ -4,10 +4,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 /**
- *
- * @param  name desc
- * @param  name desc
- * @return      desc
+ * @author Esben, Marcus
  */
 public class Room extends Point {
 	
@@ -65,12 +62,7 @@ public class Room extends Point {
 			temp[ (int)(t.getX() + SIZE * t.getY()) ] = ITEM + "   ";
 		}
 		for(Person p: persons) {
-			if(p instanceof NPC) {
-				temp[ (int)(p.getX() + SIZE * p.getY()) ] = NPC + "   ";
-			}
-			else {
-				temp[ (int)(p.getX() + SIZE * p.getY()) ] = PLAYER + "   ";
-			}
+			temp[ (int)(p.getX() + SIZE * p.getY()) ] = NPC + "   ";
 		}
 		
 		//creating final text string with linebreaks

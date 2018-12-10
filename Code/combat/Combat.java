@@ -4,17 +4,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
-  *
-  * @param  name desc
-  * @param  name desc
-  * @return      desc
+  * @author: Alexander
   */
 public class Combat {
 
    //System objects
-   Enemies enemies = new Enemies();
-   Scanner in = new Scanner(System.in);
-   Random rand = new Random();
+   private Enemies enemies = new Enemies();
+   private Scanner in = new Scanner(System.in);
+   private Random rand = new Random();
+   public static int PLAYER_DEAD = 1;
+   public static int NPC_DEAD = 0;
+   public static int ERROR = -1;
 
    /**
      *
@@ -22,7 +22,7 @@ public class Combat {
      * @param  name desc
      * @return      desc
      */
-   public void combat() {
+   public int combat() {
      
      enemyAttackDamage enemyAttackDamageGenerator = new enemyAttackDamage();
      
@@ -84,7 +84,7 @@ public class Combat {
             
             if(health < 1) {
                System.out.println("\t> You have taken too much damage, you are too weak to go on!");
-               break;
+               return PLAYER_DEAD;
             }
          }
             else if(input.equals("2")) { 
@@ -222,7 +222,7 @@ public class Combat {
                   numHealthPotions--;
                   System.out.println("\t> You drink a health potion, healing yourself for " + healthPotionHealAmount + " . "
                                              + "\n\t> You now have " + health + " HP."
-                                             + "\n\t> You have" + numHealthPotions + " health potions left.\n"); 
+                                             + "\n\t> You have " + numHealthPotions + " health potions left.\n"); 
                }
                else{
                   System.out.println("\t> You have no health potions left! Defeat enemies for a chance to get one!");
@@ -252,8 +252,8 @@ public class Combat {
             System.out.println(" # You have " + health + "HP left. #");
             if (rand.nextInt(100) < healthPotionDropChance){
                numHealthPotions++;
-               System.out.println(" # The " + enemy + "dropped a health potion! # ");
-               System.out.println(" # You now have " + numHealthPotions + "health potion(s). #");
+               System.out.println(" # The " + enemy + " dropped a health potion! # ");
+               System.out.println(" # You now have " + numHealthPotions + " health potion(s). #");
      
      
             }
@@ -275,8 +275,7 @@ public class Combat {
             }
             else if(input.equals("2")) {
                System.out.println("You exit the Combat, successful from your adventures!");
-               break;
-     
+               return NPC_DEAD;
             }
      
          }
@@ -284,6 +283,8 @@ public class Combat {
          System.out.println("#######################");
          System.out.println("##### COMBAT ENDED!####");
          System.out.println("#######################");
+
+         return ERROR;
 
       }
 }

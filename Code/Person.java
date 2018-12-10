@@ -6,10 +6,7 @@ import java.util.Scanner;
 import java.awt.Point;
 
 /**
- *
- * @param  name desc
- * @param  name desc
- * @return      desc
+ * @author Marcus
  */
 public class Person extends Point {
 

@@ -7,10 +7,7 @@ import java.io.File;
 import java.util.Random;
 
 /**
- *
- * @param  name desc
- * @param  name desc
- * @return      desc
+ * @author Marcus
  */
 public class Item extends Point {
   int id;

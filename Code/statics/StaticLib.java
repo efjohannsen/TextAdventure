@@ -6,10 +6,7 @@ import java.io.File;
 import java.lang.InterruptedException;
 
 /**
-  *
-  * @param  name desc
-  * @param  name desc
-  * @return      desc
+  * @author Marcus
   */
 public class StaticLib {
 
@@ -17,7 +14,8 @@ public class StaticLib {
   //public static final char PLAYER   = '\u2b24';
   //public static final char NPC      			= '\u26f9';
   //public static final char BUILDING 			= '\u25a0';
-  public static final char WONDERLAND 		= '\u2b1b';
+  //public static final char WONDERLAND 		= '\u2b1b';
+  public static final char WONDERLAND 		= 'W';
   public static final char ITEM    			  = '\u2b4d';
   public static final char EMPTY    			= '\u00b7';
   public static final char BONEKING       = '\u2020';

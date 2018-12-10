@@ -4,10 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 /**
- *
- * @param  name desc
- * @param  name desc
- * @return      desc
+ * @author Marcus, Esben
  */
 public class Building extends Point {
 
