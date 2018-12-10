@@ -21,6 +21,7 @@ public class StaticLib {
   public static final char WONDERLAND 		= '\u2b1b';
   public static final char ITEM    			  = '\u2b4d';
   public static final char EMPTY    			= '\u00b7';
+  public static final char BONEKING       = '\u2020';
   //public static final char EASTER         = '\u1F47B';
 
   private static Scanner input = new Scanner(System.in);
