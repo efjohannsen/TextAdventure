@@ -14,15 +14,19 @@ import java.lang.InterruptedException;
 public class StaticLib {
 
   // How the different objects are displayed on the map/print out
-  public static final char PLAYER   = '\u2b24';
-  //public static final char PLAYER   = '\u2b4d';
-  public static final char NPC      			= '\u26f9';
-  public static final char BUILDING 			= '\u25a0';
+  //public static final char PLAYER   = '\u2b24';
+  //public static final char NPC      			= '\u26f9';
+  //public static final char BUILDING 			= '\u25a0';
   public static final char WONDERLAND 		= '\u2b1b';
   public static final char ITEM    			  = '\u2b4d';
   public static final char EMPTY    			= '\u00b7';
   public static final char BONEKING       = '\u2020';
   //public static final char EASTER         = '\u1F47B';
+  // The above characters are better but the symbols are apparently not part of the default font used in cmd in Windows, hence these replacements
+  public static final char PLAYER         = 'X';
+  public static final char NPC      			= '\u00a7';
+  public static final char BUILDING 			= '\u25a0';
+  
 
   private static Scanner input = new Scanner(System.in);
 
