@@ -4,7 +4,7 @@
  * @param  name desc
  * @return      desc
  */
-public class Door extends RoomTile {
+public class Door {
 
   boolean doorOpen = false;
 
