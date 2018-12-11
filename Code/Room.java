@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 /**
- * @author Esben, Marcus
+ * @author Esben
  */
 public class Room extends Point {
 	

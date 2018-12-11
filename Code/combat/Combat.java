@@ -248,6 +248,10 @@ public class Combat {
        
             } 
      
+            // Exit battle immediately and win the game if the boneking was defeated:
+            if ( enemy.equals("Boneking") ) return BONEKING_DEFEATED;
+
+            // ...otherwise ask if the player wants to continue battling
             System.out.println("--------------------------------------------------------------------------------------------------------------------------");
             System.out.println(" # " + enemy + " was defeated! #");
             System.out.println(" # You have " + health + "HP left. #");
@@ -276,8 +280,7 @@ public class Combat {
             }
             else if(input.equals("2")) {
                System.out.println("You exit the Combat, successful from your adventures!");
-               if ( !enemy.equals("Boneking") ) return NPC_DEAD;
-                else return BONEKING_DEFEATED;
+               return NPC_DEAD;
             }
      
          }
