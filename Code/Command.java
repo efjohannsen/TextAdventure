@@ -49,6 +49,7 @@ public class Command {
         if ( world.playerOnNPC() ) {
           int res = new Combat().combat(); // TODO: When to destroy NPC or Player?
           if (res == Combat.PLAYER_DEAD) gameOver();
+          else if (res == Combat.BONEKING_DEFEATED) youWin();
           else world.killPersonsAtPlayerPosition();
           clearScreen();
         }
@@ -56,10 +57,23 @@ public class Command {
     }
   }
 
+  private void youWin() {
+    clearScreen();
+    printFilePath(Game.LANGPATH + "win_game.txt");
+    print("", true); // Just print a newline please
+    print("Returning to the main menu", true);
+    pressEnterToContinue();
+    clearScreen();
+    new GameMenu();
+  }
+
   private void gameOver() {
     clearScreen();
-    print("GAME OVER!", true);
+    printFilePath(Game.LANGPATH + "lose_game.txt");
+    print("", true); // Just print a newline please
     print("Returning to the main menu", true);
+    pressEnterToContinue();
+    clearScreen();
     new GameMenu();
   }
 

@@ -103,7 +103,7 @@ public class Enemies {
       maxEnemyHealth = randomHealth.nextInt(maxDeathclawHealth);
     }
     else if(enemy.contains("Boneking")) {
-      maxEnemyHealth = randomHealth.nextInt(maxBonekingHealth);
+      maxEnemyHealth = randomHealth.nextInt(maxBonekingHealth) + 60; // Between 59-159 HP, shouldn't be too easy
     }     
     
     if(maxEnemyHealth == 0) {

@@ -64,12 +64,12 @@ public class World {
 
     // Update it with NPCs and Player(s)
     for (Person person : persons) {
-      String personToPrint;
+      char symbol = IAMERROR; // If an error happens, which shouldn't happen. TODO: Raise exception
       if (person instanceof Player) {
-        personToPrint = PLAYER + "   ";
+        symbol = PLAYER;
       }
-      else personToPrint = NPC + "   ";
-      tempArray[ (int) (person.getX() + Game.SIZE * person.getY()) ] = personToPrint;
+      else if ( !playerAtPosition(person.getLocation()) ) symbol = NPC;
+      tempArray[ (int) (person.getX() + Game.SIZE * person.getY()) ] = symbol + "   ";
     }
 
     String ret = "";
@@ -183,6 +183,14 @@ public class World {
         
       }
     }
+  }
+
+  // Checks whether the Player is at a given location (always show the Player even if an NPC is at the same position)
+  public boolean playerAtPosition(Point p) {
+    for (Person per : persons) {
+      if ( p instanceof Player && per.getLocation() == p.getLocation() ) return true;
+    }
+    return false;
   }
 
   /**

@@ -24,6 +24,7 @@ public class StaticLib {
   public static final char PLAYER         = 'X';
   public static final char NPC      			= '\u00a7';
   public static final char BUILDING 			= '\u25a0';
+  public static final char IAMERROR 			= '?';
   
 
   private static Scanner input = new Scanner(System.in);

@@ -15,6 +15,7 @@ public class Combat {
    public static int PLAYER_DEAD = 1;
    public static int NPC_DEAD = 0;
    public static int ERROR = -1;
+   public static int BONEKING_DEFEATED = 2;
 
    /**
      *
@@ -275,7 +276,8 @@ public class Combat {
             }
             else if(input.equals("2")) {
                System.out.println("You exit the Combat, successful from your adventures!");
-               return NPC_DEAD;
+               if ( !enemy.equals("Boneking") ) return NPC_DEAD;
+                else return BONEKING_DEFEATED;
             }
      
          }
