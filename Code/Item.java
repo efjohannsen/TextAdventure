@@ -12,6 +12,8 @@ import java.util.Random;
 public class Item extends Point {
   int id;
   final static int LINESIZE = 45 + 1; // The number of characters + a newline (\n).
+  final static File file = new File(Game.LANGPATH + "item.csv");
+  static Random rand = new Random(); 
 
   /**
    * Fetches a random Item.
@@ -21,6 +23,7 @@ public class Item extends Point {
    */
   public Item(int x, int y) {
     super(x, y);
+    id = rand.nextInt( (int) (file.length() / LINESIZE) -1) + 1; // Generates an ID above 1, as the first line is the header
   }
 
   /**
@@ -31,9 +34,24 @@ public class Item extends Point {
    */
   public Item(int x, int y, int id) {
     super(x, y);
+    id = id;
   }
 
   public String toString() {
-    return ""; 
+    String item = "";
+    String ret = "";
+
+    try {
+      RandomAccessFile handler = new RandomAccessFile(file, "r");
+      handler.seek( LINESIZE * id );
+      item = handler.readLine();
+    }
+    catch (IOException e) {System.out.println(e);}
+
+    String[] attrs = item.split(",");
+    ret = attrs[0] + "\n" +
+      "Description:" + attrs[1];
+
+    return ret;
   }
 }

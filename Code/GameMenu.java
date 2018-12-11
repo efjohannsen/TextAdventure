@@ -79,7 +79,13 @@ public class GameMenu {
         combat.combat();
         break;
       case 5:
+        System.out.println( "Testing item generation!" );
+        System.out.println();
         System.out.println( new StatItem(0, 0) );
+        System.out.println();
+        System.out.println( new Item(0, 0) );
+        System.out.println();
+        System.out.println( new ConsumableItem(0, 0) );
         break;
     }
   }
