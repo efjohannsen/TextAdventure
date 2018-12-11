@@ -10,7 +10,7 @@ import java.io.File;
  */
 public class StartBase {
    //Initialisering 
-   public static boolean end           = false; 
+   public boolean end           = false; 
    public static boolean introTextSeen = false; 
    File NPCDIAL                        = new File("Res/Lang/EN/Dialogue/NPCs_Dialogue.txt");
    File QUESTDESC                      = new File("Res/Lang/EN/Dialogue/QuestDescription.txt");
@@ -21,13 +21,17 @@ public class StartBase {
    
    //metode: kalder paa intro-metode, menu-metode, clearscreen-metode.    
    public StartBase() {
-      
-      clearScreen();
-      intro();   
-      menu(); 
-      if (world == null) world = new World();
-      else new Command(world);
+     enter();   
    }
+
+public void enter() {
+      clearScreen();
+      intro();
+      menu();
+      if (world == null) world = new World();
+      new Command(world, this);
+}
+
    //intro-tekst: Metode der printer historien 1 gang. Kalder paa metoderne fra Dialog. 
    public void intro() {
    //Koerer 1 gang. 

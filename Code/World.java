@@ -26,7 +26,7 @@ public class World {
 
       for (int y = 0; y<Game.SIZE; y++) {
 
-        // Set the starter building and Player near the middle
+        // Set the starter building and Player near the map center
         if (x == Math.floor(Game.SIZE/2) && y == Math.floor(Game.SIZE/2) ) {
           buildings.add( new Building(y,x,true) );
           player = new Player(y,x);
@@ -39,8 +39,6 @@ public class World {
         }
       }
     }
-
-    new Command(this);
   }
 
 
@@ -192,6 +190,27 @@ public class World {
     }
     return false;
   }
+
+  // Returns ...?
+  public int playerOnBuilding() {
+    Point playerPosition = getPlayerPosition();
+    for (Building b : buildings) {
+      if ( b.getLocation().equals(playerPosition) ) {
+        if (b.starterBuilding == true) return 2;
+        else return 1;
+      }
+    }
+    return 0;
+  }
+
+  public Point getPlayerPosition() {
+    for (Person p : persons) {
+      if (p instanceof Player) return p.getLocation();
+    }
+    return new Point(-1, -1); // ERROR. TODO: Raise exception here instead.
+  }
+
+
 
   /**
     *

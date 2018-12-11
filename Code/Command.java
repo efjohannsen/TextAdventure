@@ -9,11 +9,13 @@ public class Command {
   Scanner scanner = new Scanner(System.in);
   boolean running = true;
   World world; // Passed in to be able to move a Player
+  StartBase startBase; // Passed in to remember the state of NPC dialogue/quests
   public enum Direction {NORTH, EAST, SOUTH, WEST}; // TODO: Also needed in World?
 
 
-  public Command(World world) {
+  public Command(World world, StartBase startBase) {
     this.world = world;
+    this.startBase = startBase;
     menu();
   }
 
@@ -177,10 +179,17 @@ public class Command {
         if (allWords[1].equals("building")) {
           //for (Building b : buildings
           // Check if there's a building at the current position and enter the first room. Maybe there can be a building description, even?
-          print("Entering building!", true);
+          int res = world.playerOnBuilding();
+          if (res == 2) { 
+            print("Standing on the starter building!", true); 
+            new StartBase(); // TODO: Consider: Create a new one or restore the old one, either removing the "end" variable or setting tt to false, so it doesn't exit immediately
+          }
+          else if (res == 1) { print("Standing on a regular building!", true); } // TODO: Handle entering regular building here instead
+          else print("You're not standing on a building.", true);
           pressEnterToContinue();
+          return true;  // Entering a building counts as movement (= NPCs move)
         }
-        return false;
+        return false; // Calling the command anywhere else does not
       case "exit":
         if (allWords[1].equals("game") ) running = false;
         return false;
