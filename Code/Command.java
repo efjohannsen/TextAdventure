@@ -40,6 +40,7 @@ public class Command {
 
         if (playerMoved) {
           try {
+            System.out.println("NPC's are now taking their turn...");
             Thread.sleep(1500); // Don't move the player and NPCs simultaneously but give the Player a bit of time to see their move first.
           }
           catch (InterruptedException e) {System.out.println(e);}
@@ -103,10 +104,10 @@ public class Command {
   private void help() {
     print(
       "Symbols on the map: " + "\n" +
-      PLAYER + "   is the player " + "\n" +
-      NPC + "   are NPCs" + "\n" +
-      WONDERLAND + "  is Wonderland, your home" + "\n" +
-      BUILDING + "   is a building" +
+      Game.PLAYER + "   is the player " + "\n" +
+      Game.NPC + "   are NPCs" + "\n" +
+      Game.WONDERLAND + "  is Wonderland, your home" + "\n" +
+      Game.BUILDING + "   is a building" +
       "\n\n" +
       "Example commands" + "\n" +
       "go <n> <direction>   | where <n> is the number of steps to move and <direction> is either north, east, south or west." + "\n" +

@@ -45,7 +45,7 @@ public class Building extends Point {
 		String txt = "";
 		for (int i=0; i<SIZE_X; i++) {
 			for (int j=0; j<SIZE_Y; j++) {
-				txt += EMPTY + "   ";
+				txt += Game.EMPTY + "   ";
 			}
 			txt += "\n";
 		}

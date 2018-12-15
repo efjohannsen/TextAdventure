@@ -3,9 +3,6 @@ import java.util.ArrayList;
 import java.awt.Point;
 import java.util.Random;
 
-/**
-  * @author Marcus
-  */
 public class World {
   // User configurable
   private Player player;
@@ -13,29 +10,23 @@ public class World {
   private ArrayList<Person> persons = new ArrayList<Person>();
   private Random rand;
 
-  /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
   public World() {
     rand = new Random(); 
 
-    for (int x = 0; x<Game.SIZE; x++) {
+    for (int y = 0; y<Game.SIZE; y++) {
 
-      for (int y = 0; y<Game.SIZE; y++) {
+      for (int x = 0; x<Game.SIZE; x++) {
 
         // Set the starter building and Player near the map center
         if (x == Math.floor(Game.SIZE/2) && y == Math.floor(Game.SIZE/2) ) {
-          buildings.add( new Building(y,x,true) );
-          player = new Player(y,x);
+          buildings.add( new Building(x,y,true) );
+          player = new Player(x,y);
           persons.add( player );
         }
         else {
-          if (rand.nextInt(15) == 1) persons.add( new NPC(y, x) );
+          if (rand.nextInt(15) == 1) persons.add( new NPC(x, y) );
           // 20% chance of replacing the null placeholder building we just added as default above, with an actual building
-          else if (rand.nextInt(20) == 1) buildings.add(new Building(y, x, false));
+          else if (rand.nextInt(20) == 1) buildings.add(new Building(x, y, false));
         }
       }
     }
@@ -48,26 +39,27 @@ public class World {
 
     // Fill array with empty symbols.
     for (int x = 0; x<Game.SIZE*Game.SIZE; x++) {
-        tempArray[x] = EMPTY + "   ";
+        tempArray[x] = Game.EMPTY + "   ";
     }
 
     // Update it with buildings
     for (Building building : buildings) {
       char symbol;
-      if (building.starterBuilding) symbol = WONDERLAND;
-      else symbol = BUILDING;
+      if (building.starterBuilding) symbol = Game.WONDERLAND;
+      else symbol = Game.BUILDING;
 
       tempArray[ (int) (building.getX() + Game.SIZE * building.getY()) ] = symbol + "   ";
     }
 
     // Update it with NPCs and Player(s)
     for (Person person : persons) {
-      char symbol = IAMERROR; // If an error happens, which shouldn't happen. TODO: Raise exception
+      char symbol = Game.IAMERROR; // If an error happens, which shouldn't happen. TODO: Raise exception
+      int personArrayPos = (int) (person.getX() + Game.SIZE * person.getY());
       if (person instanceof Player) {
-        symbol = PLAYER;
+        symbol = Game.PLAYER;
       }
-      else if ( !playerAtPosition(person.getLocation()) ) symbol = NPC;
-      tempArray[ (int) (person.getX() + Game.SIZE * person.getY()) ] = symbol + "   ";
+      else if ( !tempArray[personArrayPos].equals(Game.PLAYER) ) symbol = Game.NPC;
+      tempArray[personArrayPos] = symbol + "   ";
     }
 
     String ret = "";
@@ -97,12 +89,6 @@ public class World {
     }
   }
 
-  /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
   // Move all NPCs one space, with 50% chance of standing still for each one
   public void moveNPCs() {
     for (Person p : persons) {
@@ -111,12 +97,6 @@ public class World {
     }
   }
 
-  /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
   // Moves a Person one step in a random direction. Could even be the Player for full simulation mode!
   public void moveRandom1(Person person) {
     int num = rand.nextInt(4);
@@ -137,52 +117,41 @@ public class World {
       }
     move(person, direction, 1);
   }
-  
-  /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+
   public void movePlayer(Command.Direction direction, int distance) {
     move(player, direction, distance);
   }
 
-  /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
   // TODO: Make similar move method for Rooms!
   private void move(Person reqPerson, Command.Direction direction, int reqDistance) {
 
     for (Person person : persons) {
       if ( person == reqPerson) { 
-        double newX, newY = 0;
+        int distance;
 
         if (direction == Command.Direction.NORTH) {
-          newY = Math.max(person.getY() - reqDistance, 0);
-          person.setLocation(person.getX(), newY);
+          distance = Math.min(reqDistance, (int) person.getY() );
+          person.translate(0, -distance);
         }
         else if (direction == Command.Direction.EAST) {
-          newX = Math.min(person.getX() + reqDistance, Game.SIZE-1);
-          person.setLocation(newX, person.getY());
+          distance = Math.min( reqDistance, (int) person.getX() );
+          person.translate(distance, 0);
         }
         else if (direction == Command.Direction.SOUTH) {
-          newY = Math.min(person.getY() + reqDistance, Game.SIZE-1);
-          person.setLocation(person.getX(), newY);
+          distance = Math.min( reqDistance, Game.SIZE-1 - (int) person.getY() );
+          person.translate(0, distance);
         }
         else { // West
-          newX = Math.max(person.getX() - reqDistance, 0);
-          person.setLocation(newX, person.getY());
+          distance = Math.min( reqDistance, Game.SIZE-1 - (int) person.getY() );
+          person.translate(-distance, 0);
         }
-        break; // We've found the right person and moved her/him. Break!
+        break; // We've found the right person and moved her/him, no need to go through the rest.
         
       }
     }
   }
 
+  // CURRENTLY UNUSED
   // Checks whether the Player is at a given location (always show the Player even if an NPC is at the same position)
   public boolean playerAtPosition(Point p) {
     for (Person per : persons) {
@@ -210,14 +179,6 @@ public class World {
     return new Point(-1, -1); // ERROR. TODO: Raise exception here instead.
   }
 
-
-
-  /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
   // Checks if the Player is standing on an NPC: Battle!
   public boolean playerOnNPC() {
     for (Person p : persons) {

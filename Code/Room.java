@@ -56,13 +56,13 @@ public class Room extends Point {
 		String[] temp = new String[SIZE * SIZE];
 		
 		for(int i = 0; i < temp.length; i++) {
-			temp[i] = EMPTY + "   ";
+			temp[i] = Game.EMPTY + "   ";
 		}
 		for(Item t: items) {
-			temp[ (int)(t.getX() + SIZE * t.getY()) ] = ITEM + "   ";
+			temp[ (int)(t.getX() + SIZE * t.getY()) ] = Game.ITEM + "   ";
 		}
 		for(Person p: persons) {
-			temp[ (int)(p.getX() + SIZE * p.getY()) ] = NPC + "   ";
+			temp[ (int)(p.getX() + SIZE * p.getY()) ] = Game.NPC + "   ";
 		}
 		
 		//creating final text string with linebreaks

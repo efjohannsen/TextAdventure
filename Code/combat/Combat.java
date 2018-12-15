@@ -12,9 +12,11 @@ public class Combat {
    private Enemies enemies = new Enemies();
    private Scanner in = new Scanner(System.in);
    private Random rand = new Random();
-   public static int PLAYER_DEAD = 1;
-   public static int NPC_DEAD = 0;
+
+   // Return values depending on the outcome of the combat
    public static int ERROR = -1;
+   public static int NPC_DEAD = 0;
+   public static int PLAYER_DEAD = 1;
    public static int BONEKING_DEFEATED = 2;
 
    /**
