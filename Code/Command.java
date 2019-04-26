@@ -19,24 +19,18 @@ public class Command {
     menu();
   }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   private void menu() {
     
     while (running) {
       clearScreen();
-      print(world.toString(), true);
+      System.out.println(world.toString());
       commandOptions();
       boolean playerMoved = command();
 
       if (running) {
         clearScreen();
             
-        print(world.toString(), true);
+        System.out.println(world.toString());
 
         if (playerMoved) {
           try {
@@ -46,7 +40,7 @@ public class Command {
           catch (InterruptedException e) {System.out.println(e);}
           world.moveNPCs();
           clearScreen();
-          print(world.toString(), true);
+          System.out.println(world.toString());
         }
         // Both the player and NPCs move before we check for combat
         if ( world.playerOnNPC() ) {
@@ -63,8 +57,8 @@ public class Command {
   private void youWin() {
     clearScreen();
     printFilePath(Game.LANGPATH + "win_game.txt");
-    print("", true); // Just print a newline please
-    print("Returning to the main menu", true);
+    System.out.println(); // Just print a newline please
+    System.out.println("Returning to the main menu");
     pressEnterToContinue();
     clearScreen();
     new GameMenu();
@@ -73,36 +67,23 @@ public class Command {
   private void gameOver() {
     clearScreen();
     printFilePath(Game.LANGPATH + "lose_game.txt");
-    print("", true); // Just print a newline please
-    print("Returning to the main menu", true);
+    System.out.println(); // Just print a newline please
+    System.out.println("Returning to the main menu");
     pressEnterToContinue();
     clearScreen();
     new GameMenu();
   }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   // NPC interaction happens automatically when on the same position
   private void commandOptions() {
-    print(
+    System.out.println(
       "\n" +
       "Type in a command." + " Type 'help' to show available commands" + "\n"
-      , true
     );
   }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   private void help() {
-    print(
+    System.out.println(
       "Symbols on the map: " + "\n" +
       Game.PLAYER + "   is the player " + "\n" +
       Game.NPC + "   are NPCs" + "\n" +
@@ -118,18 +99,11 @@ public class Command {
       //"pickup item" +
       //"toggle door" +
       //"leave building" +
-      , true
     );
     pressEnterToContinue();
 
   }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   // Returns true only if the player moved, because the NPCs only move if the player did and not if they fx. typed an invalid command.
   private boolean command() {
 
@@ -145,7 +119,7 @@ public class Command {
         return false;
       case "go":
         if (allWords.length < 3) {
-          print("Error: The go command takes three arguments: go <distance> <direction>", true);
+          System.out.println("Error: The go command takes three arguments: go <distance> <direction>");
           pressEnterToContinue();
           return false;
         }
@@ -166,13 +140,13 @@ public class Command {
               world.movePlayer(Direction.WEST, distance);
               return true;
             default:
-             print("Error: Invalid direction: Must be north, east, south or west", true);
+             System.out.println("Error: Invalid direction: Must be north, east, south or west");
              pressEnterToContinue();
              return false;
           }
         }
         else {
-          print("Invalid distance: Must be a positive, numerical value", true);
+          System.out.println("Invalid distance: Must be a positive, numerical value");
         }
         return false;
 
@@ -182,11 +156,11 @@ public class Command {
           // Check if there's a building at the current position and enter the first room. Maybe there can be a building description, even?
           int res = world.playerOnBuilding();
           if (res == 2) { 
-            print("Standing on the starter building!", true); 
+            System.out.println("Standing on the starter building!"); 
             new StartBase(); // TODO: Consider: Create a new one or restore the old one, either removing the "end" variable or setting tt to false, so it doesn't exit immediately
           }
-          else if (res == 1) { print("Standing on a regular building!", true); } // TODO: Handle entering regular building here instead
-          else print("You're not standing on a building.", true);
+          else if (res == 1) { System.out.println("Standing on a regular building!"); } // TODO: Handle entering regular building here instead
+          else System.out.println("You're not standing on a building.");
           pressEnterToContinue();
           return true;  // Entering a building counts as movement (= NPCs move)
         }
@@ -195,29 +169,17 @@ public class Command {
         if (allWords[1].equals("game") ) running = false;
         return false;
       default:
-        print("Invalid command. Try again.", true);
+        System.out.println("Invalid command. Try again.");
         pressEnterToContinue();
         return false;
     }
   }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   // Picks up the item on the current position.
   public void pickup() {
 
   }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   public void toggleDoor() {
 
   }

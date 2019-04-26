@@ -10,12 +10,6 @@ public class Player extends Person {
   //   super(name, new ArrayList<Item>());
   // }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   public Player(int x, int y) {
     super(x, y, new ArrayList<Item>());
   }

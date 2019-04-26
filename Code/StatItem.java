@@ -14,24 +14,13 @@ public class StatItem extends Item {
   final static int LINESIZE = 63 + 1; // The number of characters + a newline (\n).
   static Random rand = new Random(); 
   
-  /**
-    * Fetches a random StatItem
-    * @param  x desc
-    * @param  y desc
-    * @return   desc
-    */
+  // Fetches a random StatItem
   public StatItem(int x, int y) {
     super(x, y);
     id = rand.nextInt( (int) (file.length() / LINESIZE) -1) + 1; // Generates an ID above 1, as the first line is the header
   }
 
-  /**
-    * Fetches a specific StatItem
-    * @param  name desc
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+  // Fetches a specific StatItem
   public StatItem(int x, int y, int id) {
     super(x, y);
     id = id;

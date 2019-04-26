@@ -8,24 +8,12 @@ public class GameMenu {
 
   boolean running = true;
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   public GameMenu() {
     printFilePath("Res/dillon.txt");
     getInput();
     menu();
   }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   public void menu() {
     while (running) {
       menuOptions();
@@ -39,14 +27,8 @@ public class GameMenu {
     }
   }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   private void menuOptions() {
-      print(
+      System.out.println(
       "\nTextAdventure!\n" +
       "--------------\n" +
       "1. Start game \n" + 
@@ -54,15 +36,9 @@ public class GameMenu {
       "--------------\n" +
       "3. Exit game \n" +
       "\n" +
-      "Choose your destiny: ", true);
+      "Choose your destiny: ");
   }
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   private void menuChoice(int choice) {
 
     switch (choice) {

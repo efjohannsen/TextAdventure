@@ -1,30 +1,22 @@
 import static statics.StaticLib.*;
-import java.awt.Point;
 import java.util.Random;
 import java.util.ArrayList;
 
 /**
  * @author Esben
  */
-public class Room extends Point {
+public class Room extends Area {
 	
 	//declaring array lists
 	private ArrayList<Item> items;
 	private ArrayList<Person> persons;
 	
-	//creating room size randomly, minimum size is 3x3
 	private Random ran = new Random();
-	private final int SIZE = Math.max(3,ran.nextInt(5)+1);
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
 	//room constructor
 	public Room(int x, int y) {
 	
+    //creating room size randomly, minimum size is 3x3
 		super(x, y);
 		
 		items = new ArrayList<Item>();

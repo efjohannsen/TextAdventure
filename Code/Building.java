@@ -10,13 +10,6 @@ public class Building extends Point {
 
 	private ArrayList<Room> rooms;
 
-	//creating a building size randomly
-	/**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   private Random ran = new Random();
 	private final int SIZE_X = ran.nextInt(4)+1;
 	private final int SIZE_Y = ran.nextInt(4)+1;

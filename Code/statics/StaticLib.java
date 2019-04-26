@@ -16,7 +16,7 @@ public class StaticLib {
     * @return      desc
     */
   public static void pressEnterToContinue() {
-    print("PRESS ENTER TO CONTINUE", true);
+    System.out.println("PRESS ENTER TO CONTINUE");
     input.nextLine();
   }
 
@@ -63,7 +63,7 @@ public class StaticLib {
         break;
       }
       else {
-        print("You need to input a numerical value!", true);
+        System.out.println("You need to input a numerical value!");
       }
     }
 
@@ -85,7 +85,7 @@ public class StaticLib {
       if (number > 0) value = number;
     }
     else {
-      print("You need to input a numerical value!", true);
+      System.out.println("You need to input a numerical value!");
     }
 
     return value;
@@ -102,7 +102,7 @@ public class StaticLib {
 
     while (value < min || value > max) {
 
-      print("Numerical value must be in the range of (" + min + ", " + max + ")", true);
+      System.out.println("Numerical value must be in the range of (" + min + ", " + max + ")");
       value = getNumericalInputLoop();    
     }
     return value;
@@ -151,21 +151,10 @@ public class StaticLib {
       Scanner scanner = new Scanner(file);
 
       while (scanner.hasNextLine()) {
-        print( scanner.nextLine(), true );
+        System.out.println( scanner.nextLine());
       }
     }
     catch (IOException e) { System.out.println(e); }
   }
 
-  /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
-  // TODO: Handle system language
-  public static void print(String argument, boolean newline) {
-    if (newline) System.out.println(argument);
-    else System.out.print(argument);
-  }
 }

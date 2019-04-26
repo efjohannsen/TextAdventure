@@ -13,12 +13,6 @@ public class ConsumableItem extends Item {
   final static File file = new File(Game.LANGPATH + "consumableItem.csv");
   static Random rand = new Random(); 
 
-  /**
-   *
-   * @param  name desc
-   * @param  name desc
-   * @return      desc
-   */
   public ConsumableItem(int x, int y) {
     super(x, y);
     id = rand.nextInt( (int) (file.length() / LINESIZE) -1) + 1; // Generates an ID above 1, as the first line is the header
