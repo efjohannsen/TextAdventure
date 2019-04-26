@@ -10,7 +10,7 @@ import java.io.File;
  */
 public class StartBase {
    //Initialisering 
-   public boolean end           = false; 
+   public boolean end                  = false; 
    public static boolean introTextSeen = false; 
    File NPCDIAL                        = new File("Res/Lang/EN/Dialogue/NPCs_Dialogue.txt");
    File QUESTDESC                      = new File("Res/Lang/EN/Dialogue/QuestDescription.txt");
@@ -19,11 +19,11 @@ public class StartBase {
    static String name                  = "The building";
    World world;
    
-   //metode: kalder paa intro-metode, menu-metode, clearscreen-metode.    
+   //metode StartBase: kalder paa intro-metode, menu-metode, clearscreen-metode.    
    public StartBase() {
      enter();   
    }
-
+   //Metode som rydder terminal: 
 public void enter() {
       clearScreen();
       intro();
@@ -57,7 +57,7 @@ public void enter() {
       //while-loop: Koerer saa laenge end != true. 
       while (!end) {
       // Print af menu
-      System.out.println("Press '1' to interact with The Priestess"); //Beskrivelsen ændres selvfølgelig 
+      System.out.println("Press '1' to interact with The Priestess"); 
       System.out.println("Press '2' to interact with The AsgJar");
       System.out.println("Press '3' to interact with The Junker");
       System.out.println("Press '4' to interact with The Doc");

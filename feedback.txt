@@ -1,0 +1,13 @@
+Interessentanalysen viser users for hele casen.
+Risikoanalyse styrer hvilke(n) UC der prioriteres.
+Rapport skal vise de forskellige UP og deres milestones/deadlines. Rød tråd er vigtig.
+Problemformulering, vision/mission, afgrænsning og konklusion skal kunne læses sammenhængende.
+Use case diagram skal vise en 1-1 sammenhæng med use case tekst.
+Functionality er god i vores rapport???
+Benyt gerne beskrivende tekst til at uddybe de forskellige diagrammer og specielle omstændigheder som ikke er åbenlyse.
+Titel i SSD hvad beskriver scenariet / use casen.
+En eller flere OC kan uddybe SSD.
+SD skal matche klassediagrammet samt koden.
+Constructor bruges til at oprette og klargøre et objekt til videre brug og intet andet.
+Mere fokus på low coupling/high cohesion ud fra klassediagrammet.
+Flere kommentarer samt java DOC.
