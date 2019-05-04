@@ -9,6 +9,7 @@ public class GameMenu {
   boolean running = true;
 
   public GameMenu() {
+    clearScreen();
     printFilePath("Res/dillon.txt");
     getInput();
     menu();

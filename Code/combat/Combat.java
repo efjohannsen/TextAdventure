@@ -56,7 +56,7 @@ public class Combat {
        while(maxEnemyHealth > 0) {
          System.out.println("\tYour HP: " + health);
          System.out.println("\t" + enemy + "'s HP:" + maxEnemyHealth);
-         System.out.println("\n\tWHat would you like to do?");
+         System.out.println("\n\tWhat would you like to do?");
          System.out.println("\t1. Attack with dagger");
          System.out.println("\t2. Attack with pistol");
          System.out.println("\t3. Attack with shotgun");
@@ -287,9 +287,9 @@ public class Combat {
      
          }
 
-         System.out.println("#######################");
-         System.out.println("##### COMBAT ENDED!####");
-         System.out.println("#######################");
+         System.out.println("########################");
+         System.out.println("##### COMBAT ENDED!#####");
+         System.out.println("########################");
 
          return ERROR;
 

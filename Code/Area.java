@@ -71,8 +71,7 @@ public class Area extends Point {
     move(player, direction, distance);
   }
 
-  // TODO: Make similar move method for Rooms!
-  // TODO: This updated version using person.translate doesn't work yet! It doesn't stop at the far left/right fx.
+  // North and west are similar in that the boundary is 0, while East and South are similar in that the boundary is SIZE-1
   private void move(Person reqPerson, Command.Direction direction, int reqDistance) {
 
     for (Person person : persons) {
@@ -80,11 +79,11 @@ public class Area extends Point {
         int distance;
 
         if (direction == Command.Direction.NORTH) {
-          distance = Math.min(reqDistance, (int) person.getY() );
+          distance = Math.min( reqDistance, (int) person.getY() );
           person.translate(0, -distance);
         }
         else if (direction == Command.Direction.EAST) {
-          distance = Math.min( reqDistance, (int) person.getX() );
+          distance = Math.min( reqDistance, SIZE-1 - (int) person.getX() );
           person.translate(distance, 0);
         }
         else if (direction == Command.Direction.SOUTH) {
@@ -92,7 +91,7 @@ public class Area extends Point {
           person.translate(0, distance);
         }
         else { // West
-          distance = Math.min( reqDistance, SIZE-1 - (int) person.getY() );
+          distance = Math.min( reqDistance, (int) person.getX() );
           person.translate(-distance, 0);
         }
         break; // We've found the right person and moved her/him, no need to go through the rest.
