@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import static statics.StaticLib.*;
 import combat.Combat;
+import java.util.Optional;
 
 /**
  * @author Marcus
@@ -27,7 +28,7 @@ public class Command {
       commandOptions();
       boolean playerMoved = command();
 
-      if (running) {
+      if (running) { // If still running at this point of the method, ie. after a command
         clearScreen();
             
         System.out.println(world.toString());
@@ -92,8 +93,8 @@ public class Command {
       "\n\n" +
       "Example commands" + "\n" +
       "go <n> <direction>   | where <n> is the number of steps to move and <direction> is either north, east, south or west." + "\n" +
-      "enter building       | enters a building" + "\n" +
-      "exit game            | Exits to the main menu" + "\n" +
+      "enter                | enters a building" + "\n" +
+      "exit game            | exits to the main menu" + "\n" +
       "\n"
       // Extra commands for inside rooms
       //"pickup item" +
@@ -151,22 +152,31 @@ public class Command {
         return false;
 
       case "enter":
-        if (allWords[1].equals("building")) {
-          //for (Building b : buildings
           // Check if there's a building at the current position and enter the first room. Maybe there can be a building description, even?
-          int res = world.playerOnBuilding();
-          if (res == 2) { 
-            System.out.println("Standing on the starter building!"); 
-            new StartBase(); // TODO: Consider: Create a new one or restore the old one, either removing the "end" variable or setting tt to false, so it doesn't exit immediately
+          Optional<Building> ob = world.playerOnBuilding();
+          Building b;
+          if ( ob.isPresent() ) {
+            b = ob.get();
+            if (b.starterBuilding == true) { 
+              new StartBase(); // TODO: Consider: Create a new one or restore the old one, either removing the "end" variable or setting tt to false, so it doesn't exit immediately
+            }
+            else { 
+              // TODO: Handle entering regular building here instead
+              System.out.println("Standing on a regular building!"); 
+              System.out.println(b); // Just for testing
+            } 
+            pressEnterToContinue();
+            return true;  // Entering a building counts as movement (= NPCs move)
           }
-          else if (res == 1) { System.out.println("Standing on a regular building!"); } // TODO: Handle entering regular building here instead
-          else System.out.println("You're not standing on a building.");
-          pressEnterToContinue();
-          return true;  // Entering a building counts as movement (= NPCs move)
-        }
-        return false; // Calling the command anywhere else does not
+          else { 
+            System.out.println("You're not standing on a building.");
+            pressEnterToContinue();
+            return false; // Calling the command anywhere else does not
+          }
       case "exit":
-        if (allWords[1].equals("game") ) running = false;
+        if (allWords.length > 1) {
+          if (allWords[1].equals("game") ) running = false;
+        }
         return false;
       default:
         System.out.println("Invalid command. Try again.");

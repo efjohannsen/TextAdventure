@@ -2,6 +2,7 @@ import static statics.StaticLib.*;
 import java.util.ArrayList;
 import java.awt.Point;
 import java.util.Random;
+import java.util.Optional;
 
 public class World extends Area {
   // User configurable
@@ -79,15 +80,14 @@ public class World extends Area {
     return ret;
   }
   // Returns ...?
-  public int playerOnBuilding() {
+  public Optional<Building> playerOnBuilding() {
     Point playerPosition = super.getPlayerPosition();
     for (Building b : buildings) {
       if ( b.getLocation().equals(playerPosition) ) {
-        if (b.starterBuilding == true) return 2;
-        else return 1;
+        return Optional.of(b);
       }
     }
-    return 0;
+    return Optional.empty();
   }
 
 }

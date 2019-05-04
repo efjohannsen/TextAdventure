@@ -60,8 +60,8 @@ public class Combat {
          System.out.println("\t1. Attack with dagger");
          System.out.println("\t2. Attack with pistol");
          System.out.println("\t3. Attack with shotgun");
-         System.out.println("\t4. Attack with riffle");
-         System.out.println("\t5. Attack with automaticgun");
+         System.out.println("\t4. Attack with rifle");
+         System.out.println("\t5. Attack with machine gun");
          System.out.println("\t6. Attack with sledgehammer");
          System.out.println("\t7. Attack with crowbar");
          System.out.println("\t8. Attack with chainsaw");
