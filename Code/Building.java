@@ -28,7 +28,7 @@ public class Building extends Point {
 
     int startX, startY;
 
-    // Randomly select which room is the one entered when entering the building
+    // RANDOMLY SELECTING A STARTING ROOM
     // TODO: Do I prefer to store the coordinates of this entry room and/or just its Room object?
     // TODO: Test if this works as intended!
     int posLock = ran.nextInt(4); // Randomly choose to lock either X or Y axis to their min or max value, to ensure that you can only enter the building from some edge
@@ -45,7 +45,7 @@ public class Building extends Point {
     }
 		
 
-		//creating array of rooms in a building
+		//creating array of rooms in the building
 		rooms = new ArrayList<Room>();
 		
 		//creating rooms
