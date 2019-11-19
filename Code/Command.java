@@ -21,7 +21,7 @@ public class Command {
   }
 
   private void menu() {
-    
+
     while (running) {
       clearScreen();
       System.out.println(world.toString());
@@ -30,7 +30,7 @@ public class Command {
 
       if (running) { // If still running at this point of the method, ie. after a command
         clearScreen();
-            
+
         System.out.println(world.toString());
 
         if (playerMoved) {
@@ -58,8 +58,7 @@ public class Command {
   private void youWin() {
     clearScreen();
     printFilePath(Game.LANGPATH + "win_game.txt");
-    System.out.println(); // Just print a newline please
-    System.out.println("Returning to the main menu");
+    System.out.println("\n" + "Returning to the main menu");
     pressEnterToContinue();
     clearScreen();
     new GameMenu();
@@ -68,8 +67,7 @@ public class Command {
   private void gameOver() {
     clearScreen();
     printFilePath(Game.LANGPATH + "lose_game.txt");
-    System.out.println(); // Just print a newline please
-    System.out.println("Returning to the main menu");
+    System.out.println("\n" + "Returning to the main menu");
     pressEnterToContinue();
     clearScreen();
     new GameMenu();
@@ -77,30 +75,28 @@ public class Command {
 
   // NPC interaction happens automatically when on the same position
   private void commandOptions() {
-    System.out.println(
-      "\n" +
-      "Type in a command." + " Type 'help' to show available commands" + "\n"
-    );
+    System.out.println("\n" + "Type in a command." + " Type 'help' to show available commands" + "\n");
   }
 
   private void help() {
     System.out.println(
-      "Symbols on the map: " + "\n" +
-      Game.PLAYER + "   is the player " + "\n" +
-      Game.NPC + "   are NPCs" + "\n" +
-      Game.WONDERLAND + "  is Wonderland, your home" + "\n" +
-      Game.BUILDING + "   is a building" +
-      "\n\n" +
-      "Example commands" + "\n" +
-      "go <n> <direction>   | where <n> is the number of steps to move and <direction> is either north, east, south or west." + "\n" +
-      "enter                | enters a building" + "\n" +
-      "exit game            | exits to the main menu" + "\n" +
-      "\n"
-      // Extra commands for inside rooms
-      //"pickup item" +
-      //"toggle door" +
-      //"leave building" +
-    );
+        "Symbols on the map: " + "\n" +
+        Game.PLAYER + "   is the player " + "\n" +
+        Game.NPC + "   are NPCs" + "\n" +
+        // Print "Wonderland" in help only once the player has discovered the name
+        Game.WONDERLAND + "   is " + ((StartBase.name.equals("Wonderland"))? "Wonderland, " : "") + "your home" + "\n" +
+        Game.BUILDING + "   is a building" +
+        "\n\n" +
+        "Example commands" + "\n" +
+        "go <n> <direction>   | where <n> is the number of steps to move and <direction> is either north, east, south or west." + "\n" +
+        "enter                | enters a building" + "\n" +
+        "exit game            | exits to the main menu" + "\n" +
+        "\n"
+        // Extra commands for inside rooms
+        //"pickup item" +
+        //"toggle door" +
+        //"leave building" +
+        );
     pressEnterToContinue();
 
   }
@@ -121,8 +117,7 @@ public class Command {
       case "go":
         if (allWords.length < 3) {
           System.out.println("Error: The go command takes three arguments: go <distance> <direction>");
-          pressEnterToContinue();
-          return false;
+          pressEnterToContinue(); return false;
         }
         int distance = checkNumericalPositiveInput( allWords[1] );
         if ( distance != -1) {
@@ -141,57 +136,48 @@ public class Command {
               world.movePlayer(Direction.WEST, distance);
               return true;
             default:
-             System.out.println("Error: Invalid direction: Must be north, east, south or west");
-             pressEnterToContinue();
-             return false;
+              System.out.println("Error: Invalid direction: Must be north, east, south or west");
+              pressEnterToContinue(); return false;
           }
         }
         else {
-          System.out.println("Invalid distance: Must be a positive, numerical value");
+          System.out.println("Invalid distance: Must be a positive, numerical value"); 
+          return false;
         }
-        return false;
-
       case "enter":
-          // Check if there's a building at the current position and enter the first room. Maybe there can be a building description, even?
-          Optional<Building> ob = world.playerOnBuilding();
-          Building b;
-          if ( ob.isPresent() ) {
-            b = ob.get();
-            if (b.starterBuilding == true) { 
-              new StartBase(); // TODO: Consider: Create a new one or restore the old one, either removing the "end" variable or setting tt to false, so it doesn't exit immediately
-            }
-            else { 
-              // TODO: Handle entering regular building here instead
-              System.out.println("Standing on a regular building!"); 
-              System.out.println(b); // Just for testing
-            } 
-            pressEnterToContinue();
-            return true;  // Entering a building counts as movement (= NPCs move)
+        // Check if there's a building at the current position and enter the first room. Maybe there can be a building description, even?
+        Optional<Building> ob = world.playerOnBuilding();
+        Building b;
+        if ( ob.isPresent() ) {
+          b = ob.get();
+          if (b.starterBuilding == true) { 
+            new StartBase(); // TODO: Consider: Create a new one or restore the old one, either removing the "end" variable or setting it to false, so it doesn't exit immediately
           }
           else { 
-            System.out.println("You're not standing on a building.");
-            pressEnterToContinue();
-            return false; // Calling the command anywhere else does not
-          }
+            // TODO: Handle entering regular building here instead
+            System.out.println("Standing on a regular building!"); 
+            System.out.println(b); // Just for testing
+          } 
+          pressEnterToContinue(); return true;  // Entering a building counts as movement (= NPCs move)
+        }
+        else { 
+          System.out.println("You're not standing on a building.");
+          pressEnterToContinue(); return false;
+        }
       case "exit":
         if (allWords.length > 1) {
-          if (allWords[1].equals("game") ) running = false;
+          if (allWords[1].equals("game") ) running = false; 
+          return false;
         }
-        return false;
       default:
         System.out.println("Invalid command. Try again.");
-        pressEnterToContinue();
-        return false;
+        pressEnterToContinue(); return false; // All actions except those with return true don't count as movement (ie. don't move NPCs)
     }
   }
 
   // Picks up the item on the current position.
-  public void pickup() {
+  public void pickup() {}
 
-  }
-
-  public void toggleDoor() {
-
-  }
+  public void toggleDoor() {}
 
 }

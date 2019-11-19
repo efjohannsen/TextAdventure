@@ -1,3 +1,1 @@
-public class Quests {
-  
-}
+public class Quests {}

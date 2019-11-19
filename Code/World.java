@@ -43,7 +43,7 @@ public class World extends Area {
 
     // Fill array with empty symbols.
     for (int x = 0; x<SIZE*SIZE; x++) {
-        tempArray[x] = Game.EMPTY + "   ";
+      tempArray[x] = Game.EMPTY + "   ";
     }
 
     // Update it with buildings
@@ -68,7 +68,7 @@ public class World extends Area {
 
     String ret = "";
 
-		ret += super.player.toString() + "\n";
+    ret += super.player.toString() + "\n";
 
     // Creating the final string, adding newlines as needed
     for (int i = 0; i<tempArray.length; i++) {

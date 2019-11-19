@@ -9,7 +9,7 @@ Winter in The New World...
 The deathly chill clings to everything it touches, banshee howls of wind blows across the rooftops. 
 Hail falling like meteors large enough to break a skull open, breaking the few remaining windows left in the townscape.
 You and your scavenger group have taken shelter from the harsh nuclear winter storms in a building. 
-The building is located in what seems to be the last still standing town you have found across journey through the wasteland.
+The building is located in what seems to be the last still standing town you have found across your journey through the wasteland.
 Your group was recently set upon by the radioactive dead, zombies and ghouls that roam the barren lands... 
 You and The Doc were the only ones, who managed to sustain no damage. You took upon this journey with your group to find useful scrap. 
 With the winters being harsh as they are, most creatures lay low in the winter, which gives grave opportunities to scour the land for resources.

@@ -3,8 +3,8 @@ package combat;
 import java.util.Random;
 
 /**
-  * @author: Alexander
-  */
+ * @author: Alexander
+ */
 public class Enemies {
 
   Random rand = new Random();
@@ -12,11 +12,11 @@ public class Enemies {
   String[] enemies = {"Ghoul","Zombie","Raider","Monster","Acid Goo","Monster Rat","Sewage Tentacle","Death Mold","Political extremists","Religious extremists","Icywind","Raiderboss","Zombieboss","Madcow","Supermutant","Deathclaw","Boneking"}; 
 
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public String generateEnemy () {
 
     String enemy = enemies[rand.nextInt (enemies.length) ];
@@ -25,17 +25,17 @@ public class Enemies {
   }
 
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public int setEnemyHealth (String enemy) {
-    
+
     Random randomHealth = new Random();
-    
+
     int maxEnemyHealth = 1;
-    
+
     int maxGhoulHealth = 10;
     int maxZombieHealth = 15;
     int maxRaiderHealth = 15;
@@ -53,7 +53,7 @@ public class Enemies {
     int maxSupermutantHealth = 60;
     int maxDeathclawHealth = 75;
     int maxBonekingHealth = 100;
-    
+
     if(enemy.contains("Ghoul")){
       maxEnemyHealth = randomHealth.nextInt(maxGhoulHealth);
     } 
@@ -105,10 +105,10 @@ public class Enemies {
     else if(enemy.contains("Boneking")) {
       maxEnemyHealth = randomHealth.nextInt(maxBonekingHealth) + 60; // Between 59-159 HP, shouldn't be too easy
     }     
-    
+
     if(maxEnemyHealth == 0) {
-       maxEnemyHealth = 1;
+      maxEnemyHealth = 1;
     }
     return maxEnemyHealth;
-    }
+  }
 }

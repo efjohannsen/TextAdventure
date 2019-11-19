@@ -3,20 +3,20 @@ package combat;
 import java.util.Random;
 
 /**
-  * @author: Alexander
-  */
+ * @author: Alexander
+ */
 public class Weapons {
-   
-   Random rand = new Random();
-   
-   //percent chances 
-   
+
+  Random rand = new Random();
+
+  //percent chances 
+
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public int daggerAttack () {
     int daggerDamage = 10;
     Random randDagger = new Random(); 
@@ -24,11 +24,11 @@ public class Weapons {
   }
 
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public int pistolAttack () {
     int pistolDamage = 20;
     Random randPistol = new Random();
@@ -36,11 +36,11 @@ public class Weapons {
   }
 
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public int shotgunAttack () {
     int shotgunDamage = 30;
     Random randShotgun = new Random();
@@ -48,11 +48,11 @@ public class Weapons {
   }
 
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public int riffleAttack () {
     int riffleDamage = 30;
     Random randRiffle = new Random();
@@ -60,11 +60,11 @@ public class Weapons {
   } 
 
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public int automaticgunAttack () {
     int automaticgunDamage = 40;
     Random randAutomaticGun = new Random();
@@ -72,11 +72,11 @@ public class Weapons {
   }
 
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public int sledgehammerAttack () {
     int sledgehammerDamage = 20;
     Random randSledgehammer = new Random();
@@ -84,11 +84,11 @@ public class Weapons {
   }
 
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public int crowbarAttack () {
     int crowbarDamage = 20;
     Random randCrowbar = new Random();
@@ -96,11 +96,11 @@ public class Weapons {
   }
 
   /**
-    *
-    * @param  name desc
-    * @param  name desc
-    * @return      desc
-    */
+   *
+   * @param  name desc
+   * @param  name desc
+   * @return      desc
+   */
   public int chainsawAttack () {
     int chainsawDamage = 30;
     Random randChainsaw = new Random();

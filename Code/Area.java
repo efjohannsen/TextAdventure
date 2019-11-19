@@ -9,7 +9,7 @@ public class Area extends Point {
   public int SIZE;
   protected Player player;
   protected ArrayList<Person> persons = new ArrayList<Person>();
-	private Random ran = new Random();
+  private Random ran = new Random();
 
   // Used for world
   public Area(int x, int y, int size) {
@@ -22,7 +22,7 @@ public class Area extends Point {
   public Area(int x, int y) {
     super(x, y);
     //creating room size randomly, minimum size is 3x3
-		SIZE = Math.max(3,ran.nextInt(5)+1);
+    SIZE = Math.max(3,ran.nextInt(5)+1);
   }
 
   public void killPersonsAtPlayerPosition() {
@@ -63,7 +63,7 @@ public class Area extends Point {
       case 3:
         direction = Command.Direction.WEST;
         break;
-      }
+    }
     move(person, direction, 1);
   }
 
@@ -95,7 +95,7 @@ public class Area extends Point {
           person.translate(-distance, 0);
         }
         break; // We've found the right person and moved her/him, no need to go through the rest.
-        
+
       }
     }
   }
@@ -127,5 +127,5 @@ public class Area extends Point {
     }
     return false;
   }
-  
+
 }

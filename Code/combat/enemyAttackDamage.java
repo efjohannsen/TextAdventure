@@ -3,16 +3,16 @@ package combat;
 import java.util.Random;
 
 /**
-  * @author: Alexander
-  */
+ * @author: Alexander
+ */
 public class enemyAttackDamage {
 
   public int setEnemyAttackDamage (String enemy) {
-    
+
     Random rand = new Random();
-    
+
     int EnemyAttackDamage = 1;
-    
+
     int GhoulAttackDamage = 2;
     int ZombieAttackDamage = 5;
     int RaiderAttackDamage = 8;
@@ -30,65 +30,65 @@ public class enemyAttackDamage {
     int SupermutantAttackDamage = 28;
     int DeathclawAttackDamage = 35;
     int BonekingAttackDamage = 45;
-    
+
     if(enemy.contains("Ghoul")){
-       EnemyAttackDamage = rand.nextInt(GhoulAttackDamage);
-       } 
+      EnemyAttackDamage = rand.nextInt(GhoulAttackDamage);
+    } 
     else if (enemy.contains("Zombie")) {
-       EnemyAttackDamage = rand.nextInt(ZombieAttackDamage);
+      EnemyAttackDamage = rand.nextInt(ZombieAttackDamage);
     } 
     else if (enemy.contains("Raider")) {
-          EnemyAttackDamage = rand.nextInt(RaiderAttackDamage);
+      EnemyAttackDamage = rand.nextInt(RaiderAttackDamage);
     } 
     else if (enemy.contains("Monster")) {
-          EnemyAttackDamage = rand.nextInt(MonsterAttackDamage);
+      EnemyAttackDamage = rand.nextInt(MonsterAttackDamage);
     }
     else if(enemy.contains("AcidGoo")) {
-       EnemyAttackDamage = rand.nextInt(AcidGooAttackDamage);
+      EnemyAttackDamage = rand.nextInt(AcidGooAttackDamage);
     }
     else if(enemy.contains("MonsterRat")) {
-       EnemyAttackDamage = rand.nextInt(MonsterRatAttackDamage);
+      EnemyAttackDamage = rand.nextInt(MonsterRatAttackDamage);
     }
     else if(enemy.contains("SewageTentacle")) {
-       EnemyAttackDamage = rand.nextInt(SewageTentacleAttackDamage);
+      EnemyAttackDamage = rand.nextInt(SewageTentacleAttackDamage);
     }
     else if(enemy.contains("DeathMold")) {
-       EnemyAttackDamage = rand.nextInt(DeathmoldAttackDamage);
+      EnemyAttackDamage = rand.nextInt(DeathmoldAttackDamage);
     }
     else if(enemy.contains("Politcalextremists")) {
-       EnemyAttackDamage = rand.nextInt(PoliticalextremistsAttackDamage);
+      EnemyAttackDamage = rand.nextInt(PoliticalextremistsAttackDamage);
     }
     else if(enemy.contains("Religiousextremists")) {
-       EnemyAttackDamage = rand.nextInt(ReligiousextremistsAttackDamage);
+      EnemyAttackDamage = rand.nextInt(ReligiousextremistsAttackDamage);
     }
     else if(enemy.contains("Icywind")) {
-       EnemyAttackDamage = rand.nextInt(IcywindAttackDamage);
+      EnemyAttackDamage = rand.nextInt(IcywindAttackDamage);
     }
     else if(enemy.contains("Raiderboss")) {
-       EnemyAttackDamage = rand.nextInt(RaiderbossAttackDamage);
+      EnemyAttackDamage = rand.nextInt(RaiderbossAttackDamage);
     }
     else if(enemy.contains("Zombieboss")) {
-       EnemyAttackDamage = rand.nextInt(ZombiebossAttackDamage);
+      EnemyAttackDamage = rand.nextInt(ZombiebossAttackDamage);
     }
     else if(enemy.contains("Madcow")) {
-       EnemyAttackDamage = rand.nextInt(MadcowAttackDamage);
+      EnemyAttackDamage = rand.nextInt(MadcowAttackDamage);
     }
     else if(enemy.contains("Supermutant")) {
-       EnemyAttackDamage = rand.nextInt(SupermutantAttackDamage);
+      EnemyAttackDamage = rand.nextInt(SupermutantAttackDamage);
     }
     else if(enemy.contains("Deathclaw")) {
-       EnemyAttackDamage = rand.nextInt(DeathclawAttackDamage);
+      EnemyAttackDamage = rand.nextInt(DeathclawAttackDamage);
     }
     else if(enemy.contains("Boneking")) {
-       EnemyAttackDamage = rand.nextInt(BonekingAttackDamage);
+      EnemyAttackDamage = rand.nextInt(BonekingAttackDamage);
     } else {
-     EnemyAttackDamage = 1;
+      EnemyAttackDamage = 1;
     }     
-       
+
     if(EnemyAttackDamage == 0){
       EnemyAttackDamage = 1;
     }
-         
+
     return EnemyAttackDamage;
   }
 }

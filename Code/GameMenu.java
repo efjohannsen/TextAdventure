@@ -20,24 +20,24 @@ public class GameMenu {
       menuOptions();
       int choice = getNumericalInputRangeLoop(1,5);
       menuChoice(choice);
-            
+
       if (running) {
-          getInput(); //pressEnterToContinue
-          clearScreen();
+        getInput(); //pressEnterToContinue
+        clearScreen();
       }
     }
   }
 
   private void menuOptions() {
-      System.out.println(
-      "\nTextAdventure!\n" +
-      "--------------\n" +
-      "1. Start game \n" + 
-      "2. Options \n" + 
-      "--------------\n" +
-      "3. Exit game \n" +
-      "\n" +
-      "Choose your destiny: ");
+    System.out.println(
+        "\nTextAdventure!\n" +
+        "--------------\n" +
+        "1. Start game \n" + 
+        "2. Options \n" + 
+        "--------------\n" +
+        "3. Exit game \n" +
+        "\n" +
+        "Choose your destiny: ");
   }
 
   private void menuChoice(int choice) {
